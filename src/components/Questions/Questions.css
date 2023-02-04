@@ -1,0 +1,48 @@
+.question {
+    font-weight: bolder;
+    font-size: x-large;
+    margin-bottom: 30px;
+    user-select: none;
+}
+
+.answers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 95%;
+    user-select: none;
+}
+
+.answers .answer {
+    font-size: x-large;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    flex: 45%; /* or - flex: 0 50% - or - flex-basis: 50% - */
+    /*demo*/
+    background: radial-gradient(circle, darkblue 0%, black 100%);
+    border-radius: 5%;
+    border: white 1px solid;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.answers .answer:hover, .answers .answer.selected {
+    background: radial-gradient(circle, blue 0%, #151515 100%);
+    border: darkblue 1px solid;
+}
+
+.answers .answer.wrong {
+    background: radial-gradient(circle, red 0%, #151515 100%);
+}
+
+.answers .answer.correct {
+    background: radial-gradient(circle, green 0%, #151515 100%);
+}
+
+.answers .answer div {
+    padding-left: 50px;
+    padding-right: 50px;
+}

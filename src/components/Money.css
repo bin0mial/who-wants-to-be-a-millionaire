@@ -1,0 +1,61 @@
+.money-list {
+    list-style: none;
+    width: 100%;
+    padding: 20px;
+}
+
+.money-list ul {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    flex-direction: column;
+    list-style: none;
+}
+
+.money-list ul li {
+    position: relative;
+    text-align: center;
+    border-top: cyan 2px solid;
+    border-bottom: cyan 2px solid;
+    width: 150px;
+    margin-top: -1px;
+}
+
+.money-list ul li:before,
+.money-list ul li:after {
+    width: 15px;
+    height: 15px;
+    margin-top: 2px;
+    position: absolute;
+    content: "";
+    border-left: cyan 2px solid;
+    border-bottom: cyan 2px solid;
+}
+
+.money-list ul li:before {
+    transform: rotate(45deg);
+    left: -9px;
+}
+
+.money-list ul li:after {
+    transform: rotate(225deg);
+    right: -9px;
+}
+
+.money-list ul li.active,
+.money-list ul li.active:after,
+.money-list ul li.active:before {
+    background-color: cyan;
+    color: black;
+    font-weight: bolder;
+}
+
+.money-list ul li.active span {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle, red 0%, darkred 25%, darkblue 75%, blue 100%);;
+    border-radius: 50%;
+    left: 20px;
+}
