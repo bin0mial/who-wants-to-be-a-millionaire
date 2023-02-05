@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import './Money.css';
 import PropTypes from 'prop-types';
 
-function Money({
+const Money = ({
   money, activeMoneyTableIndex, currentMoneyIndex, setCurrentMoneyIndex,
-}) {
+}) => {
   const moneyLength = money.length;
   const [isInitialized, setIsInitialized] = useState(false);
 
@@ -32,7 +32,7 @@ function Money({
       </ul>
     </div>
   );
-}
+};
 
 Money.propTypes = {
   money: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,

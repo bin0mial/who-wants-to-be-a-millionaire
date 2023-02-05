@@ -3,7 +3,7 @@ import './Questions.css';
 import PropTypes from 'prop-types';
 import Answer from './Answer';
 
-function Questions({ questions, increaseMoneyIndex }) {
+const Questions = ({ questions, increaseMoneyIndex }) => {
   const [activeQuestion, setActiveQuestion] = useState(questions[0]);
   const [selectedId, setSelectedId] = useState();
   const [wronglySelected, setWronglySelected] = useState();
@@ -59,7 +59,7 @@ function Questions({ questions, increaseMoneyIndex }) {
         </div>
       </>
     );
-}
+};
 
 Questions.propTypes = {
   questions: PropTypes.arrayOf(PropTypes.shape({

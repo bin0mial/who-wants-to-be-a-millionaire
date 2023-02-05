@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 
-function Answer({
+const Answer = ({
   id, answer, handleChoice, isSelected, wronglySelected, rightAnswer,
-}) {
+}) => {
   const classNames = [
     'answer',
     isSelected ? 'selected' : '',
@@ -19,7 +19,7 @@ function Answer({
       <div>{answer}</div>
     </button>
   );
-}
+};
 
 Answer.propTypes = {
   id: PropTypes.string.isRequired,
