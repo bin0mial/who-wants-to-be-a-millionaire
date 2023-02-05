@@ -22,7 +22,7 @@ function Answer({
 }
 
 Answer.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   answer: PropTypes.string.isRequired,
   handleChoice: PropTypes.func.isRequired,
   isSelected: PropTypes.bool.isRequired,

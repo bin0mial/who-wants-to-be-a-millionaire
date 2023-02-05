@@ -62,11 +62,11 @@ function Questions({ questions, increaseMoneyIndex }) {
 }
 
 Questions.propTypes = {
-  questions: PropTypes.arrayOf({
+  questions: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     options: PropTypes.objectOf(PropTypes.string).isRequired,
     answer: PropTypes.string.isRequired,
-  }).isRequired,
+  })).isRequired,
   increaseMoneyIndex: PropTypes.func.isRequired,
 };
 
