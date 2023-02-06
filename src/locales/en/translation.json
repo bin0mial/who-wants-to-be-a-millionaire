@@ -1,3 +1,10 @@
 {
-  "startGame": "Start Game"
+  "homepage": {
+    "language": "Language",
+    "languageName": "English",
+    "form": {
+      "yourName": "Your name",
+      "startGame": "Start Game"
+    }
+  }
 }

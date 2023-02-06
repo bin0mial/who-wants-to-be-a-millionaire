@@ -1,3 +1,10 @@
 {
-  "startGame": "ابدأ اللعب"
+  "homepage": {
+    "language": "اللغة",
+    "languageName": "العربية",
+    "form": {
+      "yourName": "اسمك",
+      "startGame": "ابدأ اللعب"
+    }
+  }
 }
