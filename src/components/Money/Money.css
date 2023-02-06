@@ -16,31 +16,32 @@
 .money-list ul li {
     position: relative;
     text-align: center;
-    border-top: cyan 2px solid;
-    border-bottom: cyan 2px solid;
+    border-top: darkcyan 2px solid;
+    border-bottom-width: 1px;
     width: 150px;
     margin-top: -1px;
 }
 
 .money-list ul li:before,
 .money-list ul li:after {
-    width: 15px;
-    height: 15px;
-    margin-top: 2px;
+    width: 22px;
+    height: 22px;
     position: absolute;
     content: "";
-    border-left: cyan 2px solid;
-    border-bottom: cyan 2px solid;
+    border-left: darkcyan 2px solid;
+    border-bottom: darkcyan 2px solid;
+    border-radius: 10%;
+    margin-top: 2px;
 }
 
 .money-list ul li:before {
     transform: rotate(45deg);
-    left: -9px;
+    left: -11px;
 }
 
 .money-list ul li:after {
     transform: rotate(225deg);
-    right: -9px;
+    right: -11px;
 }
 
 .money-list ul li.active,
@@ -57,5 +58,6 @@
     height: 15px;
     background: radial-gradient(circle, red 0%, darkred 25%, darkblue 75%, blue 100%);;
     border-radius: 50%;
+    top: 6px;
     left: 20px;
 }

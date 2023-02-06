@@ -3,6 +3,7 @@ import Questions from './Questions/Questions';
 import Money from './Money/Money';
 import moneyArray from './Money/money.json';
 import indexQuestions from '../apis/questions';
+import './Game.css';
 
 const fetchQuestions = indexQuestions();
 
