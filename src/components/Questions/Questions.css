@@ -35,7 +35,7 @@
     text-align: start;
 }
 
-.answers .answer:hover, .answers .answer.selected {
+.answers .answer.selected {
     background: radial-gradient(circle, blue 0%, #151515 100%);
     border: darkblue 1px solid;
 }
@@ -51,6 +51,13 @@
 @media (max-width: 1023px) {
     .question {
         font-weight: normal;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .answers .answer:hover {
+        background: radial-gradient(circle, darkblue 0%, black 100%);
+        border: white 1px solid;
     }
 }
 
