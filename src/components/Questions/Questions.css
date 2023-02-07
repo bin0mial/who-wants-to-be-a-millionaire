@@ -1,7 +1,15 @@
 .question {
+    min-height: 15%;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, darkblue 0%, black 100%);
+    border-radius: 8%;
+    border: white 1px double;
+    margin-bottom: 30px;
     font-weight: bolder;
     font-size: x-large;
-    margin-bottom: 30px;
     user-select: none;
 }
 
@@ -16,20 +24,18 @@
 .answers .answer {
     font-size: x-large;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    flex: 45%; /* or - flex: 0 50% - or - flex-basis: 50% - */
-    /*demo*/
+    /*flex-direction: row;*/
+    flex: 49%; /* or - flex: 0 50% - or - flex-basis: 50% - */
     background: radial-gradient(circle, darkblue 0%, black 100%);
     border-radius: 5%;
     border: white 1px solid;
     margin-bottom: 10px;
     cursor: pointer;
     color: white;
+    text-align: start;
 }
 
-.answers .answer:hover, .answers .answer.selected {
+.answers .answer.selected {
     background: radial-gradient(circle, blue 0%, #151515 100%);
     border: darkblue 1px solid;
 }
@@ -42,7 +48,16 @@
     background: radial-gradient(circle, green 0%, #151515 100%);
 }
 
-.answers .answer div {
-    padding-left: 50px;
-    padding-right: 50px;
+@media (max-width: 1023px) {
+    .question {
+        font-weight: normal;
+    }
 }
+
+@media only screen and (min-width: 992px) {
+    .answers .answer:hover {
+        background: radial-gradient(circle, darkblue 0%, black 100%);
+        border: white 1px solid;
+    }
+}
+

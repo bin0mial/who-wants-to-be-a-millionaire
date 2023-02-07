@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import './Questions.css';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import Answer from './Answer';
 
-function Questions({ questions, increaseMoneyIndex }) {
+const Questions = ({ questions, increaseMoneyIndex }) => {
+  const { t } = useTranslation('translation', { keyPrefix: 'questions' });
   const [activeQuestion, setActiveQuestion] = useState(questions[0]);
   const [selectedId, setSelectedId] = useState();
   const [wronglySelected, setWronglySelected] = useState();
@@ -38,7 +40,7 @@ function Questions({ questions, increaseMoneyIndex }) {
     setTimeout(() => solve(option), 2000);
   };
 
-  return isOver ? <div>أنتهت الاسئلة!</div>
+  return isOver ? <div>{t('noMoreQuestions')}</div>
     : (
       <>
         <div className="question">
@@ -59,14 +61,14 @@ function Questions({ questions, increaseMoneyIndex }) {
         </div>
       </>
     );
-}
+};
 
 Questions.propTypes = {
-  questions: PropTypes.arrayOf({
+  questions: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     options: PropTypes.objectOf(PropTypes.string).isRequired,
     answer: PropTypes.string.isRequired,
-  }).isRequired,
+  })).isRequired,
   increaseMoneyIndex: PropTypes.func.isRequired,
 };
 

@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 import './Money.css';
 import PropTypes from 'prop-types';
 
-function Money({
-  money, activeMoneyTableIndex, currentMoneyIndex, setCurrentMoneyIndex,
-}) {
+const Money = ({
+  money, currentMoneyIndex, setCurrentMoneyIndex,
+}) => {
   const moneyLength = money.length;
   const [isInitialized, setIsInitialized] = useState(false);
+  const activeMoneyTableIndex = money.length - currentMoneyIndex;
 
   useEffect(() => {
     if (moneyLength <= currentMoneyIndex - 1) {
@@ -32,11 +33,10 @@ function Money({
       </ul>
     </div>
   );
-}
+};
 
 Money.propTypes = {
   money: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  activeMoneyTableIndex: PropTypes.number.isRequired,
   currentMoneyIndex: PropTypes.number.isRequired,
   setCurrentMoneyIndex: PropTypes.func.isRequired,
 };

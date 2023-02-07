@@ -1,0 +1,167 @@
+[
+  {
+    "id": 1,
+    "question": "In the UK, the abbreviation NHS stands for National what Service?",
+    "options": {
+      "a": "Humanity",
+      "b": "Health",
+      "c": "Honour",
+      "d": "Household"
+    },
+    "answer": "b"
+  },
+  {
+    "id": 2,
+    "question": "Which Disney character famously leaves a glass slipper behind at a royal ball?",
+    "options": {
+      "a": "Pocahontas",
+      "b": "Sleeping Beauty",
+      "c": "Cinderella",
+      "d": "Elsa"
+    },
+    "answer": "c"
+  },
+  {
+    "id": 3,
+    "question": "Which of these religious observances lasts for the shortest period of time during the calendar year?",
+    "options": {
+      "a": "Ramadan",
+      "b": "Diwali",
+      "c": "Lent",
+      "d": "Hanukkah"
+    },
+    "answer": "b"
+  },
+  {
+    "id": 4,
+    "question": "What name is given to the revolving belt machinery in an airport that delivers checked luggage from the plane to baggage reclaim?\n",
+    "options": {
+      "a": "Hangar",
+      "b": "Terminal",
+      "c": "Concourse",
+      "d": "Carousel"
+    },
+    "answer": "d"
+  },
+  {
+    "id": 5,
+    "question": "Which of these brands was chiefly associated with the manufacture of household locks?",
+    "options": {
+      "a": "Phillips",
+      "b": "Flymo",
+      "c": "Chubb",
+      "d": "Ronseal"
+    },
+    "answer": "c"
+  },
+  {
+    "id": 6,
+    "question": "The hammer and sickle is one of the most recognisable symbols of which political ideology?",
+    "options": {
+      "a": "Republicanism",
+      "b": "Communism",
+      "c": "Conservatism",
+      "d": "Liberalism"
+    },
+    "answer": "b"
+  },
+  {
+    "id": 7,
+    "question": "Which toys have been marketed with the phrase “robots in disguise”?",
+    "options": {
+      "a": "Bratz Dolls",
+      "b": "Sylvanian Families",
+      "c": "Hatchimals",
+      "d": "Transformers"
+    },
+    "answer": "d"
+  },
+  {
+    "id": 8,
+    "question": "What does the word loquacious mean?",
+    "options": {
+      "a": "Angry",
+      "b": "Chatty",
+      "c": "Beautiful",
+      "d": "Shy"
+    },
+    "answer": "b"
+  },
+  {
+    "id": 9,
+    "question": "Obstetrics is a branch of medicine particularly concerned with what?",
+    "options": {
+      "a": "Childbirth",
+      "b": "Broken bones",
+      "c": "Heart conditions",
+      "d": "Old age"
+    },
+    "answer": "a"
+  },
+  {
+    "id": 10,
+    "question": "In Doctor Who, what was the signature look of the fourth Doctor, as portrayed by Tom Baker?",
+    "options": {
+      "a": "Bow-tie, braces and tweed jacket",
+      "b": "Wide-brimmed hat and extra long scarf",
+      "c": "Pinstripe suit and trainers",
+      "d": "Cape, velvet jacket and frilly shirt"
+    },
+    "answer": "b"
+  },
+  {
+    "id": 11,
+    "question": "At the closest point, which island group is only 50 miles south-east of the coast of Florida?",
+    "options": {
+      "a": "Bahamas",
+      "b": "US Virgin Islands",
+      "c": "Turks and Caicos Islands",
+      "d": "Bermuda"
+    },
+    "answer": "a"
+  },
+  {
+    "id": 12,
+    "question": "Construction of which of these famous landmarks was completed first?",
+    "options": {
+      "a": "Empire State Building",
+      "b": "Royal Albert Hall",
+      "c": "Eiffel Tower",
+      "d": "Big Ben Clock Tower"
+    },
+    "answer": "d"
+  },
+  {
+    "id": 13,
+    "question": "Who is the only British politician to have held all four “Great Offices of State” at some point during their career?",
+    "options": {
+      "a": "David Lloyd George",
+      "b": "Harold Wilson",
+      "c": "James Callaghan",
+      "d": "John Major"
+    },
+    "answer": "c"
+  },
+  {
+    "id": 14,
+    "question": "In 1718, which pirate died in battle off the coast of what is now North Carolina?",
+    "options": {
+      "a": "Calico Jack",
+      "b": "Blackbeard",
+      "c": "Bartholomew Roberts",
+      "d": "Captain Kidd"
+    },
+    "answer": "b"
+  },
+  {
+    "id": 15,
+    "question": "In 1912, former US President Theodore Roosevelt was a candidate for which political party?",
+    "options": {
+      "a": "Bull Moose",
+      "b": "Bull Dog",
+      "c": "Bull Elephant",
+      "d": "Bull Frog"
+    },
+    "answer": "a"
+  }
+]

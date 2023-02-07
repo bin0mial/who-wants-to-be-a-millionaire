@@ -1,37 +1,21 @@
 import './App.css';
 import { useState } from 'react';
-import moneyArray from './components/money.json';
-import Money from './components/Money';
-import Questions from './components/Questions/Questions';
-import indexQuestions from './apis/questions';
+import { Helmet } from 'react-helmet';
+import { useTranslation } from 'react-i18next';
+import Homepage from './components/Homepage';
+import Game from './components/Game';
 
-const fetchQuestions = indexQuestions();
-
-function App() {
-  const money = [...moneyArray].reverse();
-  const [currentMoneyIndex, setCurrentMoneyIndex] = useState(0);
-  const activeMoneyTableIndex = money.length - currentMoneyIndex;
-
-  const increaseMoneyIndex = () => {
-    if (currentMoneyIndex < money.length) setCurrentMoneyIndex(currentMoneyIndex + 1);
-  };
-
+const App = () => {
+  const { i18n } = useTranslation();
+  const [gameStarted, setGameStarted] = useState(false);
   return (
-    <div className="app">
-      <div className="main">
-        <Questions questions={fetchQuestions.read()} increaseMoneyIndex={increaseMoneyIndex} />
+    <>
+      <Helmet htmlAttributes={{ lang: i18n.language, dir: i18n.dir(i18n.language) }} />
+      <div className="app">
+        {gameStarted ? <Game /> : <Homepage setGameStarted={setGameStarted} />}
       </div>
-      <div className="pyramid">
-        <Money
-          money={money}
-          activeMoneyTableIndex={activeMoneyTableIndex}
-          currentMoneyIndex={currentMoneyIndex}
-          setCurrentMoneyIndex={setCurrentMoneyIndex}
-        />
-      </div>
-
-    </div>
+    </>
   );
-}
+};
 
 export default App;

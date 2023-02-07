@@ -1,0 +1,47 @@
+.main {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #020230),
+    url("../assets/images/who-wants-to-be-a-millionaire-game.jpg") center #020230;
+    background-size: cover;
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .main {
+        zoom: 175%;
+    }
+
+    .pyramid {
+        zoom: 175%;
+    }
+}
+
+@media (max-width: 1023px) {
+    .app {
+        flex-direction: column-reverse;
+        scroll-behavior: smooth;
+        overflow: auto;
+    }
+
+    .main {
+        width: 100%;
+    }
+
+    .pyramid {
+        width: 100%;
+        align-self: center;
+        display: block;
+    }
+}
+
+
+.pyramid {
+    display: flex;
+    width: 25%;
+    align-items: center;
+    justify-content: center;
+}
