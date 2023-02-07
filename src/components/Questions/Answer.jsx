@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 const Answer = ({
   id, answer, handleChoice, isSelected, wronglySelected, rightAnswer,
 }) => {
+  const { t } = useTranslation('translation', { keyPrefix: 'questions' });
   const classNames = [
     'answer',
+    'w-100',
     isSelected ? 'selected' : '',
     wronglySelected ? 'wrong' : '',
     rightAnswer ? 'correct' : '',
@@ -12,11 +15,13 @@ const Answer = ({
 
   return (
     <button type="button" className={classNames} key={id} onClick={handleChoice(id)}>
-      <div>
-        {id.toUpperCase()}
-        .
+      <div className="row w-100 gx-0">
+        <div className="col-2 mx-2">
+          {t(`choices.${id.toLowerCase()}`)}
+          .
+        </div>
+        <div className="col-9">{answer}</div>
       </div>
-      <div>{answer}</div>
     </button>
   );
 };

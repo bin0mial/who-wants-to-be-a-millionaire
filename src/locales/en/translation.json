@@ -10,5 +10,13 @@
       "yourName": "Your name",
       "startGame": "Start Game"
     }
+  },
+  "questions": {
+    "choices": {
+      "a": "A",
+      "b": "B",
+      "c": "C",
+      "d": "D"
+    }
   }
 }

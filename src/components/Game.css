@@ -38,17 +38,6 @@
     }
 }
 
-.question {
-    height: 15%;
-    width: 75%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: radial-gradient(circle, darkblue 0%, black 100%);
-    border-radius: 8%;
-    border: white 1px double;
-    margin-bottom: 10px;
-}
 
 .pyramid {
     display: flex;
