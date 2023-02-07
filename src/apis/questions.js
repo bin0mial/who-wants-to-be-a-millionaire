@@ -1,6 +1,12 @@
+import PropTypes from 'prop-types';
 import wrapPromise from './warpPromise';
 
-const indexQuestions = (url = `${process.env.PUBLIC_URL}/assets/questions.json`) => {
+const BASE_URL = process.env.PUBLIC_URL;
+const indexQuestions = (urlOptions) => {
+  const url = urlOptions.urlType === 'default'
+    ? `${BASE_URL}/assets/questions-${urlOptions.lang}.json`
+    : urlOptions.url;
+
   const options = {
     method: 'GET',
     headers: {
@@ -10,5 +16,20 @@ const indexQuestions = (url = `${process.env.PUBLIC_URL}/assets/questions.json`)
   };
   return fetch(url, options)
     .then((response) => response.json());
+};
+
+indexQuestions.propTypes = {
+  urlOption: PropTypes.shape({
+    urlType: PropTypes.string.isRequired,
+    lang: PropTypes.string.isRequired,
+    url: PropTypes.string,
+  }),
+};
+
+indexQuestions.defaultProps = {
+  urlOption: {
+    urlType: 'default',
+    lang: 'ar',
+  },
 };
 export default wrapPromise(indexQuestions);

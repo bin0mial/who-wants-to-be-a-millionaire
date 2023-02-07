@@ -3,10 +3,11 @@ import './Money.css';
 import PropTypes from 'prop-types';
 
 const Money = ({
-  money, activeMoneyTableIndex, currentMoneyIndex, setCurrentMoneyIndex,
+  money, currentMoneyIndex, setCurrentMoneyIndex,
 }) => {
   const moneyLength = money.length;
   const [isInitialized, setIsInitialized] = useState(false);
+  const activeMoneyTableIndex = money.length - currentMoneyIndex;
 
   useEffect(() => {
     if (moneyLength <= currentMoneyIndex - 1) {
@@ -36,7 +37,6 @@ const Money = ({
 
 Money.propTypes = {
   money: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  activeMoneyTableIndex: PropTypes.number.isRequired,
   currentMoneyIndex: PropTypes.number.isRequired,
   setCurrentMoneyIndex: PropTypes.func.isRequired,
 };
