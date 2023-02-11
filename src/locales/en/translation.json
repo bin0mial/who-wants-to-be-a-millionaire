@@ -6,8 +6,12 @@
     "language": "Language",
     "languageName": "English",
     "form": {
-      "header": "Feel free to fill the following fields(Optionally)",
+      "header": "Feel free to fill the following fields (Optionally)",
       "yourName": "Your name",
+      "customJson": "Questions file in JSON format",
+      "dropJsonFileHere": "Drag and drop json file here, or click to select json file",
+      "selectedJsonFile": "Selected file",
+      "jsonFileHint": "From the following URL you can generate <1>JSON via GUI</1>",
       "startGame": "Start Game"
     }
   },

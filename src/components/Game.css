@@ -1,3 +1,8 @@
+.game {
+    display: flex;
+    height: 100vh;
+    color: #fff;
+}
 .main {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #020230),
     url("../assets/images/who-wants-to-be-a-millionaire-game.jpg") center #020230;
@@ -16,12 +21,12 @@
     }
 
     .pyramid {
-        zoom: 175%;
+        zoom: 125%;
     }
 }
 
 @media (max-width: 1023px) {
-    .app {
+    .game {
         flex-direction: column-reverse;
         scroll-behavior: smooth;
         overflow: auto;
