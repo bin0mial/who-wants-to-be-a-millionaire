@@ -7,6 +7,8 @@ import { useContext, useState } from 'react';
 import LanguageChanger from './LanguageChanger';
 import './Homepage.css';
 import QuestionContext from '../contexts/QuestionContext';
+import FormikInput from './Shared/Form/FormikInput/FormikInput';
+import CustomQuestionsModal from './Settings/CustomQuestions/CustomQuestionsModal';
 
 // eslint-disable-next-line no-unused-vars
 const Homepage = ({ setGameStarted }) => {
@@ -44,14 +46,7 @@ const Homepage = ({ setGameStarted }) => {
             <form onSubmit={handleSubmit}>
               <h3>{t('form.header')}</h3>
               <div>
-                <Field name="name">
-                  {({ field }) => (
-                    <Form.Group className="mb-3">
-                      <Form.Label htmlFor={field.name}>{t('form.yourName')}</Form.Label>
-                      <Form.Control type="text" id={field.name} {...field} />
-                    </Form.Group>
-                  )}
-                </Field>
+                <FormikInput name="name" label={t('form.yourName')} />
                 <Field name="questionsJsonFile" type="file" className="">
                   {({ field }) => (
                     <div className="mb-3">
@@ -91,6 +86,8 @@ const Homepage = ({ setGameStarted }) => {
                     </div>
                   )}
                 </Field>
+
+                <CustomQuestionsModal />
 
                 <Button
                   variant="primary"

@@ -1,4 +1,8 @@
 {
+  "common": {
+    "defaultSelect": "Select Item",
+    "close": "Close"
+  },
   "homepage": {
     "appName": "Who wants to be a millionaire",
     "aboutApp": "This program is specially designed for competitions. It can be used in schools or educational places.",
@@ -21,6 +25,15 @@
       "b": "B",
       "c": "C",
       "d": "D"
+    },
+    "form": {
+      "question": "Question",
+      "questionNumber": "Question number: {{number}}",
+      "answer": "Answer",
+      "modal": {
+        "title": "Add your questions",
+        "addQuestions": "Add custom questions"
+      }
     },
     "noMoreQuestions": "No more questions!"
   }
