@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: "./docker/Dockerfile"
+      args:
+        APP_USER_ID: ${APP_USER_ID:-1000}
+        PROJECT_DIRECTORY: ${PROJECT_DIRECTORY:-/app}
+        APP_USER: ${APP_USER:-millionaire}
+    volumes:
+      - ".:${PROJECT_DIRECTORY:-/app}"
+    ports:
+      - "3000:3000"
+    entrypoint: "/home/${APP_USER:-millionaire}/entrypoint.sh"
+    command: ["npm", "start"]
