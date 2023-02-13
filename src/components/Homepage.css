@@ -7,3 +7,27 @@
         width: 100%;
     }
 }
+
+.dragdrop .dropzone{
+    background: lightgray;
+    border:gray dotted;
+    text-align: center;
+}
+
+.dragdrop .dropzone.dragging{
+    background: darkgray;
+
+}
+
+.create-question{
+    background: lightgray;
+    padding: 2px;
+    border-radius: 3%;
+    box-shadow: darkgray 2px 2px;
+}
+
+.create-question .create-options{
+    background: #b4b4b4;
+    padding: 5px;
+    border-radius: 3%;
+}

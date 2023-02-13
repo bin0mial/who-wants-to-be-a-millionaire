@@ -1,4 +1,9 @@
 {
+  "export": "تصدير-اسألة-من-سيربح-المليون",
+  "common": {
+    "defaultSelect": "اختر قيمة",
+    "close": "اغلق"
+  },
   "homepage": {
     "appName": "من سيربح المليون",
     "aboutApp": "هذا البرنامج مصمم خصيصا للمسابقات. يمكن ان يستعمل في المدارس او الاماكن التعليمية.",
@@ -8,6 +13,10 @@
     "form": {
       "header": "يمكنك ملئ الخانات التالية (غير اجبارية)",
       "yourName": "اسمك",
+      "customJson": "ملف الاسئلة في صيغة ال JSON",
+      "dropJsonFileHere": "قم بسحب ملف JSON وإفلاته هنا ، أو انقر لتحديد ملف JSON",
+      "selectedJsonFile": "المحلف المحدد",
+      "jsonFileHint": "من خلال الرابط التالي يمكنك انشاء <1>JSON من خلال واجهة المستخدم الرسومية</1>",
       "startGame": "ابدأ اللعب"
     }
   },
@@ -17,6 +26,23 @@
       "b": "ب",
       "c": "ج",
       "d": "د"
+    },
+    "form": {
+      "question": "السؤال",
+      "questionNumber": "السؤال رقم: {{number}}",
+      "answer": "الاجابة",
+      "download": {
+        "btnVariant": "info",
+        "text": "تحميل اسألتك"
+      },
+      "submit": {
+        "btnVariant": "success",
+        "text": "اكد اسألتك"
+      },
+      "modal": {
+        "title": "اضف اسألتك",
+        "addQuestions": "اضف اسألة خاصة بك"
+      }
     },
     "noMoreQuestions": "أنتهت الاسئلة!"
   }

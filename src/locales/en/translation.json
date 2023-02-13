@@ -1,4 +1,9 @@
 {
+  "export": "who-wants-to-be-a-millionaire-export",
+  "common": {
+    "defaultSelect": "Select Item",
+    "close": "Close"
+  },
   "homepage": {
     "appName": "Who wants to be a millionaire",
     "aboutApp": "This program is specially designed for competitions. It can be used in schools or educational places.",
@@ -6,8 +11,12 @@
     "language": "Language",
     "languageName": "English",
     "form": {
-      "header": "Feel free to fill the following fields(Optionally)",
+      "header": "Feel free to fill the following fields (Optionally)",
       "yourName": "Your name",
+      "customJson": "Questions file in JSON format",
+      "dropJsonFileHere": "Drag and drop json file here, or click to select json file",
+      "selectedJsonFile": "Selected file",
+      "jsonFileHint": "From the following URL you can generate <1>JSON via GUI</1>",
       "startGame": "Start Game"
     }
   },
@@ -17,6 +26,23 @@
       "b": "B",
       "c": "C",
       "d": "D"
+    },
+    "form": {
+      "question": "Question",
+      "questionNumber": "Question number: {{number}}",
+      "answer": "Answer",
+      "download": {
+        "btnVariant": "info",
+        "text": "Download Questions"
+      },
+      "submit": {
+        "btnVariant": "success",
+        "text": "Submit Questions"
+      },
+      "modal": {
+        "title": "Add your questions",
+        "addQuestions": "Add custom questions"
+      }
     },
     "noMoreQuestions": "No more questions!"
   }
