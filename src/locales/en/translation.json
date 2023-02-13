@@ -1,4 +1,5 @@
 {
+  "export": "who-wants-to-be-a-millionaire-export",
   "common": {
     "defaultSelect": "Select Item",
     "close": "Close"
@@ -30,6 +31,14 @@
       "question": "Question",
       "questionNumber": "Question number: {{number}}",
       "answer": "Answer",
+      "download": {
+        "btnVariant": "info",
+        "text": "Download Questions"
+      },
+      "submit": {
+        "btnVariant": "success",
+        "text": "Submit Questions"
+      },
       "modal": {
         "title": "Add your questions",
         "addQuestions": "Add custom questions"

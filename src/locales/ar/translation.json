@@ -1,4 +1,5 @@
 {
+  "export": "تصدير-اسألة-من-سيربح-المليون",
   "common": {
     "defaultSelect": "اختر قيمة",
     "close": "اغلق"
@@ -30,6 +31,14 @@
       "question": "السؤال",
       "questionNumber": "السؤال رقم: {{number}}",
       "answer": "الاجابة",
+      "download": {
+        "btnVariant": "info",
+        "text": "تحميل اسألتك"
+      },
+      "submit": {
+        "btnVariant": "success",
+        "text": "اكد اسألتك"
+      },
       "modal": {
         "title": "اضف اسألتك",
         "addQuestions": "اضف اسألة خاصة بك"

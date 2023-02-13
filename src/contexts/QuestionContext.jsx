@@ -6,10 +6,13 @@ export default QuestionContext;
 
 const QuestionProvider = ({ children }) => {
   const [questions, setQuestions] = useState(null);
+  const [isCustom, setIsCustom] = useState(false);
 
   const contextData = useMemo(() => ({
     questions,
     setQuestions,
+    isCustom,
+    setIsCustom,
   }), [questions]);
 
   return (

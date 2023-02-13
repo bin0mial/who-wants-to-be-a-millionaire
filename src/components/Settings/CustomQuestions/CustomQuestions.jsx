@@ -4,24 +4,61 @@ import FormikInput from 'components/Shared/Form/FormikInput/FormikInput';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinusCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
-import FormikSelect from '../../Shared/Form/FormikSelect/FormikSelect';
+import FormikSelect from 'components/Shared/Form/FormikSelect/FormikSelect';
+import { useContext, useEffect } from 'react';
+import QuestionContext from '../../../contexts/QuestionContext';
+import { exportToJson } from '../../../helpers/export';
 
-const CustomQuestions = () => {
+const CustomQuestions = ({
+  // eslint-disable-next-line react/prop-types
+  submitRef, setShowModal, setSubmitActions, currentAction,
+}) => {
   const { t, i18n } = useTranslation('translation', { keyPrefix: 'questions' });
   const answerKeys = ['a', 'b', 'c', 'd'];
   const answerOptions = answerKeys.map((key) => ({ key, display: t(`choices.${key}`) }));
+  const {
+    questions, setQuestions, isCustom, setIsCustom,
+  } = useContext(QuestionContext);
+
+  const submitObj = {
+    submit: (values) => {
+      setQuestions(values.questions);
+      setShowModal(false);
+      setIsCustom(true);
+    },
+    download: (values) => {
+      exportToJson(values.questions);
+    },
+  };
+
+  const onSubmit = (...submitValues) => {
+    submitObj[currentAction](...submitValues);
+  };
+
+  useEffect(() => {
+    const actions = Object.keys(submitObj).map((action) => ({
+      actionName: action,
+      actionDisplay: t(`form.${action}.text`),
+      btnVariant: t(`form.${action}.btnVariant`),
+    }));
+    setSubmitActions(actions);
+  }, []);
+
   return (
-    <Formik initialValues={{
-      questions: [{
-        id: 1,
-        question: '',
-        options: answerKeys.reduce((acc, key) => Object.assign(acc, { [key]: '' }), {}),
-        answer: '',
-      }],
-    }}
+    <Formik
+      innerRef={submitRef}
+      onSubmit={onSubmit}
+      initialValues={{
+        questions: isCustom ? questions : [{
+          id: 1,
+          question: '',
+          options: answerKeys.reduce((acc, key) => Object.assign(acc, { [key]: '' }), {}),
+          answer: '',
+        }],
+      }}
     >
-      {({ values, initialValues }) => (
-        <form>
+      {({ values, handleSubmit }) => (
+        <form onSubmit={handleSubmit}>
           <FieldArray name="questions">
             {({ push, remove }) => (
               <div className="create-questions">
@@ -52,10 +89,12 @@ const CustomQuestions = () => {
                 ))}
                 <Button
                   onClick={() => {
-                    const clonedQuestion = structuredClone(initialValues.questions[0]);
-                    if (values.questions.length >= 1) {
-                      clonedQuestion.id = Math.max(...values.questions.map((o) => o.id)) + 1;
-                    }
+                    const clonedQuestion = {
+                      id: Math.max(...values.questions.map((o) => o.id)) + 1,
+                      question: '',
+                      options: answerKeys.reduce((acc, key) => Object.assign(acc, { [key]: '' }), {}),
+                      answer: '',
+                    };
                     push(clonedQuestion);
                   }}
                   className="w-100"
