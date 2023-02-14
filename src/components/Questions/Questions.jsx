@@ -1,8 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Questions.css';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+import playSound from 'assets/sounds/play.mp3';
+import correctSound from 'assets/sounds/correct.mp3';
+import wrongSound from 'assets/sounds/wrong.mp3';
 import Answer from './Answer';
+
+const audios = {
+  playSound: new Audio(playSound),
+  correctSound: new Audio(correctSound),
+  wrongSound: new Audio(wrongSound),
+};
+
+const playAudio = (audio) => {
+  Object.entries(audios).forEach((audioInstance) => {
+    audioInstance[1].pause();
+    // eslint-disable-next-line no-param-reassign
+    audioInstance[1].currentTime = 0;
+  });
+  audio.play();
+};
 
 const Questions = ({ questions, increaseMoneyIndex }) => {
   const { t } = useTranslation('translation', { keyPrefix: 'questions' });
@@ -12,7 +30,12 @@ const Questions = ({ questions, increaseMoneyIndex }) => {
   const [rightAnswer, setRightAnswer] = useState();
   const [isOver, setIsOver] = useState(false);
 
+  useEffect(() => {
+    playAudio(audios.playSound);
+  }, []);
+
   const nextQuestion = () => {
+    playAudio(audios.playSound);
     setRightAnswer(null);
     const currentQuestionIndex = questions.findIndex((question) => question.id === activeQuestion.id);
     if (currentQuestionIndex < questions.length - 1) {
@@ -29,8 +52,11 @@ const Questions = ({ questions, increaseMoneyIndex }) => {
     setWronglySelected(null);
     if (option === activeQuestion.answer) {
       setRightAnswer(option);
+      playAudio(audios.correctSound);
+
       setTimeout(nextQuestion, 1000);
     } else {
+      playAudio(audios.wrongSound);
       setWronglySelected(option);
     }
   };
