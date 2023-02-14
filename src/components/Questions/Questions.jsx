@@ -51,10 +51,9 @@ const Questions = ({ questions, increaseMoneyIndex }) => {
     setRightAnswer(null);
     setWronglySelected(null);
     if (option === activeQuestion.answer) {
-      setRightAnswer(option);
       playAudio(audios.correctSound);
-
-      setTimeout(nextQuestion, 1000);
+      setRightAnswer(option);
+      setTimeout(nextQuestion, 2000);
     } else {
       playAudio(audios.wrongSound);
       setWronglySelected(option);
