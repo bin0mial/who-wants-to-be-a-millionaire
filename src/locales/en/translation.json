@@ -40,10 +40,11 @@
         "text": "Submit Questions"
       },
       "modal": {
-        "title": "Add your questions",
-        "addQuestions": "Add custom questions"
+        "title": "Add/Edit your questions",
+        "addQuestions": "Add/Edit your questions"
       }
     },
-    "noMoreQuestions": "No more questions!"
+    "noMoreQuestions": "No more questions!",
+    "backToMain": "Back to Homepage"
   }
 }

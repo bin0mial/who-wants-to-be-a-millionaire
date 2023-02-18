@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './Questions.css';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import playSound from 'assets/sounds/play.mp3';
 import correctSound from 'assets/sounds/correct.mp3';
 import wrongSound from 'assets/sounds/wrong.mp3';
+import { Button } from 'react-bootstrap';
 import Answer from './Answer';
+import GameControlContext from '../../contexts/GameControlContext';
 
 const audios = {
   playSound: new Audio(playSound),
@@ -29,6 +31,7 @@ const Questions = ({ questions, increaseMoneyIndex }) => {
   const [wronglySelected, setWronglySelected] = useState();
   const [rightAnswer, setRightAnswer] = useState();
   const [isOver, setIsOver] = useState(false);
+  const { endGame } = useContext(GameControlContext);
 
   useEffect(() => {
     playAudio(audios.playSound);
@@ -65,7 +68,14 @@ const Questions = ({ questions, increaseMoneyIndex }) => {
     setTimeout(() => solve(option), 2000);
   };
 
-  return isOver ? <div>{t('noMoreQuestions')}</div>
+  return isOver || !activeQuestion ? (
+    <div className="text-center">
+      <div>{t('noMoreQuestions')}</div>
+      <div>
+        <Button variant="primary" onClick={endGame}>{t('backToMain')}</Button>
+      </div>
+    </div>
+  )
     : (
       <>
         <div className="question">
