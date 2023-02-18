@@ -40,10 +40,11 @@
         "text": "اكد اسألتك"
       },
       "modal": {
-        "title": "اضف اسألتك",
-        "addQuestions": "اضف اسألة خاصة بك"
+        "title": "اضف/عدل  اسألتك",
+        "addQuestions": "اضف/عدل اسألتك"
       }
     },
-    "noMoreQuestions": "أنتهت الاسئلة!"
+    "noMoreQuestions": "أنتهت الاسئلة!",
+    "backToMain": "ارجع الى الرئيسية"
   }
 }

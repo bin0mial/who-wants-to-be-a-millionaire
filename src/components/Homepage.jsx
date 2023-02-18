@@ -1,7 +1,6 @@
 import { Trans, useTranslation } from 'react-i18next';
 import { Field, Formik } from 'formik';
 import { Button, Form } from 'react-bootstrap';
-import PropTypes from 'prop-types';
 import Dropzone from 'react-dropzone';
 import { useContext, useState } from 'react';
 import LanguageChanger from './LanguageChanger';
@@ -9,26 +8,30 @@ import './Homepage.css';
 import QuestionContext from '../contexts/QuestionContext';
 import FormikInput from './Shared/Form/FormikInput/FormikInput';
 import CustomQuestionsModal from './Settings/CustomQuestions/CustomQuestionsModal';
+import GameControlContext from '../contexts/GameControlContext';
 
 // eslint-disable-next-line no-unused-vars
-const Homepage = ({ setGameStarted }) => {
+const Homepage = () => {
   const { t } = useTranslation('translation', { keyPrefix: 'homepage' });
+  const { startGame } = useContext(GameControlContext);
   const [draggingFile, setDraggingFile] = useState(false);
-  const { setQuestions } = useContext(QuestionContext);
+  const [isReadyFile, setIsReadyFile] = useState(true);
+  const { setQuestions, setIsCustom } = useContext(QuestionContext);
+
+  const readQuestions = (file, onLoad) => {
+    setIsReadyFile(false);
+    const fileReader = new FileReader();
+    fileReader.readAsText(file);
+    fileReader.onload = (e) => {
+      setQuestions(JSON.parse(e.target.result));
+      if (onLoad) onLoad(e);
+      setIsReadyFile(true);
+    };
+  };
 
   const onSubmit = (values, { setSubmitting }) => {
-    if (values.questionsJsonFile) {
-      const fileReader = new FileReader();
-      fileReader.readAsText(values.questionsJsonFile);
-      fileReader.onload = (e) => {
-        setQuestions(JSON.parse(e.target.result));
-        setSubmitting(false);
-        setGameStarted(true);
-      };
-    } else {
-      setSubmitting(false);
-      setGameStarted(true);
-    }
+    setSubmitting(false);
+    startGame();
   };
 
   return (
@@ -51,7 +54,12 @@ const Homepage = ({ setGameStarted }) => {
                   {({ field }) => (
                     <div className="mb-3">
                       <Dropzone
-                        onDrop={(acceptedFiles) => { setFieldValue(field.name, acceptedFiles[0]); }}
+                        onDrop={(acceptedFiles) => {
+                          setFieldValue(field.name, acceptedFiles[0]);
+                          readQuestions(acceptedFiles[0], () => {
+                            setIsCustom(true);
+                          });
+                        }}
                         onDragEnter={() => { setDraggingFile(true); }}
                         onDragLeave={() => { setDraggingFile(false); }}
                         onDropAccepted={() => { setDraggingFile(false); }}
@@ -93,7 +101,7 @@ const Homepage = ({ setGameStarted }) => {
                   variant="primary"
                   type="submit"
                   className="w-100"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !isReadyFile}
                 >
                   {t('form.startGame')}
                 </Button>
@@ -116,10 +124,6 @@ const Homepage = ({ setGameStarted }) => {
       </div>
     </div>
   );
-};
-
-Homepage.propTypes = {
-  setGameStarted: PropTypes.func.isRequired,
 };
 
 export default Homepage;

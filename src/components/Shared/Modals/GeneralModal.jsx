@@ -3,6 +3,8 @@ import Modal from 'react-bootstrap/Modal';
 import PropTypes from 'prop-types';
 import './GeneralModal.css';
 import { useTranslation } from 'react-i18next';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClose } from '@fortawesome/free-solid-svg-icons';
 
 const GeneralModal = ({
   show, setShow, headerText, actions, children, ...props
@@ -12,16 +14,20 @@ const GeneralModal = ({
   return (
     <Modal
       show={show}
+      onHide={() => setShow(false)}
       aria-labelledby="contained-modal-title-vcenter"
       centered
       size="lg"
       {...props}
     >
       {headerText && (
-        <Modal.Header>
+        <Modal.Header className="d-flex justify-content-between">
           <Modal.Title id="contained-modal-title-vcenter">
             {headerText}
           </Modal.Title>
+          <Button type="button" onClick={() => setShow(false)} variant="light">
+            <FontAwesomeIcon icon={faClose} />
+          </Button>
         </Modal.Header>
       )}
       <Modal.Body>
