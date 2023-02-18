@@ -35,10 +35,10 @@ const Questions = ({ questions, increaseMoneyIndex }) => {
   }, []);
 
   const nextQuestion = () => {
-    playAudio(audios.playSound);
     setRightAnswer(null);
     const currentQuestionIndex = questions.findIndex((question) => question.id === activeQuestion.id);
     if (currentQuestionIndex < questions.length - 1) {
+      playAudio(audios.playSound);
       setActiveQuestion(questions[currentQuestionIndex + 1]);
       increaseMoneyIndex();
     } else {
