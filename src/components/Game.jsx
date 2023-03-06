@@ -24,7 +24,9 @@ const Game = () => {
       setIsUrlFetched(true);
       const questionsResp = indexQuestions({ urlType: 'default', lang: i18n.language });
       setQuestions(questionsResp);
+      return () => setQuestions(null);
     }
+    return () => {};
   }, []);
 
   if (!questions) return null;
