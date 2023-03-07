@@ -11,10 +11,10 @@ const LanguageChanger = () => {
   };
 
   return (
-    <Dropdown className="mb-5">
+    <Dropdown>
       <Dropdown.Toggle variant="light" id="dropdown-basic">
-        <span className="mx-1">{t('language')}</span>
         <FontAwesomeIcon icon={faGlobe} className="mx-1" />
+        <span className="mx-1">{t('language')}</span>
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
