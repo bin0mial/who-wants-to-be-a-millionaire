@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { GameControlProvider } from 'contexts/GameControlContext';
 import { GameSettingsProvider } from 'contexts/GameSettingsContext';
+import AppLoading from 'components/Shared/Loadings/AppLoading';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
@@ -10,7 +11,7 @@ import './i18n';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Suspense fallback="Loading...">
+    <Suspense fallback={<AppLoading />}>
       <GameSettingsProvider>
         <GameControlProvider>
           <App />
