@@ -35,16 +35,17 @@
     text-align: start;
 }
 
-.answers .answer.selected {
+.answers .answer.selected, .answers .answer.selected:hover {
     background: radial-gradient(circle, blue 0%, #151515 100%);
     border: darkblue 1px solid;
 }
 
-.answers .answer.wrong {
+
+.answers .answer.wrong, .answers .answer.wrong:hover {
     background: radial-gradient(circle, red 0%, #151515 100%);
 }
 
-.answers .answer.correct {
+.answers .answer.correct, .answers .answer.correct:hover {
     background: radial-gradient(circle, green 0%, #151515 100%);
 }
 

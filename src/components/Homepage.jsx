@@ -9,8 +9,8 @@ import QuestionContext from '../contexts/QuestionContext';
 import FormikInput from './Shared/Form/FormikInput/FormikInput';
 import CustomQuestionsModal from './Settings/CustomQuestions/CustomQuestionsModal';
 import GameControlContext from '../contexts/GameControlContext';
+import AppSettingsModal from './Settings/AppSettings/AppSettingsModal';
 
-// eslint-disable-next-line no-unused-vars
 const Homepage = () => {
   const { t } = useTranslation('translation', { keyPrefix: 'homepage' });
   const { startGame } = useContext(GameControlContext);
@@ -36,7 +36,10 @@ const Homepage = () => {
 
   return (
     <div className="d-flex flex-column h-100 w-100 justify-content-center align-items-center text-dark mt-5 mb-5">
-      <LanguageChanger />
+      <div className="mb-5 d-flex gap-2">
+        <LanguageChanger />
+        <AppSettingsModal />
+      </div>
       <div className="img-thumbnail home-form">
         <div className="row mb-4">
           <div className="col-12">

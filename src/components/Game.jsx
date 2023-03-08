@@ -10,8 +10,7 @@ import QuestionContext from '../contexts/QuestionContext';
 
 const Game = () => {
   const { i18n } = useTranslation();
-  const { questions, setQuestions } = useContext(QuestionContext);
-  const [isUrlFetched, setIsUrlFetched] = useState(false);
+  const { questions, setQuestions, setIsCustom } = useContext(QuestionContext);
 
   const money = [...moneyArray].reverse();
   const [currentMoneyIndex, setCurrentMoneyIndex] = useState(0);
@@ -20,20 +19,20 @@ const Game = () => {
   };
 
   useEffect(() => {
-    if (!questions) {
-      setIsUrlFetched(true);
+    if (!questions || !questions?.length) {
       const questionsResp = indexQuestions({ urlType: 'default', lang: i18n.language });
+      setIsCustom(false);
       setQuestions(questionsResp);
     }
   }, []);
 
-  if (!questions) return null;
+  if (!questions || !questions?.length) return null;
 
   return (
     <div className="game">
       <Helmet htmlAttributes={{ lang: i18n.language, dir: i18n.dir(i18n.language) }} />
       <div className="main">
-        <Questions questions={isUrlFetched ? questions.read() : questions} increaseMoneyIndex={increaseMoneyIndex} />
+        <Questions questions={questions} increaseMoneyIndex={increaseMoneyIndex} />
       </div>
       <div className="pyramid">
         <Money

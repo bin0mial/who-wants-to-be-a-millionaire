@@ -6,8 +6,9 @@ import playSound from 'assets/sounds/play.mp3';
 import correctSound from 'assets/sounds/correct.mp3';
 import wrongSound from 'assets/sounds/wrong.mp3';
 import { Button } from 'react-bootstrap';
+import GameControlContext from 'contexts/GameControlContext';
+import GameSettingsContext from 'contexts/GameSettingsContext';
 import Answer from './Answer';
-import GameControlContext from '../../contexts/GameControlContext';
 
 const audios = {
   playSound: new Audio(playSound),
@@ -32,6 +33,7 @@ const Questions = ({ questions, increaseMoneyIndex }) => {
   const [rightAnswer, setRightAnswer] = useState();
   const [isOver, setIsOver] = useState(false);
   const { endGame } = useContext(GameControlContext);
+  const { gameSettings } = useContext(GameSettingsContext);
 
   useEffect(() => {
     playAudio(audios.playSound);
@@ -49,23 +51,34 @@ const Questions = ({ questions, increaseMoneyIndex }) => {
     }
   };
 
-  const solve = (option) => {
+  const solve = (option, isGameOver = false) => {
     setSelectedId(null);
     setRightAnswer(null);
     setWronglySelected(null);
     if (option === activeQuestion.answer) {
-      playAudio(audios.correctSound);
       setRightAnswer(option);
-      setTimeout(nextQuestion, 2000);
+      let next;
+      if (!isGameOver) {
+        playAudio(audios.correctSound);
+        next = nextQuestion;
+      } else {
+        next = () => { setIsOver(true); };
+      }
+      setTimeout(next, 2000);
     } else {
       playAudio(audios.wrongSound);
+      if (gameSettings.stopGameLose) {
+        solve(activeQuestion.answer, true);
+      }
       setWronglySelected(option);
     }
   };
 
   const handleChoice = (option) => () => {
-    setSelectedId(option);
-    setTimeout(() => solve(option), 2000);
+    if (!selectedId) {
+      setSelectedId(option);
+      setTimeout(() => solve(option), 2000);
+    }
   };
 
   return isOver || !activeQuestion ? (
