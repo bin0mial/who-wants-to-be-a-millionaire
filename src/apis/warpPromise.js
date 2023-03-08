@@ -1,28 +1,26 @@
 const wrapPromise = (promiseFn) => (...args) => {
-  let status = 'pending';
-  let result;
-  const suspender = promiseFn(...args).then(
-    (r) => {
-      status = 'success';
-      result = r;
+  const promise = promiseFn(...args).then(
+    (result) => {
+      promise.status = 'fulfilled';
+      promise.value = result;
     },
-    (e) => {
-      status = 'error';
-      result = e;
+    (reason) => {
+      promise.status = 'rejected';
+      promise.reason = reason;
     },
   );
 
-  return {
-    // eslint-disable-next-line consistent-return
-    read() {
-      if (status === 'pending') {
-        throw suspender;
-      } else if (status === 'error') {
-        throw result;
-      } else if (status === 'success') {
-        return result;
-      }
-    },
+  return () => {
+    if (promise.status === 'fulfilled') {
+      return promise.value;
+    } if (promise.status === 'rejected') {
+      throw promise.reason;
+    } else if (promise.status === 'pending') {
+      throw promise;
+    } else {
+      promise.status = 'pending';
+      throw promise;
+    }
   };
 };
 
