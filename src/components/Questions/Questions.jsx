@@ -75,8 +75,10 @@ const Questions = ({ questions, increaseMoneyIndex }) => {
   };
 
   const handleChoice = (option) => () => {
-    setSelectedId(option);
-    setTimeout(() => solve(option), 2000);
+    if (!selectedId) {
+      setSelectedId(option);
+      setTimeout(() => solve(option), 2000);
+    }
   };
 
   return isOver || !activeQuestion ? (
