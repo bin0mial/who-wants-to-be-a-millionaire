@@ -21,7 +21,7 @@ i18n
   .use(LanguageDetector)
   .init({
     resources,
-    lng: 'ar',
+    lng: localStorage.getItem('i18nextLng') || 'ar',
     fallbackLng: ['ar', 'en'],
     interpolation: {
       escapeValue: false, // react already safes from xss
