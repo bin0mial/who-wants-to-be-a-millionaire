@@ -25,6 +25,7 @@ const AppSettings = ({ submitRef, setShowModal }) => {
         {({ handleSubmit }) => (
           <Form onSubmit={handleSubmit}>
             <FormikSwitch name="stopGameLose" label={t('stopGameLose')} />
+            <FormikSwitch name="continueGameWrongAnswer" label={t('continueGameWrongAnswer')} />
           </Form>
         )}
       </Formik>

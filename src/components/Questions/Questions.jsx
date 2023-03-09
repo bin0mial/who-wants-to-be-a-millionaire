@@ -41,6 +41,7 @@ const Questions = ({ questions, increaseMoneyIndex }) => {
 
   const nextQuestion = () => {
     setRightAnswer(null);
+    setWronglySelected(null);
     const currentQuestionIndex = questions.findIndex((question) => question.id === activeQuestion.id);
     if (currentQuestionIndex < questions.length - 1) {
       playAudio(audios.playSound);
@@ -67,8 +68,8 @@ const Questions = ({ questions, increaseMoneyIndex }) => {
       setTimeout(next, 2000);
     } else {
       playAudio(audios.wrongSound);
-      if (gameSettings.stopGameLose) {
-        solve(activeQuestion.answer, true);
+      if (gameSettings.continueGameWrongAnswer || gameSettings.stopGameLose) {
+        solve(activeQuestion.answer, !gameSettings.continueGameWrongAnswer);
       }
       setWronglySelected(option);
     }
