@@ -10,7 +10,8 @@
     "settings": {
       "title": "Game Settings",
       "label": "Settings",
-      "stopGameLose": "Stop Game Upon Losing"
+      "stopGameLose": "Stop Game Upon Losing",
+      "continueGameWrongAnswer": "Continue game showing wrong answer"
     },
     "footer": "Developed by <1>{{githubUser}}</1>, you can contribute through our <3>{{appName}}</3> repository on GitHub.",
     "language": "Language",

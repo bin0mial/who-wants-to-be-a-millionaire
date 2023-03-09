@@ -41,6 +41,7 @@ const Questions = ({ questions, increaseMoneyIndex }) => {
 
   const nextQuestion = () => {
     setRightAnswer(null);
+    setWronglySelected(null);
     const currentQuestionIndex = questions.findIndex((question) => question.id === activeQuestion.id);
     if (currentQuestionIndex < questions.length - 1) {
       playAudio(audios.playSound);
@@ -51,7 +52,7 @@ const Questions = ({ questions, increaseMoneyIndex }) => {
     }
   };
 
-  const solve = (option, isGameOver = false) => {
+  const solve = (option, isGameOver = false, useAudio = true) => {
     setSelectedId(null);
     setRightAnswer(null);
     setWronglySelected(null);
@@ -59,16 +60,20 @@ const Questions = ({ questions, increaseMoneyIndex }) => {
       setRightAnswer(option);
       let next;
       if (!isGameOver) {
-        playAudio(audios.correctSound);
+        if (useAudio) playAudio(audios.correctSound);
         next = nextQuestion;
       } else {
         next = () => { setIsOver(true); };
       }
       setTimeout(next, 2000);
     } else {
-      playAudio(audios.wrongSound);
-      if (gameSettings.stopGameLose) {
-        solve(activeQuestion.answer, true);
+      if (useAudio) playAudio(audios.wrongSound);
+      if (gameSettings.continueGameWrongAnswer || gameSettings.stopGameLose) {
+        solve(
+          activeQuestion.answer,
+          !gameSettings.continueGameWrongAnswer,
+          !gameSettings.continueGameWrongAnswer,
+        );
       }
       setWronglySelected(option);
     }
