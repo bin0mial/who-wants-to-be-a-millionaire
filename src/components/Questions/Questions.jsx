@@ -67,7 +67,7 @@ const Questions = ({ questions, increaseMoneyIndex }) => {
       }
       setTimeout(next, 2000);
     } else {
-      playAudio(audios.wrongSound);
+      if (useAudio) playAudio(audios.wrongSound);
       if (gameSettings.continueGameWrongAnswer || gameSettings.stopGameLose) {
         solve(
           activeQuestion.answer,
