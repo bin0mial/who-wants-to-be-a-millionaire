@@ -52,7 +52,7 @@ const Questions = ({ questions, increaseMoneyIndex }) => {
     }
   };
 
-  const solve = (option, isGameOver = false) => {
+  const solve = (option, isGameOver = false, useAudio = true) => {
     setSelectedId(null);
     setRightAnswer(null);
     setWronglySelected(null);
@@ -60,7 +60,7 @@ const Questions = ({ questions, increaseMoneyIndex }) => {
       setRightAnswer(option);
       let next;
       if (!isGameOver) {
-        playAudio(audios.correctSound);
+        if (useAudio) playAudio(audios.correctSound);
         next = nextQuestion;
       } else {
         next = () => { setIsOver(true); };
@@ -69,7 +69,11 @@ const Questions = ({ questions, increaseMoneyIndex }) => {
     } else {
       playAudio(audios.wrongSound);
       if (gameSettings.continueGameWrongAnswer || gameSettings.stopGameLose) {
-        solve(activeQuestion.answer, !gameSettings.continueGameWrongAnswer);
+        solve(
+          activeQuestion.answer,
+          !gameSettings.continueGameWrongAnswer,
+          !gameSettings.continueGameWrongAnswer,
+        );
       }
       setWronglySelected(option);
     }
