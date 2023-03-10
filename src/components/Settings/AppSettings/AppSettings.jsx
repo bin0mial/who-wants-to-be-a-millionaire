@@ -15,6 +15,19 @@ const AppSettings = ({ submitRef, setShowModal }) => {
     setShowModal(false);
   };
 
+  const conflicts = {
+    stopGameLose: ['continueGameWrongAnswer'],
+    continueGameWrongAnswer: ['stopGameLose'],
+  };
+  const onChange = (handleChange, setFieldValue) => (e) => {
+    if (e.target.value !== 'true' && conflicts[e.target.name]) {
+      conflicts[e.target.name].forEach((conflictName) => {
+        setFieldValue(conflictName, false);
+      });
+    }
+    handleChange(e);
+  };
+
   return (
     <div className="row w-100">
       <Formik
@@ -22,10 +35,18 @@ const AppSettings = ({ submitRef, setShowModal }) => {
         initialValues={{ ...gameSettings }}
         onSubmit={onSubmit}
       >
-        {({ handleSubmit }) => (
+        {({ handleSubmit, handleChange, setFieldValue }) => (
           <Form onSubmit={handleSubmit}>
-            <FormikSwitch name="stopGameLose" label={t('stopGameLose')} />
-            <FormikSwitch name="continueGameWrongAnswer" label={t('continueGameWrongAnswer')} />
+            <FormikSwitch
+              name="stopGameLose"
+              label={t('stopGameLose')}
+              onChange={onChange(handleChange, setFieldValue)}
+            />
+            <FormikSwitch
+              name="continueGameWrongAnswer"
+              label={t('continueGameWrongAnswer')}
+              onChange={onChange(handleChange, setFieldValue)}
+            />
           </Form>
         )}
       </Formik>

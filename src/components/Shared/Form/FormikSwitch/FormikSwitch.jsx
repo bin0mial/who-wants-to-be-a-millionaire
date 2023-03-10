@@ -2,7 +2,7 @@ import { Field } from 'formik';
 import { Form } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-const FormikSwitch = ({ name, label }) => (
+const FormikSwitch = ({ name, label, onChange }) => (
   <Field name={name}>
     {({ field }) => (
       <Form.Check
@@ -11,6 +11,7 @@ const FormikSwitch = ({ name, label }) => (
         label={label}
         checked={!!field.value}
         {...field}
+        {...(onChange && { onChange })}
       />
     )}
   </Field>
@@ -19,6 +20,11 @@ const FormikSwitch = ({ name, label }) => (
 FormikSwitch.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
+};
+
+FormikSwitch.defaultProps = {
+  onChange: null,
 };
 
 export default FormikSwitch;
