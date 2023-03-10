@@ -14,6 +14,7 @@ This project simulates `who wants to be a millionaire` for educational purposes
 - [Export a custom questions](https://drive.google.com/file/d/148xcstYN8h5uc5L_52SvPcBbfZbwtnq1/view?usp=sharing)
 - [Import and play a custom questions](https://drive.google.com/file/d/1LF2Y2jFRz8ipCx7CEe2oFZgFNno9vL5n/view?usp=sharing)
 - [Import, edit and play custom questions](https://drive.google.com/file/d/106S3cTMzX4BcT3nlmU01WYWqrGK8ET2l/view?usp=sharing)
+
 ## Features
 
 - Support Arabic and English
@@ -25,6 +26,7 @@ This project simulates `who wants to be a millionaire` for educational purposes
 - Settings
   - Stop game upon losing
   - Continue game showing wrong answer on choosing wrong answer (stops `Stop game upon losing` option)
+
 ## Installation Steps
 
 ### Prerequisites
@@ -82,6 +84,7 @@ This project simulates `who wants to be a millionaire` for educational purposes
   ```shell
   npm install
   ```
+
 ## FAQ
 
 #### Where this project can be used for?
