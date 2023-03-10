@@ -7,7 +7,7 @@ const FormikSwitch = ({ name, label }) => (
     {({ field }) => (
       <Form.Check
         type="switch"
-        id="custom-switch"
+        id={name}
         label={label}
         checked={!!field.value}
         {...field}
