@@ -2,24 +2,28 @@ import { Field } from 'formik';
 import PropTypes from 'prop-types';
 import { Form } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
+import FormikErrorMessage from '../FormikErrorMessage/FormikErrorMessage';
 
-const FormikSelect = ({ name, label, options }) => {
+const FormikSelect = ({
+  name, label, options, showError,
+}) => {
   const { t } = useTranslation('translation', { keyPrefix: 'common' });
   return (
     <Field name={name}>
-      {/* eslint-disable-next-line no-unused-vars */}
-      {({ field }) => (
+      {({ field, meta }) => (
         <div className="my-3">
           <Form.Label htmlFor={name}>{label}</Form.Label>
           <Form.Select
             {...field}
             id={name}
+            isInvalid={meta.touched && meta.error}
           >
             <option value="" disabled>{t('defaultSelect')}</option>
             {options.map(({ display, key }) => (
               <option key={key} value={key}>{display}</option>
             ))}
           </Form.Select>
+          {showError && <FormikErrorMessage name={name} />}
         </div>
       )}
     </Field>
@@ -35,6 +39,11 @@ FormikSelect.propTypes = {
       key: PropTypes.string.isRequired,
     }),
   ).isRequired,
+  showError: PropTypes.bool,
+};
+
+FormikSelect.defaultProps = {
+  showError: true,
 };
 
 export default FormikSelect;
