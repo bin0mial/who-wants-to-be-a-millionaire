@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import GameSettingsContext from 'contexts/GameSettingsContext';
 import FormikSwitch from 'components/Shared/Form/FormikSwitch/FormikSwitch';
 import PropTypes from 'prop-types';
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 import AppSettingsValidationSchema from './AppSettingsValidationSchema';
 
 const AppSettings = ({ submitRef, setShowModal }) => {

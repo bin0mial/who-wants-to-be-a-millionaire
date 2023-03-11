@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinusCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import FormikSelect from 'components/Shared/Form/FormikSelect/FormikSelect';
 import { useContext, useEffect } from 'react';
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 import PropTypes from 'prop-types';
 import QuestionContext from 'contexts/QuestionContext';
 import { exportToJson } from 'helpers/export';
