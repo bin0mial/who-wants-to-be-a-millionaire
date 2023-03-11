@@ -6,12 +6,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinusCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import FormikSelect from 'components/Shared/Form/FormikSelect/FormikSelect';
 import { useContext, useEffect } from 'react';
-import QuestionContext from '../../../contexts/QuestionContext';
-import { exportToJson } from '../../../helpers/export';
+import ReactGA from 'react-ga';
+import PropTypes from 'prop-types';
+import QuestionContext from 'contexts/QuestionContext';
+import { exportToJson } from 'helpers/export';
 import CustomQuestionsValidationSchema from './CustomQuestionsValidationSchema';
 
 const CustomQuestions = ({
-  // eslint-disable-next-line react/prop-types
   submitRef, setShowModal, setSubmitActions, currentAction,
 }) => {
   const { t, i18n } = useTranslation('translation', { keyPrefix: 'questions' });
@@ -23,11 +24,19 @@ const CustomQuestions = ({
 
   const submitObj = {
     submit: (values) => {
+      ReactGA.event({
+        category: 'gameQuestions',
+        action: 'Create custom game questions',
+      });
       setQuestions(values.questions);
       setShowModal(false);
       setIsCustom(true);
     },
     download: (values) => {
+      ReactGA.event({
+        category: 'gameQuestions',
+        action: 'Download custom game questions',
+      });
       exportToJson(values.questions);
     },
   };
@@ -110,6 +119,20 @@ const CustomQuestions = ({
       )}
     </Formik>
   );
+};
+
+CustomQuestions.propTypes = {
+  submitRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Object) }),
+  ]).isRequired,
+  setShowModal: PropTypes.func,
+  setSubmitActions: PropTypes.func.isRequired,
+  currentAction: PropTypes.string.isRequired,
+};
+
+CustomQuestions.defaultProps = {
+  setShowModal: () => {},
 };
 
 export default CustomQuestions;
