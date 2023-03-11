@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import GameSettingsContext from 'contexts/GameSettingsContext';
 import FormikSwitch from 'components/Shared/Form/FormikSwitch/FormikSwitch';
 import PropTypes from 'prop-types';
+import AppSettingsValidationSchema from './AppSettingsValidationSchema';
 
 const AppSettings = ({ submitRef, setShowModal }) => {
   const { t } = useTranslation('translation', { keyPrefix: 'homepage.settings' });
@@ -33,6 +34,7 @@ const AppSettings = ({ submitRef, setShowModal }) => {
       <Formik
         innerRef={submitRef}
         initialValues={{ ...gameSettings }}
+        validationSchema={AppSettingsValidationSchema}
         onSubmit={onSubmit}
       >
         {({ handleSubmit, handleChange, setFieldValue }) => (

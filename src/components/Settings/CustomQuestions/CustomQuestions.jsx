@@ -8,6 +8,7 @@ import FormikSelect from 'components/Shared/Form/FormikSelect/FormikSelect';
 import { useContext, useEffect } from 'react';
 import QuestionContext from '../../../contexts/QuestionContext';
 import { exportToJson } from '../../../helpers/export';
+import CustomQuestionsValidationSchema from './CustomQuestionsValidationSchema';
 
 const CustomQuestions = ({
   // eslint-disable-next-line react/prop-types
@@ -56,6 +57,7 @@ const CustomQuestions = ({
           answer: '',
         }],
       }}
+      validationSchema={CustomQuestionsValidationSchema}
     >
       {({ values, handleSubmit }) => (
         <form onSubmit={handleSubmit}>

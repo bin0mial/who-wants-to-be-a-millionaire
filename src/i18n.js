@@ -1,8 +1,10 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import translationEn from './locales/en/translation.json';
-import translationAr from './locales/ar/translation.json';
+import translationEn from 'locales/en/translation.json';
+import validationsEn from 'locales/en/validations.json';
+import translationAr from 'locales/ar/translation.json';
+import validationsAr from 'locales/ar/validations.json';
 
 // the translations
 // (tip move them in a JSON file and import them,
@@ -10,9 +12,11 @@ import translationAr from './locales/ar/translation.json';
 const resources = {
   en: {
     translation: translationEn,
+    validations: validationsEn,
   },
   ar: {
     translation: translationAr,
+    validations: validationsAr,
   },
 };
 

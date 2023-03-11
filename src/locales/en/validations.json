@@ -1,0 +1,7 @@
+{
+  "required": "Please enter value",
+  "select": "Please select value",
+  "tooLong": "Letters count should not exceed {{max}}",
+  "tooShort": "Letters count should not be less than {{min}}",
+  "invalidNumber": "Must be a number"
+}
