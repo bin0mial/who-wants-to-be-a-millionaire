@@ -6,9 +6,9 @@ import Homepage from 'components/Homepage';
 import Game from 'components/Game';
 import { QuestionProvider } from 'contexts/QuestionContext';
 import GameControlContext from 'contexts/GameControlContext';
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 
-ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_ID);
+ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_MEASUREMENT_ID);
 
 const App = () => {
   const { i18n } = useTranslation();

@@ -3,7 +3,7 @@ import { Field, Formik } from 'formik';
 import { Button, Form } from 'react-bootstrap';
 import Dropzone from 'react-dropzone';
 import { useContext, useState } from 'react';
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 import LanguageChanger from './LanguageChanger';
 import './Homepage.css';
 import QuestionContext from '../contexts/QuestionContext';
