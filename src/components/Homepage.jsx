@@ -3,6 +3,7 @@ import { Field, Formik } from 'formik';
 import { Button, Form } from 'react-bootstrap';
 import Dropzone from 'react-dropzone';
 import { useContext, useState } from 'react';
+import ReactGA from 'react-ga';
 import LanguageChanger from './LanguageChanger';
 import './Homepage.css';
 import QuestionContext from '../contexts/QuestionContext';
@@ -19,6 +20,10 @@ const Homepage = () => {
   const { setQuestions, setIsCustom } = useContext(QuestionContext);
 
   const readQuestions = (file, onLoad) => {
+    ReactGA.event({
+      category: 'gameQuestions',
+      action: 'Load custom game questions',
+    });
     setIsReadyFile(false);
     const fileReader = new FileReader();
     fileReader.readAsText(file);
@@ -30,6 +35,11 @@ const Homepage = () => {
   };
 
   const onSubmit = (values, { setSubmitting }) => {
+    ReactGA.event({
+      category: 'gamePlay',
+      action: 'Start the game',
+      label: 'Play game Button',
+    });
     setSubmitting(false);
     startGame();
   };

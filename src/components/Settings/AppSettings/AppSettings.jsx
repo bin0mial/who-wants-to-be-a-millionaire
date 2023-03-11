@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import GameSettingsContext from 'contexts/GameSettingsContext';
 import FormikSwitch from 'components/Shared/Form/FormikSwitch/FormikSwitch';
 import PropTypes from 'prop-types';
+import ReactGA from 'react-ga';
 import AppSettingsValidationSchema from './AppSettingsValidationSchema';
 
 const AppSettings = ({ submitRef, setShowModal }) => {
@@ -12,6 +13,11 @@ const AppSettings = ({ submitRef, setShowModal }) => {
   const { updateSettings, gameSettings } = useContext(GameSettingsContext);
 
   const onSubmit = (values) => {
+    ReactGA.event({
+      category: 'gameSettings',
+      action: 'Update game settings',
+      label: 'Update settings Button',
+    });
     updateSettings(values);
     setShowModal(false);
   };
