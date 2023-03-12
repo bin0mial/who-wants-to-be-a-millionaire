@@ -16,15 +16,6 @@ const audios = {
   wrongSound: new Audio(wrongSound),
 };
 
-const playAudio = (audio) => {
-  Object.entries(audios).forEach((audioInstance) => {
-    audioInstance[1].pause();
-    // eslint-disable-next-line no-param-reassign
-    audioInstance[1].currentTime = 0;
-  });
-  audio.play();
-};
-
 const Questions = ({ questions, increaseMoneyIndex }) => {
   const { t } = useTranslation('translation', { keyPrefix: 'questions' });
   const [activeQuestion, setActiveQuestion] = useState(questions[0]);
@@ -34,6 +25,16 @@ const Questions = ({ questions, increaseMoneyIndex }) => {
   const [isOver, setIsOver] = useState(false);
   const { endGame } = useContext(GameControlContext);
   const { gameSettings } = useContext(GameSettingsContext);
+
+  const playAudio = (audio) => {
+    if (!gameSettings.enableSounds) return;
+    Object.entries(audios).forEach((audioInstance) => {
+      audioInstance[1].pause();
+      // eslint-disable-next-line no-param-reassign
+      audioInstance[1].currentTime = 0;
+    });
+    audio.play();
+  };
 
   useEffect(() => {
     playAudio(audios.playSound);
