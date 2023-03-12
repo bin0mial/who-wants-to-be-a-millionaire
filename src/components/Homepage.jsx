@@ -123,7 +123,7 @@ const Homepage = () => {
           )}
         </Formik>
       </div>
-      <div className="row fixed-bottom text-center text-white">
+      <div className="row mt-3 text-center text-white">
         <div className="col-12 mb-2">
           <Trans
             i18nKey="homepage.footer"
