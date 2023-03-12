@@ -6,6 +6,7 @@ const defaultValue = {
   gameSettings: {
     stopGameLose: savedSettings?.stopGameLose ?? false,
     continueGameWrongAnswer: savedSettings?.continueGameWrongAnswer ?? true,
+    enableSounds: savedSettings?.enableSounds ?? true,
   },
   updateSettings: () => {},
 };
@@ -21,6 +22,7 @@ const GameSettingsProvider = ({ children }) => {
     const values = {
       stopGameLose: settings.stopGameLose,
       continueGameWrongAnswer: settings.continueGameWrongAnswer,
+      enableSounds: settings.enableSounds,
     };
     setGameSettings(values);
     localStorage.setItem('settings', JSON.stringify(values));

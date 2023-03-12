@@ -45,16 +45,14 @@ const AppSettings = ({ submitRef, setShowModal }) => {
       >
         {({ handleSubmit, handleChange, setFieldValue }) => (
           <Form onSubmit={handleSubmit}>
-            <FormikSwitch
-              name="stopGameLose"
-              label={t('stopGameLose')}
-              onChange={onChange(handleChange, setFieldValue)}
-            />
-            <FormikSwitch
-              name="continueGameWrongAnswer"
-              label={t('continueGameWrongAnswer')}
-              onChange={onChange(handleChange, setFieldValue)}
-            />
+            {Object.keys(gameSettings).map((setting) => (
+              <FormikSwitch
+                key={`app-settings-${setting}`}
+                name={setting}
+                label={t(setting)}
+                onChange={onChange(handleChange, setFieldValue)}
+              />
+            ))}
           </Form>
         )}
       </Formik>
