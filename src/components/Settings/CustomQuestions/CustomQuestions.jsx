@@ -128,11 +128,12 @@ CustomQuestions.propTypes = {
   ]).isRequired,
   setShowModal: PropTypes.func,
   setSubmitActions: PropTypes.func.isRequired,
-  currentAction: PropTypes.string.isRequired,
+  currentAction: PropTypes.string,
 };
 
 CustomQuestions.defaultProps = {
   setShowModal: () => {},
+  currentAction: null,
 };
 
 export default CustomQuestions;

@@ -1,18 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './Money.css';
-import PropTypes from 'prop-types';
+import { MoneyContext, MoneyIndexContext } from 'contexts/MoneyContext';
 
-const Money = ({
-  money, currentMoneyIndex, setCurrentMoneyIndex,
-}) => {
-  const moneyLength = money.length;
+const Money = () => {
+  const { money } = useContext(MoneyContext);
+  const { currentMoneyIndex, setCurrentMoneyIndex, setLoaded } = useContext(MoneyIndexContext);
   const [isInitialized, setIsInitialized] = useState(false);
+  const moneyLength = money.length;
   const activeMoneyTableIndex = money.length - currentMoneyIndex;
 
   useEffect(() => {
     if (moneyLength <= currentMoneyIndex - 1) {
       setCurrentMoneyIndex(1);
       setIsInitialized(true);
+      setLoaded();
     }
     if (!isInitialized) {
       setTimeout(() => {
@@ -33,12 +34,6 @@ const Money = ({
       </ul>
     </div>
   );
-};
-
-Money.propTypes = {
-  money: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  currentMoneyIndex: PropTypes.number.isRequired,
-  setCurrentMoneyIndex: PropTypes.func.isRequired,
 };
 
 export default Money;

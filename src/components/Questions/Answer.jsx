@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
 const Answer = ({
-  id, answer, handleChoice, isSelected, wronglySelected, rightAnswer,
+  id, answer, handleChoice, isSelected, wronglySelected, rightAnswer, disabled,
 }) => {
   const { t } = useTranslation('translation', { keyPrefix: 'questions' });
   const classNames = [
@@ -14,7 +14,7 @@ const Answer = ({
   ].filter(Boolean).join(' ');
 
   return (
-    <button type="button" className={classNames} key={id} onClick={handleChoice(id)}>
+    <button type="button" className={classNames} key={id} onClick={handleChoice(id)} disabled={disabled}>
       <div className="row w-100 gx-0">
         <div className="col-2 mx-2">
           {t(`choices.${id.toLowerCase()}`)}
@@ -33,6 +33,11 @@ Answer.propTypes = {
   isSelected: PropTypes.bool.isRequired,
   wronglySelected: PropTypes.bool.isRequired,
   rightAnswer: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool,
+};
+
+Answer.defaultProps = {
+  disabled: false,
 };
 
 export default Answer;
