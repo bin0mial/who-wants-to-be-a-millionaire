@@ -8,6 +8,7 @@ import wrongSound from 'assets/sounds/wrong.mp3';
 import { Button } from 'react-bootstrap';
 import GameControlContext from 'contexts/GameControlContext';
 import GameSettingsContext from 'contexts/GameSettingsContext';
+import { MoneyContext } from 'contexts/MoneyContext';
 import Answer from './Answer';
 
 const audios = {
@@ -16,7 +17,7 @@ const audios = {
   wrongSound: new Audio(wrongSound),
 };
 
-const Questions = ({ questions, increaseMoneyIndex }) => {
+const Questions = ({ questions }) => {
   const { t } = useTranslation('translation', { keyPrefix: 'questions' });
   const [activeQuestion, setActiveQuestion] = useState(questions[0]);
   const [selectedId, setSelectedId] = useState();
@@ -25,6 +26,7 @@ const Questions = ({ questions, increaseMoneyIndex }) => {
   const [isOver, setIsOver] = useState(false);
   const { endGame } = useContext(GameControlContext);
   const { gameSettings } = useContext(GameSettingsContext);
+  const { increaseMoneyIndex, isLoaded } = useContext(MoneyContext);
 
   const playAudio = (audio) => {
     if (!gameSettings.enableSounds) return;
@@ -110,6 +112,7 @@ const Questions = ({ questions, increaseMoneyIndex }) => {
               isSelected={selectedId === id}
               wronglySelected={wronglySelected === id}
               rightAnswer={rightAnswer === id}
+              disabled={!isLoaded}
             />
           ))}
         </div>
@@ -123,7 +126,6 @@ Questions.propTypes = {
     options: PropTypes.objectOf(PropTypes.string).isRequired,
     answer: PropTypes.string.isRequired,
   })).isRequired,
-  increaseMoneyIndex: PropTypes.func.isRequired,
 };
 
 export default Questions;
