@@ -1,0 +1,16 @@
+.timer{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at center, #518ede, darkblue);
+    align-self: start;
+    margin-right: 15%;
+    margin-left: 100px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+    text-shadow:2px 2px black;
+    box-shadow: 0 0 2px 2px white;
+}

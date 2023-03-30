@@ -10,6 +10,7 @@ import GameControlContext from 'contexts/GameControlContext';
 import GameSettingsContext from 'contexts/GameSettingsContext';
 import { MoneyContext } from 'contexts/MoneyContext';
 import Answer from './Answer';
+import Timer from './Timer/Timer';
 
 const audios = {
   playSound: new Audio(playSound),
@@ -99,6 +100,14 @@ const Questions = ({ questions }) => {
   )
     : (
       <>
+        {gameSettings.enableTimer && (
+        <Timer
+          key={activeQuestion.id}
+          isReady={isLoaded}
+          onTimeout={solve}
+          timeInSeconds={gameSettings.timerCountDown}
+        />
+        )}
         <div className="question">
           {activeQuestion.question}
         </div>
