@@ -1,7 +1,8 @@
-import { useTranslation } from 'react-i18next';
-import { Formik } from 'formik';
-import { Form } from 'react-bootstrap';
-import { useContext, useRef } from 'react';
+/* eslint-disable */
+import {useTranslation} from 'react-i18next';
+import {Formik} from 'formik';
+import {Form} from 'react-bootstrap';
+import {useContext, useRef} from 'react';
 import GameSettingsContext from 'contexts/GameSettingsContext';
 import FormikSwitch from 'components/Shared/Form/FormikSwitch/FormikSwitch';
 import FormikInput from 'components/Shared/Form/FormikInput/FormikInput';
@@ -66,9 +67,8 @@ const AppSettings = ({ submitRef, setShowModal }) => {
         }) => (
           <Form onSubmit={handleSubmit}>
             {switchSettings.map((setting) => (
-              <>
+              <div key={`app-settings-${setting}`}>
                 <FormikSwitch
-                  key={`app-settings-${setting}`}
                   name={setting}
                   label={t(setting)}
                   onChange={onChange(handleChange, setFieldValue)}
@@ -82,7 +82,7 @@ const AppSettings = ({ submitRef, setShowModal }) => {
                     })}
                   </div>
                 )}
-              </>
+              </div>
             ))}
           </Form>
         )}
