@@ -20,7 +20,7 @@ const FormikInput = ({
 FormikInput.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['text']),
+  type: PropTypes.oneOf(['text', 'number']),
   showError: PropTypes.bool,
   disabled: PropTypes.bool,
 };
