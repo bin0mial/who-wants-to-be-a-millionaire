@@ -1,0 +1,11 @@
+{
+  "title": "اعدادات اللعبة",
+  "label": "الاعدادات",
+  "settings": {
+    "stopGameLose": "توقف اللعب عند الخسارة",
+    "continueGameWrongAnswer": "اكمل اللعب مع اظهار الاجابة الصحيحة",
+    "enableSounds": "تشغيل اصوات اللعبة",
+    "enableTimer": "تشغيل المؤقت",
+    "timerCountDown": "تحديد وقت المؤقت (بالثواني)"
+  }
+}

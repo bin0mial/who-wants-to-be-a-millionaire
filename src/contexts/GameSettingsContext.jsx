@@ -1,13 +1,28 @@
 import { createContext, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 
+const dependentChildren = {
+  enableTimer: ['timerCountDown'],
+};
+
+const switchSettings = [
+  'stopGameLose', 'continueGameWrongAnswer', 'enableSounds', 'enableTimer',
+];
+
+const inputSettings = [{ name: 'timerCountDown', type: 'number' }];
+
 const savedSettings = JSON.parse(localStorage.getItem('settings'));
 const defaultValue = {
   gameSettings: {
     stopGameLose: savedSettings?.stopGameLose ?? false,
     continueGameWrongAnswer: savedSettings?.continueGameWrongAnswer ?? true,
     enableSounds: savedSettings?.enableSounds ?? true,
+    enableTimer: savedSettings?.enableTimer ?? true,
+    timerCountDown: savedSettings?.timerCountDown ?? 30,
   },
+  dependentChildren,
+  switchSettings,
+  inputSettings,
   updateSettings: () => {},
 };
 
@@ -23,6 +38,8 @@ const GameSettingsProvider = ({ children }) => {
       stopGameLose: settings.stopGameLose,
       continueGameWrongAnswer: settings.continueGameWrongAnswer,
       enableSounds: settings.enableSounds,
+      enableTimer: settings.enableTimer,
+      timerCountDown: settings.timerCountDown,
     };
     setGameSettings(values);
     localStorage.setItem('settings', JSON.stringify(values));
@@ -30,6 +47,9 @@ const GameSettingsProvider = ({ children }) => {
 
   const GameSettingsContextValue = useMemo(() => ({
     gameSettings,
+    dependentChildren,
+    switchSettings,
+    inputSettings,
     updateSettings,
   }), [gameSettings]);
 

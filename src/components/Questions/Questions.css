@@ -24,8 +24,7 @@
 .answers .answer {
     font-size: x-large;
     display: flex;
-    /*flex-direction: row;*/
-    flex: 49%; /* or - flex: 0 50% - or - flex-basis: 50% - */
+    flex: 49%;
     background: radial-gradient(circle, darkblue 0%, black 100%);
     border-radius: 5%;
     border: white 1px solid;
@@ -61,4 +60,5 @@
         border: white 1px solid;
     }
 }
+
 

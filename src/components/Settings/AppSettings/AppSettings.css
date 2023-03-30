@@ -1,0 +1,12 @@
+.setting-dependent-child {
+    padding: 5px;
+    border-radius: 3%;
+}
+
+[dir="rtl"] .setting-dependent-child{
+    margin-right: 40px;
+}
+
+[dir="ltr"] .setting-dependent-child{
+    margin-left: 40px;
+}

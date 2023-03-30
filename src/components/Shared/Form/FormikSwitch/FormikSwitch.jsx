@@ -2,6 +2,7 @@ import { Field } from 'formik';
 import { Form } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import FormikErrorMessage from '../FormikErrorMessage/FormikErrorMessage';
+import './FormikSwitch.css';
 
 const FormikSwitch = ({
   name, label, onChange, showError,
@@ -13,6 +14,7 @@ const FormikSwitch = ({
           type="switch"
           id={name}
           label={label}
+          className="form-switch"
           checked={!!field.value}
           {...field}
           {...(onChange && { onChange })}

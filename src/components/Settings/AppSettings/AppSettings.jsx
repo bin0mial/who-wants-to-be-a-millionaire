@@ -1,16 +1,35 @@
-import { useTranslation } from 'react-i18next';
-import { Formik } from 'formik';
-import { Form } from 'react-bootstrap';
-import { useContext } from 'react';
+/* eslint-disable */
+import {useTranslation} from 'react-i18next';
+import {Formik} from 'formik';
+import {Form} from 'react-bootstrap';
+import {useContext, useRef} from 'react';
 import GameSettingsContext from 'contexts/GameSettingsContext';
 import FormikSwitch from 'components/Shared/Form/FormikSwitch/FormikSwitch';
+import FormikInput from 'components/Shared/Form/FormikInput/FormikInput';
 import PropTypes from 'prop-types';
 import ReactGA from 'react-ga4';
 import AppSettingsValidationSchema from './AppSettingsValidationSchema';
+import './AppSettings.css';
 
 const AppSettings = ({ submitRef, setShowModal }) => {
-  const { t } = useTranslation('translation', { keyPrefix: 'homepage.settings' });
-  const { updateSettings, gameSettings } = useContext(GameSettingsContext);
+  const { t } = useTranslation('settings', { keyPrefix: 'settings' });
+  const {
+    updateSettings, gameSettings, switchSettings, inputSettings, dependentChildren,
+  } = useContext(GameSettingsContext);
+  const taken = useRef([]);
+
+  const nonSwitchSettings = {};
+
+  inputSettings.forEach(({ name, type }) => {
+    nonSwitchSettings[name] = {
+      Component: FormikInput,
+      props: {
+        name,
+        type,
+        label: t(name),
+      },
+    };
+  });
 
   const onSubmit = (values) => {
     ReactGA.event({
@@ -43,15 +62,27 @@ const AppSettings = ({ submitRef, setShowModal }) => {
         validationSchema={AppSettingsValidationSchema}
         onSubmit={onSubmit}
       >
-        {({ handleSubmit, handleChange, setFieldValue }) => (
+        {({
+          values, handleSubmit, handleChange, setFieldValue,
+        }) => (
           <Form onSubmit={handleSubmit}>
-            {Object.keys(gameSettings).map((setting) => (
-              <FormikSwitch
-                key={`app-settings-${setting}`}
-                name={setting}
-                label={t(setting)}
-                onChange={onChange(handleChange, setFieldValue)}
-              />
+            {switchSettings.map((setting) => (
+              <div key={`app-settings-${setting}`}>
+                <FormikSwitch
+                  name={setting}
+                  label={t(setting)}
+                  onChange={onChange(handleChange, setFieldValue)}
+                />
+                {dependentChildren[setting] && (
+                  <div className={`setting-dependent-child${!values[setting] ? ' d-none' : ''}`}>
+                    {dependentChildren[setting].map((dependent) => {
+                      taken.current.push(dependent);
+                      const { Component, props } = nonSwitchSettings[dependent];
+                      return <Component key={`app-settings-${dependent}`} {...props} disabled={!values[setting]} />;
+                    })}
+                  </div>
+                )}
+              </div>
             ))}
           </Form>
         )}
