@@ -7,7 +7,7 @@ import { faGears } from '@fortawesome/free-solid-svg-icons';
 import AppSettings from './AppSettings';
 
 const AppSettingsModal = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'homepage.settings' });
+  const { t } = useTranslation('settings');
   const [showModal, setShowModal] = useState(false);
   const submitRef = useRef();
 
