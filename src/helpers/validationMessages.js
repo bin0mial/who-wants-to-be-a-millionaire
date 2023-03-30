@@ -7,6 +7,9 @@ const validationMessages = {
 
   // Numbers
   invalidNumber: () => ({ key: 'validations:invalidNumber' }),
+  minNumber: (min) => ({ key: 'validations:tooLow', values: { min } }),
+  maxNumber: (max) => ({ key: 'validations:tooHigh', values: { max } }),
+  mustBeIntegerNumber: () => ({ key: 'validations:integer' }),
 
   // Characters
   minChars: (min) => ({ key: 'validations:tooShort', values: { min } }),
