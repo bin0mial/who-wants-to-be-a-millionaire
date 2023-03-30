@@ -1,0 +1,11 @@
+{
+  "title": "Game Settings",
+  "label": "Settings",
+  "settings": {
+    "stopGameLose": "Stop Game Upon Losing",
+    "continueGameWrongAnswer": "Continue game showing wrong answer",
+    "enableSounds": "Enable game sounds",
+    "enableTimer": "Enable Timer",
+    "timerCountDown": "Set timer time (in seconds)"
+  }
+}
