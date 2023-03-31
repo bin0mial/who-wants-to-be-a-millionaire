@@ -2,7 +2,8 @@
   "export": "who-wants-to-be-a-millionaire-export",
   "common": {
     "defaultSelect": "Select Item",
-    "close": "Close"
+    "close": "Close",
+    "save": "Save"
   },
   "homepage": {
     "appName": "Who wants to be a millionaire",

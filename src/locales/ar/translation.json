@@ -2,7 +2,8 @@
   "export": "تصدير-اسألة-من-سيربح-المليون",
   "common": {
     "defaultSelect": "اختر قيمة",
-    "close": "اغلق"
+    "close": "اغلق",
+    "save": "حفظ"
   },
   "homepage": {
     "appName": "من سيربح المليون",
