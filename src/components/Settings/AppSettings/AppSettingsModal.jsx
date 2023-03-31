@@ -19,7 +19,7 @@ const AppSettingsModal = () => {
           submitRef.current.handleSubmit();
         }}
       >
-        Save
+        {t('translation:common.save')}
       </Button>
     </div>
   );
