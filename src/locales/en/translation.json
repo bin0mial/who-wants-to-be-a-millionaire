@@ -14,10 +14,9 @@
     "form": {
       "header": "Feel free to fill the following fields (Optionally)",
       "yourName": "Your name",
-      "customJson": "Questions file in JSON format",
-      "dropJsonFileHere": "Drag and drop json file here, or click to select json file",
-      "selectedJsonFile": "Selected file",
-      "jsonFileHint": "From the following URL you can generate <1>JSON via GUI</1>",
+      "customQuestionsFile": "Upload questions file",
+      "dropQuestionsFileHere": "Drag and drop questions file here, or click to select questions file",
+      "selectedQuestionsFile": "Selected file",
       "startGame": "Start Game"
     }
   },

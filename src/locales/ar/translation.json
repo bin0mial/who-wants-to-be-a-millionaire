@@ -14,10 +14,9 @@
     "form": {
       "header": "يمكنك ملئ الخانات التالية (غير اجبارية)",
       "yourName": "اسمك",
-      "customJson": "ملف الاسئلة في صيغة ال JSON",
-      "dropJsonFileHere": "قم بسحب ملف JSON وإفلاته هنا ، أو انقر لتحديد ملف JSON",
-      "selectedJsonFile": "المحلف المحدد",
-      "jsonFileHint": "من خلال الرابط التالي يمكنك انشاء <1>JSON من خلال واجهة المستخدم الرسومية</1>",
+      "customQuestionsFile": "تحميل ملف الاسألة",
+      "dropQuestionsFileHere": "قم بسحب ملف حفظ الاسألة وإفلاته هنا ، أو انقر لتحديد ملف الحفظ",
+      "selectedQuestionsFile": "المحلف المحدد",
       "startGame": "ابدأ اللعب"
     }
   },
