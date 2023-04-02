@@ -9,7 +9,8 @@ import { useContext, useEffect } from 'react';
 import ReactGA from 'react-ga4';
 import PropTypes from 'prop-types';
 import QuestionContext from 'contexts/QuestionContext';
-import { exportToJson } from 'helpers/export';
+import { exportObject } from 'helpers/export';
+import { compressLZW } from 'helpers/compressors';
 import CustomQuestionsValidationSchema from './CustomQuestionsValidationSchema';
 
 const CustomQuestions = ({
@@ -37,7 +38,7 @@ const CustomQuestions = ({
         category: 'gameQuestions',
         action: 'Download custom game questions',
       });
-      exportToJson(values.questions);
+      exportObject(values.questions, compressLZW);
     },
   };
 

@@ -7,6 +7,7 @@ const AppSettingsValidationSchema = Yup.object().shape({
   enableSounds: Yup.bool().required(validationMessages.requiredField),
   enableTimer: Yup.bool().required(validationMessages.requiredField),
   timerCountDown: Yup.number()
+    .required(validationMessages.requiredField)
     .typeError(validationMessages.invalidNumber)
     .integer(validationMessages.mustBeIntegerNumber)
     .min(1, validationMessages.minNumber(1))
