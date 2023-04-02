@@ -12,7 +12,7 @@
     "language": "Language",
     "languageName": "English",
     "form": {
-      "header": "Feel free to fill the following fields (Optionally)",
+      "header": "Fill the following fields (Optional)",
       "yourName": "Your name",
       "customQuestionsFile": "Upload questions file",
       "dropQuestionsFileHere": "Drag and drop questions file here, or click to select questions file",
