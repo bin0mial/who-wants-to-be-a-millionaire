@@ -8,6 +8,8 @@ import { decompressLZW } from 'helpers/compressors';
 import QuestionContext from 'contexts/QuestionContext';
 import FormikInput from 'components/Shared/Form/FormikInput/FormikInput';
 import GameControlContext from 'contexts/GameControlContext';
+import { Helmet } from 'react-helmet';
+import i18n from 'i18n';
 import LanguageChanger from './LanguageChanger';
 import './Homepage.css';
 import CustomQuestionsModal from './Settings/CustomQuestions/CustomQuestionsModal';
@@ -48,6 +50,7 @@ const Homepage = () => {
 
   return (
     <div className="d-flex flex-column h-100 w-100 justify-content-center align-items-center text-dark mt-5 mb-5">
+      <Helmet htmlAttributes={{ lang: i18n.language, dir: i18n.dir(i18n.language) }} />
       <div className="mb-5 d-flex gap-2">
         <LanguageChanger />
         <AppSettingsModal />
