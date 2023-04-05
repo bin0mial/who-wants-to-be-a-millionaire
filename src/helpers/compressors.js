@@ -6,6 +6,8 @@ const compressLZW = (dataObject) => ({
   ext: '.millarsave',
 });
 
-const decompressLZW = (compressedObject) => lzString.decompressFromEncodedURIComponent(compressedObject);
+const decompressLZW = (compressedString) => lzString.decompressFromEncodedURIComponent(compressedString);
 
-export { compressLZW, decompressLZW };
+const decompressObjectifyLZW = (compressedString) => JSON.parse(decompressLZW(compressedString));
+
+export { compressLZW, decompressLZW, decompressObjectifyLZW };
