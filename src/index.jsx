@@ -2,9 +2,11 @@ import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { GameControlProvider } from 'contexts/GameControlContext';
 import { GameSettingsProvider } from 'contexts/GameSettingsContext';
+import { FirestoreProvider } from 'contexts/FirebaseContext';
 import AppLoading from 'components/Shared/Loadings/AppLoading';
-import App from './App';
+import { QuestionProvider } from 'contexts/QuestionContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './i18n';
 
@@ -12,11 +14,15 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Suspense fallback={<AppLoading />}>
-      <GameSettingsProvider>
-        <GameControlProvider>
-          <App />
-        </GameControlProvider>
-      </GameSettingsProvider>
+      <FirestoreProvider>
+        <GameSettingsProvider>
+          <GameControlProvider>
+            <QuestionProvider>
+              <App />
+            </QuestionProvider>
+          </GameControlProvider>
+        </GameSettingsProvider>
+      </FirestoreProvider>
     </Suspense>
   </React.StrictMode>,
 );

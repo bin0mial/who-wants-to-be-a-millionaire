@@ -1,4 +1,7 @@
 const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
-// eslint-disable-next-line import/prefer-default-export
-export { capitalizeFirstLetter };
+const copyString = (text, onSuccess = () => {}, onFail = () => {}) => {
+  navigator.clipboard.writeText(text).then(onSuccess, onFail);
+};
+
+export { capitalizeFirstLetter, copyString };

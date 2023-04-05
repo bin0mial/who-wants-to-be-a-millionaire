@@ -1,9 +1,14 @@
 {
-  "export": "تصدير-اسألة-من-سيربح-المليون",
+  "export": "تصدير-اسئلة-من-سيربح-المليون",
   "common": {
     "defaultSelect": "اختر قيمة",
     "close": "اغلق",
-    "save": "حفظ"
+    "save": "حفظ",
+    "copy": {
+      "text": "انسخ",
+      "success": "تم النسخ!",
+      "fail": "فشل النسخ!"
+    }
   },
   "homepage": {
     "appName": "من سيربح المليون",
@@ -33,18 +38,23 @@
       "answer": "الاجابة",
       "download": {
         "btnVariant": "info",
-        "text": "تحميل اسألتك"
+        "text": "تحميل اسئلتك"
       },
       "submit": {
         "btnVariant": "success",
-        "text": "اكد اسألتك"
+        "text": "اكد اسئلتك"
+      },
+      "share": {
+        "btnVariant": "secondary",
+        "text": "مشاركة اسئلتك"
       },
       "modal": {
-        "title": "اضف/عدل  اسألتك",
-        "addQuestions": "اضف/عدل اسألتك"
+        "title": "اضف/عدل  اسئلتك",
+        "addQuestions": "اضف/عدل اسئلتك"
       }
     },
     "noMoreQuestions": "أنتهت الاسئلة!",
-    "backToMain": "ارجع الى الرئيسية"
+    "backToMain": "ارجع الى الرئيسية",
+    "shareLink": "رابط المشاركة"
   }
 }

@@ -3,7 +3,12 @@
   "common": {
     "defaultSelect": "Select Item",
     "close": "Close",
-    "save": "Save"
+    "save": "Save",
+    "copy": {
+      "text": "Copy",
+      "success": "Copied!",
+      "fail": "Failed to copy!"
+    }
   },
   "homepage": {
     "appName": "Who wants to be a millionaire",
@@ -39,12 +44,17 @@
         "btnVariant": "success",
         "text": "Submit Questions"
       },
+      "share": {
+        "btnVariant": "secondary",
+        "text": "Share Questions"
+      },
       "modal": {
         "title": "Add/Edit your questions",
         "addQuestions": "Add/Edit your questions"
       }
     },
     "noMoreQuestions": "No more questions!",
-    "backToMain": "Back to Homepage"
+    "backToMain": "Back to Homepage",
+    "shareLink": "Share Link"
   }
 }
