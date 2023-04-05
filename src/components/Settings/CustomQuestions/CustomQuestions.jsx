@@ -11,6 +11,10 @@ import PropTypes from 'prop-types';
 import QuestionContext from 'contexts/QuestionContext';
 import { exportObject } from 'helpers/export';
 import { compressLZW } from 'helpers/compressors';
+import storeQuestions from 'apis/firebase/questions/storeQuestions';
+import FirebaseContext from 'contexts/FirebaseContext';
+import AppModalContext from 'contexts/AppModalContext';
+import CopyButton from 'components/Shared/Buttons/CopyButton';
 import CustomQuestionsValidationSchema from './CustomQuestionsValidationSchema';
 
 const CustomQuestions = ({
@@ -22,6 +26,8 @@ const CustomQuestions = ({
   const {
     questions, setQuestions, isCustom, setIsCustom,
   } = useContext(QuestionContext);
+  const { db } = useContext(FirebaseContext);
+  const { showAppModal } = useContext(AppModalContext);
 
   const submitObj = {
     submit: (values) => {
@@ -40,6 +46,24 @@ const CustomQuestions = ({
       });
       exportObject(values.questions, compressLZW);
     },
+    share: ((values) => {
+      const postStore = (resultId) => {
+        const shareUrl = `${window.location.origin}?shareId=${resultId}`;
+        showAppModal(
+          t('shareLink'),
+          <div className="d-flex justify-content-between">
+            <div className="d-flex flex-column justify-content-center bg-light rounded-5 p-2">
+              <span>{shareUrl}</span>
+            </div>
+            <div>
+              <CopyButton text={shareUrl} />
+            </div>
+          </div>,
+        );
+        setShowModal(false);
+      };
+      storeQuestions({ db, questions: compressLZW(JSON.stringify(values.questions)).output }, { postStore });
+    }),
   };
 
   const onSubmit = (...submitValues) => {
@@ -96,7 +120,11 @@ const CustomQuestions = ({
                         />
                       ))}
                     </div>
-                    <FormikSelect label={t('form.answer')} name={`questions.${index}.answer`} options={answerOptions} />
+                    <FormikSelect
+                      label={t('form.answer')}
+                      name={`questions.${index}.answer`}
+                      options={answerOptions}
+                    />
                   </div>
                 ))}
                 <Button
