@@ -2,3 +2,7 @@
     width: 90%;
     max-width: none !important;
 }
+
+.app-modal{
+    z-index: 10000;
+}

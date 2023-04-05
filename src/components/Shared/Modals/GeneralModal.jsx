@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
 
 const GeneralModal = ({
-  show, setShow, headerText, actions, children, ...props
+  show, setShow, headerText, actions, children, isAppModal, ...props
 }) => {
   const { t } = useTranslation('translation', { keyPrefix: 'common' });
 
@@ -17,6 +17,7 @@ const GeneralModal = ({
       onHide={() => setShow(false)}
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      className={isAppModal ? 'app-modal' : ''}
       size="lg"
       {...props}
     >
@@ -45,6 +46,7 @@ GeneralModal.propTypes = {
   headerText: PropTypes.string,
   show: PropTypes.bool.isRequired,
   setShow: PropTypes.func.isRequired,
+  isAppModal: PropTypes.bool,
   actions: PropTypes.node,
   children: PropTypes.node,
 };
@@ -53,6 +55,7 @@ GeneralModal.defaultProps = {
   headerText: '',
   actions: null,
   children: null,
+  isAppModal: false,
 };
 
 export default GeneralModal;
