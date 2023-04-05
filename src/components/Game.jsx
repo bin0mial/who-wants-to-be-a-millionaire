@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import indexQuestions from 'apis/questions';
 import QuestionContext from 'contexts/QuestionContext';
 import { MoneyProvider } from 'contexts/MoneyContext';
-import { decompressLZW } from 'helpers/compressors';
+import { decompressObjectifyLZW } from 'helpers/compressors';
 import Money from './Money/Money';
 import './Game.css';
 import Questions from './Questions/Questions';
@@ -15,9 +15,10 @@ const Game = () => {
 
   useEffect(() => {
     if (!questions || !questions?.length) {
-      const questionsResp = indexQuestions({ urlType: 'default', lang: i18n.language }, {
-        postFetch: (content) => JSON.parse(decompressLZW(content)),
-      });
+      const questionsResp = indexQuestions(
+        { urlType: 'default', lang: i18n.language },
+        { postFetch: decompressObjectifyLZW },
+      );
       setIsCustom(false);
       setQuestions(questionsResp);
     }
