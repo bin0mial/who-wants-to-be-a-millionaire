@@ -55,6 +55,8 @@
     },
     "noMoreQuestions": "No more questions!",
     "backToMain": "Back to Homepage",
-    "shareLink": "Share Link"
+    "shareLink": "Share Link",
+    "invalidShareLink": "Invalid Share Link",
+    "invalidShareLinkMessage": "The shared url <1>{{url}}</1> is invalid."
   }
 }

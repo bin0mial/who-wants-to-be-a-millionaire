@@ -63,7 +63,8 @@ const CustomQuestions = ({
         );
         setShowModal(false);
       };
-      storeQuestions({ db, questions: compressLZW(JSON.stringify(values.questions)).output }, { postStore });
+      const sharedQuestions = { questions: values.questions };
+      storeQuestions({ db, sharedQuestions: compressLZW(JSON.stringify(sharedQuestions)).output }, { postStore });
     }),
   };
 

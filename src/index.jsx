@@ -5,6 +5,7 @@ import { GameSettingsProvider } from 'contexts/GameSettingsContext';
 import { FirestoreProvider } from 'contexts/FirebaseContext';
 import AppLoading from 'components/Shared/Loadings/AppLoading';
 import { QuestionProvider } from 'contexts/QuestionContext';
+import { AppModalProvider } from 'contexts/AppModalContext';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './i18n';
@@ -17,7 +18,9 @@ root.render(
         <GameSettingsProvider>
           <GameControlProvider>
             <QuestionProvider>
-              <App />
+              <AppModalProvider>
+                <App />
+              </AppModalProvider>
             </QuestionProvider>
           </GameControlProvider>
         </GameSettingsProvider>
