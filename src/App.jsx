@@ -23,7 +23,7 @@ const App = () => {
 
       {isInitialized && (
       <div className="app">
-          {gameStarted ? <Game /> : <Homepage />}
+        {gameStarted ? <Game /> : <Homepage />}
       </div>
       )}
     </AppModalProvider>
