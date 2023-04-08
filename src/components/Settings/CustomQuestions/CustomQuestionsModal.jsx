@@ -14,7 +14,7 @@ const CustomQuestionsModal = () => {
   const submitButton = (
     <div className="row w-100">
       {submitActions.map(({ actionName, actionDisplay, btnVariant }) => (
-        <div key={`customQuestion.${actionName}Button`} className="col-sm-12 col-md-6 pb-2">
+        <div key={`customQuestion.${actionName}Button`} className="col-sm-12 col-md-12 col-lg-4 pb-2">
           <Button
             className={`btn btn-${btnVariant} w-100`}
             onClick={() => {

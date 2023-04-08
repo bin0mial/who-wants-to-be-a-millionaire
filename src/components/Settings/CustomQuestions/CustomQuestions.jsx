@@ -4,7 +4,6 @@ import FormikInput from 'components/Shared/Form/FormikInput/FormikInput';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinusCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
-import FormikSelect from 'components/Shared/Form/FormikSelect/FormikSelect';
 import { useContext, useEffect } from 'react';
 import ReactGA from 'react-ga4';
 import PropTypes from 'prop-types';
@@ -15,12 +14,14 @@ import storeQuestions from 'apis/firebase/questions/storeQuestions';
 import FirebaseContext from 'contexts/FirebaseContext';
 import AppModalContext from 'contexts/AppModalContext';
 import CopyButton from 'components/Shared/Buttons/CopyButton';
+import FormikSelectFloatingLabel from 'components/Shared/Form/FormikSelect/FormikSelectFloatingLabel';
 import CustomQuestionsValidationSchema from './CustomQuestionsValidationSchema';
+import FormikInputFloatingLabel from '../../Shared/Form/FormikInput/FormikInputFloatingLabel';
 
 const CustomQuestions = ({
   submitRef, setShowModal, setSubmitActions, currentAction,
 }) => {
-  const { t, i18n } = useTranslation('translation', { keyPrefix: 'questions' });
+  const { t } = useTranslation('translation', { keyPrefix: 'questions' });
   const answerKeys = ['a', 'b', 'c', 'd'];
   const answerOptions = answerKeys.map((key) => ({ key, display: t(`choices.${key}`) }));
   const {
@@ -100,16 +101,18 @@ const CustomQuestions = ({
               <div className="create-questions">
                 {values.questions.map((value, index) => (
                   <div key={value.id} className="create-question mb-3 p-2">
-                    <Button
-                      className={`btn btn-danger m-2 ${i18n.dir() === 'rtl' ? 'float-start' : 'float-end'}`}
-                      onClick={() => { remove(index); }}
-                    >
-                      <FontAwesomeIcon icon={faMinusCircle} />
-                    </Button>
-                    <div>
-                      {t('form.questionNumber', { number: index + 1 })}
+                    <div className="d-flex justify-content-between">
+                      <Button
+                        className="btn btn-danger m-2 order-last"
+                        onClick={() => { remove(index); }}
+                      >
+                        <FontAwesomeIcon icon={faMinusCircle} />
+                      </Button>
+                      <div className="d-flex align-self-center">
+                        {t('form.questionNumber', { number: index + 1 })}
+                      </div>
                     </div>
-                    <FormikInput name={`questions.${index}.question`} label={t('form.question')} />
+                    <FormikInputFloatingLabel name={`questions.${index}.question`} label={t('form.question')} />
                     <div className="create-options p-3">
                       {answerOptions.map((option) => (
                         <FormikInput
@@ -117,13 +120,16 @@ const CustomQuestions = ({
                           key={`${index}.${option.key}`}
                           name={`questions.${index}.options.${option.key}`}
                           label={option.display}
+                          inputGroup
+                          removeMargin={option === answerOptions[answerOptions.length - 1]}
                         />
                       ))}
                     </div>
-                    <FormikSelect
+                    <FormikSelectFloatingLabel
                       label={t('form.answer')}
                       name={`questions.${index}.answer`}
                       options={answerOptions}
+                      inputGroup
                     />
                   </div>
                 ))}

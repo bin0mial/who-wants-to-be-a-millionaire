@@ -5,7 +5,6 @@ import { GameSettingsProvider } from 'contexts/GameSettingsContext';
 import { FirestoreProvider } from 'contexts/FirebaseContext';
 import AppLoading from 'components/Shared/Loadings/AppLoading';
 import { QuestionProvider } from 'contexts/QuestionContext';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './i18n';
