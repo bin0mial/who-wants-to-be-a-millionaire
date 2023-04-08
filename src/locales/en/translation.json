@@ -44,9 +44,9 @@
         "btnVariant": "success",
         "text": "Submit Questions"
       },
-      "share": {
+      "saveShare": {
         "btnVariant": "secondary",
-        "text": "Share Questions"
+        "text": "Save and Share Questions"
       },
       "modal": {
         "title": "Add/Edit your questions",

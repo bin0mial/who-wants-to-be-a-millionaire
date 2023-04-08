@@ -47,7 +47,7 @@ const CustomQuestions = ({
       });
       exportObject(values.questions, compressLZW);
     },
-    share: ((values) => {
+    saveShare: ((values) => {
       const postStore = (resultId) => {
         const shareUrl = `${window.location.origin}?shareId=${resultId}`;
         showAppModal(
@@ -64,6 +64,8 @@ const CustomQuestions = ({
         setShowModal(false);
       };
       const sharedQuestions = { questions: values.questions };
+      setQuestions(values.questions);
+      setIsCustom(true);
       storeQuestions({ db, sharedQuestions: compressLZW(JSON.stringify(sharedQuestions)).output }, { postStore });
     }),
   };
