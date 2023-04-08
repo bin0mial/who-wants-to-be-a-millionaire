@@ -44,9 +44,9 @@
         "btnVariant": "success",
         "text": "اكد اسئلتك"
       },
-      "share": {
+      "saveShare": {
         "btnVariant": "secondary",
-        "text": "مشاركة اسئلتك"
+        "text": "حفظ ومشاركة اسئلتك"
       },
       "modal": {
         "title": "اضف/عدل  اسئلتك",
