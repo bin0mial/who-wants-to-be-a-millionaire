@@ -55,6 +55,8 @@
     },
     "noMoreQuestions": "أنتهت الاسئلة!",
     "backToMain": "ارجع الى الرئيسية",
-    "shareLink": "رابط المشاركة"
+    "shareLink": "رابط المشاركة",
+    "invalidShareLink": "رابط المشاركة غير صحيح",
+    "invalidShareLinkMessage": "ان رابط المشاركة <1>{{url}}</1> غير صحيح."
   }
 }

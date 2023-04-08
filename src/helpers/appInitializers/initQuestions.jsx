@@ -3,22 +3,38 @@ import FirebaseContext from 'contexts/FirebaseContext';
 import getQuestions from 'apis/firebase/questions/getQuestions';
 import QuestionContext from 'contexts/QuestionContext';
 import { decompressObjectifyLZW } from 'helpers/compressors';
+import { Trans, useTranslation } from 'react-i18next';
+import appModalContext from 'contexts/AppModalContext';
 
 const initQuestions = () => {
+  const { t } = useTranslation('translation', { keyPrefix: 'questions' });
   const { db } = useContext(FirebaseContext);
   const { setQuestions, setIsCustom } = useContext(QuestionContext);
+  const { showAppModal } = useContext(appModalContext);
   const urlSearchParams = new URLSearchParams(window.location.search);
   const [isInitialized, setIsInitialized] = useState(false);
 
-  const postFetchCallback = (result) => {
+  const postFetchCallback = (result, error) => {
     setIsInitialized(true);
-    return decompressObjectifyLZW(result);
+    if (error) {
+      showAppModal(
+        t('invalidShareLink'),
+        <Trans
+          i18nKey="questions.invalidShareLinkMessage"
+          values={{ url: window.location.href }}
+          components={{
+            1: <span className="img-thumbnail bg-light" />,
+          }}
+        />,
+      );
+    }
+    setQuestions(decompressObjectifyLZW(result).questions);
+    setIsCustom(true);
   };
 
   useEffect(() => {
     if (urlSearchParams.get('shareId')) {
-      setQuestions(getQuestions({ db, docId: urlSearchParams.get('shareId') }, { postFetch: postFetchCallback }));
-      setIsCustom(true);
+      getQuestions({ db, docId: urlSearchParams.get('shareId') }, { postFetch: postFetchCallback });
     } else {
       setIsInitialized(true);
     }

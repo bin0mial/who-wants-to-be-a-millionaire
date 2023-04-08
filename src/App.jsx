@@ -7,7 +7,6 @@ import Game from 'components/Game';
 import GameControlContext from 'contexts/GameControlContext';
 import ReactGA from 'react-ga4';
 import initApp from 'helpers/app';
-import { AppModalProvider } from 'contexts/AppModalContext';
 
 ReactGA.initialize(process.env.REACT_APP_FIREBASE_MEASUREMENT_ID);
 
@@ -18,7 +17,7 @@ const App = () => {
   const isInitialized = initApp();
 
   return (
-    <AppModalProvider>
+    <>
       <Helmet htmlAttributes={{ lang: i18n.language, dir: i18n.dir(i18n.language) }} />
 
       {isInitialized && (
@@ -26,7 +25,7 @@ const App = () => {
         {gameStarted ? <Game /> : <Homepage />}
       </div>
       )}
-    </AppModalProvider>
+    </>
   );
 };
 
