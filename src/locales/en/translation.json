@@ -4,6 +4,10 @@
     "defaultSelect": "Select Item",
     "close": "Close",
     "save": "Save",
+    "password": "Password",
+    "unlock": "Unlock",
+    "lockedContent": "LOCKED CONTENT",
+    "lockedContentDescription": "This content has been locked by a password, please enter the password to unlock the content",
     "copy": {
       "text": "Copy",
       "success": "Copied!",
@@ -36,6 +40,7 @@
       "question": "Question",
       "questionNumber": "Question number: {{number}}",
       "answer": "Answer",
+      "sharingOptions": "Sharing Options",
       "download": {
         "btnVariant": "info",
         "text": "Download Questions"

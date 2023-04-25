@@ -5,7 +5,7 @@ import Dropzone from 'react-dropzone';
 import { useContext, useState } from 'react';
 import ReactGA from 'react-ga4';
 import { decompressLZW } from 'helpers/compressors';
-import QuestionContext from 'contexts/QuestionContext';
+import { QuestionContext } from 'contexts/QuestionContext';
 import FormikInput from 'components/Shared/Form/FormikInput/FormikInput';
 import GameControlContext from 'contexts/GameControlContext';
 import { Helmet } from 'react-helmet';

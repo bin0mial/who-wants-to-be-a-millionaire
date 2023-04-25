@@ -4,6 +4,10 @@
     "defaultSelect": "اختر قيمة",
     "close": "اغلق",
     "save": "حفظ",
+    "password": "كلمة المرور",
+    "unlock": "فتح",
+    "lockedContent": "محتوى مقفل",
+    "lockedContentDescription": "تم قفل هذا المحتوى بكلمة مرور ، يرجى إدخال كلمة المرور لفتح المحتوى",
     "copy": {
       "text": "انسخ",
       "success": "تم النسخ!",
@@ -36,6 +40,7 @@
       "question": "السؤال",
       "questionNumber": "السؤال رقم: {{number}}",
       "answer": "الاجابة",
+      "sharingOptions": "اعدادات المشاركة",
       "download": {
         "btnVariant": "info",
         "text": "تحميل اسئلتك"

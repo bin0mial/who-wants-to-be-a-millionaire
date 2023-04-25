@@ -6,5 +6,6 @@
   "invalidNumber": "Must be a number",
   "tooLow": "Must be greater than or equal {{min}}",
   "tooHigh": "Must be less than or equal {{max}}",
-  "integer": "Must provide an integer value"
+  "integer": "Must provide an integer value",
+  "invalidPassword": "Invalid password"
 }

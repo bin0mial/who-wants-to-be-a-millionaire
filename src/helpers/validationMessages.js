@@ -17,6 +17,9 @@ const validationMessages = {
 
   // Selects
   invalidSelect: () => ({ key: 'validations:select' }),
+
+  // Auth
+  invalidPassword: () => ({ key: 'validations:invalidPassword' }),
 };
 
 export default validationMessages;

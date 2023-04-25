@@ -43,7 +43,7 @@ const GeneralModal = ({
 };
 
 GeneralModal.propTypes = {
-  headerText: PropTypes.string,
+  headerText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   show: PropTypes.bool.isRequired,
   setShow: PropTypes.func.isRequired,
   isAppModal: PropTypes.bool,
