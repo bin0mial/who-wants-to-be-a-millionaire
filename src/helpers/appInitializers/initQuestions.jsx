@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import FirebaseContext from 'contexts/FirebaseContext';
 import getQuestions from 'apis/firebase/questions/getQuestions';
-import QuestionContext from 'contexts/QuestionContext';
+import { QuestionContext, QuestionPasswordContext } from 'contexts/QuestionContext';
 import { decompressObjectifyLZW } from 'helpers/compressors';
 import { Trans, useTranslation } from 'react-i18next';
 import appModalContext from 'contexts/AppModalContext';
@@ -10,6 +10,7 @@ const initQuestions = () => {
   const { t } = useTranslation('translation', { keyPrefix: 'questions' });
   const { db } = useContext(FirebaseContext);
   const { setQuestions, setIsCustom } = useContext(QuestionContext);
+  const { lockPasswordQuestions } = useContext(QuestionPasswordContext);
   const { showAppModal } = useContext(appModalContext);
   const urlSearchParams = new URLSearchParams(window.location.search);
   const [isInitialized, setIsInitialized] = useState(false);
@@ -28,8 +29,12 @@ const initQuestions = () => {
         />,
       );
     }
-    setQuestions(decompressObjectifyLZW(result).questions);
+    const sharedQuestions = decompressObjectifyLZW(result);
+    setQuestions(sharedQuestions.questions);
     setIsCustom(true);
+    if (sharedQuestions.password) {
+      lockPasswordQuestions(sharedQuestions.password);
+    }
   };
 
   useEffect(() => {
