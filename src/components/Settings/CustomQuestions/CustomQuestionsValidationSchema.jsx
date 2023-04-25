@@ -2,7 +2,7 @@ import * as Yup from 'yup';
 import validationMessages from 'helpers/validationMessages';
 
 const CustomQuestionsValidationSchema = Yup.object().shape({
-  questions: Yup.array().of(Yup.object().shape({
+  questions: Yup.array().min(1, validationMessages.minNumber(1)).of(Yup.object().shape({
     id: Yup.number().typeError(validationMessages.invalidNumber()).required(validationMessages.requiredField),
     question: Yup.string().required(validationMessages.requiredField).max(250, validationMessages.maxChars(250)),
     options: Yup.object().shape(['a', 'b', 'c', 'd'].reduce(

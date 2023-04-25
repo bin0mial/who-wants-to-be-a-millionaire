@@ -7,7 +7,7 @@ import { faMinusCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { useContext, useEffect } from 'react';
 import ReactGA from 'react-ga4';
 import PropTypes from 'prop-types';
-import QuestionContext from 'contexts/QuestionContext';
+import { QuestionContext } from 'contexts/QuestionContext';
 import { exportObject } from 'helpers/export';
 import { compressLZW } from 'helpers/compressors';
 import storeQuestions from 'apis/firebase/questions/storeQuestions';
@@ -15,8 +15,11 @@ import FirebaseContext from 'contexts/FirebaseContext';
 import AppModalContext from 'contexts/AppModalContext';
 import CopyButton from 'components/Shared/Buttons/CopyButton';
 import FormikSelectFloatingLabel from 'components/Shared/Form/FormikSelect/FormikSelectFloatingLabel';
+import GeneralAccordion from 'components/Shared/Accordion/GeneralAccordion';
+import FormikPasswordInput from 'components/Shared/Form/FormikInput/FormikPasswordInput';
+import { md5Hash } from 'helpers/hashes';
+import FormikInputFloatingLabel from 'components/Shared/Form/FormikInput/FormikInputFloatingLabel';
 import CustomQuestionsValidationSchema from './CustomQuestionsValidationSchema';
-import FormikInputFloatingLabel from '../../Shared/Form/FormikInput/FormikInputFloatingLabel';
 
 const CustomQuestions = ({
   submitRef, setShowModal, setSubmitActions, currentAction,
@@ -64,6 +67,9 @@ const CustomQuestions = ({
         setShowModal(false);
       };
       const sharedQuestions = { questions: values.questions };
+      if (values.password.trim()) {
+        sharedQuestions.password = md5Hash(values.password.trim());
+      }
       setQuestions(values.questions);
       setIsCustom(true);
       storeQuestions({ db, sharedQuestions: compressLZW(JSON.stringify(sharedQuestions)).output }, { postStore });
@@ -88,6 +94,7 @@ const CustomQuestions = ({
       innerRef={submitRef}
       onSubmit={onSubmit}
       initialValues={{
+        password: '',
         questions: isCustom ? questions : [{
           id: 1,
           question: '',
@@ -101,7 +108,7 @@ const CustomQuestions = ({
         <form onSubmit={handleSubmit}>
           <FieldArray name="questions">
             {({ push, remove }) => (
-              <div className="create-questions">
+              <div className="create-questions mb-3">
                 {values.questions.map((value, index) => (
                   <div key={value.id} className="create-question mb-3 p-2">
                     <div className="d-flex justify-content-between">
@@ -153,6 +160,16 @@ const CustomQuestions = ({
               </div>
             )}
           </FieldArray>
+          <GeneralAccordion
+            items={[{
+              eventKey: 1,
+              header: t('form.sharingOptions'),
+              body: (
+                <FormikPasswordInput name="password" />
+              ),
+            }]}
+            mainKey="CustomQuestions"
+          />
         </form>
       )}
     </Formik>

@@ -1,14 +1,17 @@
-import { useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
+import { QuestionPasswordContext } from 'contexts/QuestionContext';
+import GeneralModal from 'components/Shared/Modals/GeneralModal';
+import UnlockPasswordModal from 'components/Shared/Modals/UnlockPasswordModal/UnlockPasswordModal';
 import CustomQuestions from './CustomQuestions';
-import GeneralModal from '../../Shared/Modals/GeneralModal';
 
 const CustomQuestionsModal = () => {
   const { t } = useTranslation('translation', { keyPrefix: 'questions.form.modal' });
   const [showModal, setShowModal] = useState(false);
   const [submitActions, setSubmitActions] = useState([]);
   const [action, setAction] = useState(null);
+  const { questionsPassword, unlockPasswordQuestions } = useContext(QuestionPasswordContext);
   const submitRef = useRef();
 
   const submitButton = (
@@ -29,16 +32,22 @@ const CustomQuestionsModal = () => {
     </div>
   );
 
+  const unlockQuestionsAction = (password) => unlockPasswordQuestions(password);
+
   return (
     <div className="d-flex justify-content-center">
-      <GeneralModal show={showModal} setShow={setShowModal} headerText={t('title')} actions={submitButton}>
-        <CustomQuestions
-          submitRef={submitRef}
-          setShowModal={setShowModal}
-          setSubmitActions={setSubmitActions}
-          currentAction={action}
-        />
-      </GeneralModal>
+      {questionsPassword.isLocked
+        ? <UnlockPasswordModal show={showModal} unlockAction={unlockQuestionsAction} setShow={setShowModal} /> : (
+          <GeneralModal show={showModal} setShow={setShowModal} headerText={t('title')} actions={submitButton}>
+            <CustomQuestions
+              submitRef={submitRef}
+              setShowModal={setShowModal}
+              setSubmitActions={setSubmitActions}
+              currentAction={action}
+            />
+          </GeneralModal>
+        )}
+
       <Button
         variant="success"
         type="button"
