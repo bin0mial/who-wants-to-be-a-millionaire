@@ -1,0 +1,7 @@
+[dir='ltr'] .accordion-button::after{
+    margin-right: initial;
+}
+
+[dir='rtl'] .accordion-button::after{
+    margin-left: initial;
+}
