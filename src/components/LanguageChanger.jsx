@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
-import QuestionContext from '../contexts/QuestionContext';
+import { QuestionContext } from 'contexts/QuestionContext';
 
 const LanguageChanger = () => {
   const { t, i18n } = useTranslation('translation', { keyPrefix: 'homepage' });

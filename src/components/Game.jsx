@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet';
 import indexQuestions from 'apis/questions';
-import QuestionContext from 'contexts/QuestionContext';
+import { QuestionContext } from 'contexts/QuestionContext';
 import { MoneyProvider } from 'contexts/MoneyContext';
 import { decompressObjectifyLZW } from 'helpers/compressors';
 import Money from './Money/Money';
