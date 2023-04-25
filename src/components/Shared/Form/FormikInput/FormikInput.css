@@ -1,0 +1,19 @@
+[dir='ltr'] .input-group>:is(:first-child) {
+  border-top-left-radius: 5px !important;
+  border-bottom-left-radius: 5px !important;
+}
+
+[dir='ltr'] .input-group>:is(:last-child) {
+  border-top-right-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+}
+
+[dir='rtl'] .input-group>:is(:first-child) {
+  border-top-right-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+}
+
+[dir='rtl'] .input-group>:is(:last-child) {
+  border-top-left-radius: 5px !important;
+  border-bottom-left-radius: 5px !important;
+}
