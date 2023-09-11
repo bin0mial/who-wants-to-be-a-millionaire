@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 const Answer = ({
   id, answer, handleChoice, isSelected, wronglySelected, rightAnswer, disabled,
 }) => {
-  const { t } = useTranslation('translation', { keyPrefix: 'questions' });
+  const { t } = useTranslation('questions');
   const classNames = [
     'answer',
     'w-100',

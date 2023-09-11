@@ -7,7 +7,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import appModalContext from 'contexts/AppModalContext';
 
 const initQuestions = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'questions' });
+  const { t } = useTranslation('questions');
   const { db } = useContext(FirebaseContext);
   const { setQuestions, setIsCustom } = useContext(QuestionContext);
   const { lockPasswordQuestions } = useContext(QuestionPasswordContext);

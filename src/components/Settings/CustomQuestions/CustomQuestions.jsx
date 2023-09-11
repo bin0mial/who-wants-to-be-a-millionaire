@@ -24,7 +24,7 @@ import CustomQuestionsValidationSchema from './CustomQuestionsValidationSchema';
 const CustomQuestions = ({
   submitRef, setShowModal, setSubmitActions, currentAction,
 }) => {
-  const { t } = useTranslation('translation', { keyPrefix: 'questions' });
+  const { t } = useTranslation('questions');
   const answerKeys = ['a', 'b', 'c', 'd'];
   const answerOptions = answerKeys.map((key) => ({ key, display: t(`choices.${key}`) }));
   const {

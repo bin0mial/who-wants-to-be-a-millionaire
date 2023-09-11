@@ -10,7 +10,7 @@ const AlwaysScrollToBottom = ({ listener }) => {
 };
 
 AlwaysScrollToBottom.propTypes = {
-  listener: PropTypes.oneOfType(Object),
+  listener: PropTypes.instanceOf(Object),
 };
 
 AlwaysScrollToBottom.defaultProps = {

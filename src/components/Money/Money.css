@@ -56,8 +56,21 @@
     position: absolute;
     width: 15px;
     height: 15px;
-    background: radial-gradient(circle, red 0%, darkred 25%, darkblue 75%, blue 100%);;
+    background: radial-gradient(circle, red 0%, darkred 25%, darkblue 75%, blue 100%);
     border-radius: 50%;
     top: 6px;
     left: 20px;
 }
+.money-list ul li.active.current span{
+    animation-delay: 3s;
+    -moz-animation:blink normal 1.5s infinite ease-in-out; /* Firefox */
+    -webkit-animation:blink normal 1.5s infinite ease-in-out; /* Webkit */
+    animation:blink normal 1.5s infinite ease-in-out; /* Opera */
+}
+
+
+@-moz-keyframes blink {0%{opacity:1;} 50%{opacity:0.5;} 100%{opacity:1;}} /* Firefox */
+@-webkit-keyframes blink {0%{opacity:1;} 50%{opacity:0.5;} 100%{opacity:1;}} /* Webkit */
+@-ms-keyframes blink {0%{opacity:1;} 50%{opacity:0.5;} 100%{opacity:1;}} /* IE */
+@keyframes blink {0%{opacity:1;} 50%{opacity:0.5;} 100%{opacity:1;}} /* Opera */
+

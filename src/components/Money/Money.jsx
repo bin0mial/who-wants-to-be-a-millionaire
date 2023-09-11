@@ -27,7 +27,13 @@ const Money = () => {
     <div className="money-list">
       <ul>
         {[...Array(questionsLength)].map((_, index) => (
-          <li key={money[index]} className={index < currentMoneyIndex ? 'active' : ''}>
+          <li
+            key={money[index]}
+            className={[
+              index < currentMoneyIndex ? 'active' : '',
+              index === currentMoneyIndex - 1 ? 'current' : '',
+            ].join(' ')}
+          >
             <span />
             {money[index]}
           </li>

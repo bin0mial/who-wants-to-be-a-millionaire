@@ -7,7 +7,7 @@ import UnlockPasswordModal from 'components/Shared/Modals/UnlockPasswordModal/Un
 import CustomQuestions from './CustomQuestions';
 
 const CustomQuestionsModal = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'questions.form.modal' });
+  const { t } = useTranslation('questions', { keyPrefix: 'form.modal' });
   const [showModal, setShowModal] = useState(false);
   const [submitActions, setSubmitActions] = useState([]);
   const [action, setAction] = useState(null);

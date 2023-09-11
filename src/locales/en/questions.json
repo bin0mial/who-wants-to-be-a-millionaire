@@ -1,0 +1,35 @@
+{
+  "choices": {
+    "a": "A",
+    "b": "B",
+    "c": "C",
+    "d": "D"
+  },
+  "form": {
+    "question": "Question",
+    "questionNumber": "Question number: {{number}}",
+    "answer": "Answer",
+    "sharingOptions": "Sharing Options",
+    "download": {
+      "btnVariant": "info",
+      "text": "Download Questions"
+    },
+    "submit": {
+      "btnVariant": "success",
+      "text": "Submit Questions"
+    },
+    "saveShare": {
+      "btnVariant": "secondary",
+      "text": "Save and Share Questions"
+    },
+    "modal": {
+      "title": "Add/Edit your questions",
+      "addQuestions": "Add/Edit your questions"
+    }
+  },
+  "noMoreQuestions": "No more questions!",
+  "backToMain": "Back to Homepage",
+  "shareLink": "Share Link",
+  "invalidShareLink": "Invalid Share Link",
+  "invalidShareLinkMessage": "The shared url <1>{{url}}</1> is invalid."
+}
