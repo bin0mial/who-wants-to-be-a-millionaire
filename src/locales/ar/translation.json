@@ -28,40 +28,5 @@
       "selectedQuestionsFile": "الملف المحدد",
       "startGame": "ابدأ اللعب"
     }
-  },
-  "questions": {
-    "choices": {
-      "a": "أ",
-      "b": "ب",
-      "c": "ج",
-      "d": "د"
-    },
-    "form": {
-      "question": "السؤال",
-      "questionNumber": "السؤال رقم: {{number}}",
-      "answer": "الاجابة",
-      "sharingOptions": "اعدادات المشاركة",
-      "download": {
-        "btnVariant": "info",
-        "text": "تحميل اسئلتك"
-      },
-      "submit": {
-        "btnVariant": "success",
-        "text": "اكد اسئلتك"
-      },
-      "saveShare": {
-        "btnVariant": "secondary",
-        "text": "حفظ ومشاركة اسئلتك"
-      },
-      "modal": {
-        "title": "اضف/عدل  اسئلتك",
-        "addQuestions": "اضف/عدل اسئلتك"
-      }
-    },
-    "noMoreQuestions": "أنتهت الاسئلة!",
-    "backToMain": "ارجع الى الرئيسية",
-    "shareLink": "رابط المشاركة",
-    "invalidShareLink": "رابط المشاركة غير صحيح",
-    "invalidShareLinkMessage": "ان رابط المشاركة <1>{{url}}</1> غير صحيح."
   }
 }
