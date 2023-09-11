@@ -14,6 +14,7 @@ import LanguageChanger from './LanguageChanger';
 import './Homepage.css';
 import CustomQuestionsModal from './Settings/CustomQuestions/CustomQuestionsModal';
 import AppSettingsModal from './Settings/AppSettings/AppSettingsModal';
+import PlayerContext from '../contexts/PlayerContext';
 
 const Homepage = () => {
   const { t } = useTranslation('translation', { keyPrefix: 'homepage' });
@@ -21,6 +22,7 @@ const Homepage = () => {
   const [draggingFile, setDraggingFile] = useState(false);
   const [isReadyFile, setIsReadyFile] = useState(true);
   const { setQuestions, setIsCustom } = useContext(QuestionContext);
+  const { playerInfo, setPlayerInfo } = useContext(PlayerContext);
 
   const readQuestions = (file, onLoad) => {
     ReactGA.event({
@@ -39,6 +41,7 @@ const Homepage = () => {
   };
 
   const onSubmit = (values, { setSubmitting }) => {
+    setPlayerInfo({ ...values });
     ReactGA.event({
       category: 'gamePlay',
       action: 'Start the game',
@@ -62,7 +65,7 @@ const Homepage = () => {
             <div>{t('aboutApp')}</div>
           </div>
         </div>
-        <Formik initialValues={{ name: '', questionsJsonFile: null }} onSubmit={onSubmit}>
+        <Formik initialValues={{ name: playerInfo.name, questionsJsonFile: null }} onSubmit={onSubmit}>
           {({ handleSubmit, isSubmitting, setFieldValue }) => (
             <form onSubmit={handleSubmit}>
               <h3>{t('form.header')}</h3>

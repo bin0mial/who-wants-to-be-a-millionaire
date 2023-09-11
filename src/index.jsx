@@ -6,6 +6,7 @@ import { FirestoreProvider } from 'contexts/FirebaseContext';
 import AppLoading from 'components/Shared/Loadings/AppLoading';
 import { QuestionProvider } from 'contexts/QuestionContext';
 import { AppModalProvider } from 'contexts/AppModalContext';
+import { PlayerProvider } from 'contexts/PlayerContext';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './i18n';
@@ -14,17 +15,19 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Suspense fallback={<AppLoading />}>
-      <FirestoreProvider>
-        <GameSettingsProvider>
-          <GameControlProvider>
-            <QuestionProvider>
-              <AppModalProvider>
-                <App />
-              </AppModalProvider>
-            </QuestionProvider>
-          </GameControlProvider>
-        </GameSettingsProvider>
-      </FirestoreProvider>
+      <PlayerProvider>
+        <FirestoreProvider>
+          <GameSettingsProvider>
+            <GameControlProvider>
+              <QuestionProvider>
+                <AppModalProvider>
+                  <App />
+                </AppModalProvider>
+              </QuestionProvider>
+            </GameControlProvider>
+          </GameSettingsProvider>
+        </FirestoreProvider>
+      </PlayerProvider>
     </Suspense>
   </React.StrictMode>,
 );

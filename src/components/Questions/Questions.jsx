@@ -7,9 +7,11 @@ import wrongSound from 'assets/sounds/wrong.mp3';
 import GameControlContext from 'contexts/GameControlContext';
 import GameSettingsContext from 'contexts/GameSettingsContext';
 import { MoneyContext } from 'contexts/MoneyContext';
+import PlayerContext from 'contexts/PlayerContext';
+import AlwaysScrollToBottom from 'components/Shared/Scrolling/AlwaysScrollToBottom';
+import { Trans } from 'react-i18next';
 import Answer from './Answer';
 import Timer from './Timer/Timer';
-import AlwaysScrollToBottom from '../Shared/Scrolling/AlwaysScrollToBottom';
 import GameOver from './GameOver';
 
 const audios = {
@@ -27,6 +29,7 @@ const Questions = ({ questions }) => {
   const { endGame } = useContext(GameControlContext);
   const { gameSettings } = useContext(GameSettingsContext);
   const { increaseMoneyIndex, isLoaded } = useContext(MoneyContext);
+  const { playerInfo } = useContext(PlayerContext);
 
   const playAudio = (audio) => {
     if (!gameSettings.enableSounds) return;
@@ -91,6 +94,20 @@ const Questions = ({ questions }) => {
 
   return isOver || !activeQuestion ? (<GameOver endGameButton={endGame} isWinner={!activeQuestion} />) : (
     <>
+      <div>
+        {playerInfo.name && (
+        <div>
+          <Trans
+            ns="questions"
+            i18nKey="currentPlayer"
+            values={{ playerName: playerInfo.name }}
+            components={{
+              1: <span className="on-game-player-name" />,
+            }}
+          />
+        </div>
+        )}
+      </div>
       {gameSettings.enableTimer && (
         <Timer
           key={activeQuestion.id}
