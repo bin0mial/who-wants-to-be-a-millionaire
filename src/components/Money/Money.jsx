@@ -1,16 +1,17 @@
 import { useContext, useEffect, useState } from 'react';
 import './Money.css';
 import { MoneyContext, MoneyIndexContext } from 'contexts/MoneyContext';
+import { QuestionContext } from 'contexts/QuestionContext';
 
 const Money = () => {
   const { money } = useContext(MoneyContext);
   const { currentMoneyIndex, setCurrentMoneyIndex, setLoaded } = useContext(MoneyIndexContext);
+  const { questions } = useContext(QuestionContext);
   const [isInitialized, setIsInitialized] = useState(false);
-  const moneyLength = money.length;
-  const activeMoneyTableIndex = money.length - currentMoneyIndex;
+  const questionsLength = questions.length;
 
   useEffect(() => {
-    if (moneyLength <= currentMoneyIndex - 1) {
+    if (questionsLength <= currentMoneyIndex - 1) {
       setCurrentMoneyIndex(1);
       setIsInitialized(true);
       setLoaded();
@@ -20,15 +21,15 @@ const Money = () => {
         setCurrentMoneyIndex(currentMoneyIndex + 1);
       }, 50);
     }
-  }, [currentMoneyIndex, isInitialized, moneyLength]);
+  }, [currentMoneyIndex, isInitialized, questionsLength]);
 
   return (
     <div className="money-list">
       <ul>
-        {money.map((number, index) => (
-          <li key={number} className={index >= activeMoneyTableIndex ? 'active' : ''}>
+        {[...Array(questionsLength)].map((_, index) => (
+          <li key={money[index]} className={index < currentMoneyIndex ? 'active' : ''}>
             <span />
-            {number}
+            {money[index]}
           </li>
         ))}
       </ul>

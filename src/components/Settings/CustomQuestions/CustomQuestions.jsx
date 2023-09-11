@@ -112,12 +112,14 @@ const CustomQuestions = ({
                 {values.questions.map((value, index) => (
                   <div key={value.id} className="create-question mb-3 p-2">
                     <div className="d-flex justify-content-between">
-                      <Button
-                        className="btn btn-danger m-2 order-last"
-                        onClick={() => { remove(index); }}
-                      >
-                        <FontAwesomeIcon icon={faMinusCircle} />
-                      </Button>
+                      {values.questions.length > 1 && (
+                        <Button
+                          className="btn btn-danger m-2 order-last"
+                          onClick={() => { remove(index); }}
+                        >
+                          <FontAwesomeIcon icon={faMinusCircle} />
+                        </Button>
+                      )}
                       <div className="d-flex align-self-center">
                         {t('form.questionNumber', { number: index + 1 })}
                       </div>
@@ -143,20 +145,22 @@ const CustomQuestions = ({
                     />
                   </div>
                 ))}
-                <Button
-                  onClick={() => {
-                    const clonedQuestion = {
-                      id: Math.max(...values.questions.map((o) => o.id)) + 1,
-                      question: '',
-                      options: answerKeys.reduce((acc, key) => Object.assign(acc, { [key]: '' }), {}),
-                      answer: '',
-                    };
-                    push(clonedQuestion);
-                  }}
-                  className="w-100"
-                >
-                  <FontAwesomeIcon icon={faPlusCircle} />
-                </Button>
+                {values.questions.length < 15 && (
+                  <Button
+                    onClick={() => {
+                      const clonedQuestion = {
+                        id: Math.max(...values.questions.map((o) => o.id)) + 1,
+                        question: '',
+                        options: answerKeys.reduce((acc, key) => Object.assign(acc, { [key]: '' }), {}),
+                        answer: '',
+                      };
+                      push(clonedQuestion);
+                    }}
+                    className="w-100"
+                  >
+                    <FontAwesomeIcon icon={faPlusCircle} />
+                  </Button>
+                )}
               </div>
             )}
           </FieldArray>

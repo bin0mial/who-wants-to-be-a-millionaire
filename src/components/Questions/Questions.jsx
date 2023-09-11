@@ -11,6 +11,7 @@ import GameSettingsContext from 'contexts/GameSettingsContext';
 import { MoneyContext } from 'contexts/MoneyContext';
 import Answer from './Answer';
 import Timer from './Timer/Timer';
+import AlwaysScrollToBottom from '../Shared/Scrolling/AlwaysScrollToBottom';
 
 const audios = {
   playSound: new Audio(playSound),
@@ -125,6 +126,7 @@ const Questions = ({ questions }) => {
             />
           ))}
         </div>
+        <AlwaysScrollToBottom listener={activeQuestion} />
       </>
     );
 };
