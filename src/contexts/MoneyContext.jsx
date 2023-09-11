@@ -2,9 +2,7 @@ import {
   createContext, useMemo, useRef, useState,
 } from 'react';
 import PropTypes from 'prop-types';
-import moneyArray from 'components/Money/money.json';
-
-const money = [...moneyArray].reverse();
+import money from 'components/Money/money.json';
 
 const MoneyContext = createContext(null);
 
