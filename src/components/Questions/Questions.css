@@ -1,3 +1,8 @@
+.on-game-player-name {
+    font-weight: bold;
+    color: deepskyblue;
+}
+
 .question {
     min-height: 15%;
     width: 75%;
