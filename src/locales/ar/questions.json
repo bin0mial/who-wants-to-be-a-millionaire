@@ -27,10 +27,12 @@
       "addQuestions": "اضف/عدل اسئلتك"
     }
   },
+  "currentPlayer": "اللاعب: <1>{{playerName}}</1>",
   "shareLink": "رابط المشاركة",
   "invalidShareLink": "رابط المشاركة غير صحيح",
   "invalidShareLinkMessage": "ان رابط المشاركة <1>{{url}}</1> غير صحيح.",
   "gameOver": {
+    "callPlayer": "يا <1>{{playerName}}!</1>",
     "backToMain": "ارجع الى الرئيسية",
     "youWin": "لقد ربحت <bold>{{money}}</bold> ر.س",
     "youLose": "حظ سعيد المرة القادمة، ولكنك ربحت <bold>{{money}}</bold> ر.س"

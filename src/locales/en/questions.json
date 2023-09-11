@@ -27,9 +27,15 @@
       "addQuestions": "Add/Edit your questions"
     }
   },
+  "currentPlayer": "Player: <1>{{playerName}}</1>",
   "noMoreQuestions": "No more questions!",
-  "backToMain": "Back to Homepage",
   "shareLink": "Share Link",
   "invalidShareLink": "Invalid Share Link",
-  "invalidShareLinkMessage": "The shared url <1>{{url}}</1> is invalid."
+  "invalidShareLinkMessage": "The shared url <1>{{url}}</1> is invalid.",
+  "gameOver": {
+    "callPlayer": "<1>{{playerName}}!</1>",
+    "backToMain": "Back to Homepage",
+    "youWin": "Congratulations, you won <bold>{{money}}</bold> USD",
+    "youLose": "Hard luck!، but you won <bold>{{money}}</bold> USD"
+  }
 }
