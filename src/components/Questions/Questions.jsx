@@ -1,17 +1,16 @@
 import { useContext, useEffect, useState } from 'react';
 import './Questions.css';
 import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next';
 import playSound from 'assets/sounds/play.mp3';
 import correctSound from 'assets/sounds/correct.mp3';
 import wrongSound from 'assets/sounds/wrong.mp3';
-import { Button } from 'react-bootstrap';
 import GameControlContext from 'contexts/GameControlContext';
 import GameSettingsContext from 'contexts/GameSettingsContext';
 import { MoneyContext } from 'contexts/MoneyContext';
 import Answer from './Answer';
 import Timer from './Timer/Timer';
 import AlwaysScrollToBottom from '../Shared/Scrolling/AlwaysScrollToBottom';
+import GameOver from './GameOver';
 
 const audios = {
   playSound: new Audio(playSound),
@@ -20,7 +19,6 @@ const audios = {
 };
 
 const Questions = ({ questions }) => {
-  const { t } = useTranslation('translation', { keyPrefix: 'questions' });
   const [activeQuestion, setActiveQuestion] = useState(questions[0]);
   const [selectedId, setSelectedId] = useState();
   const [wronglySelected, setWronglySelected] = useState();
@@ -48,10 +46,10 @@ const Questions = ({ questions }) => {
     setRightAnswer(null);
     setWronglySelected(null);
     const currentQuestionIndex = questions.findIndex((question) => question.id === activeQuestion.id);
+    setActiveQuestion(questions[currentQuestionIndex + 1]);
     if (currentQuestionIndex < questions.length - 1) {
-      playAudio(audios.playSound);
-      setActiveQuestion(questions[currentQuestionIndex + 1]);
       increaseMoneyIndex();
+      playAudio(audios.playSound);
     } else {
       setIsOver(true);
     }
@@ -91,44 +89,36 @@ const Questions = ({ questions }) => {
     }
   };
 
-  return isOver || !activeQuestion ? (
-    <div className="text-center">
-      <div>{t('noMoreQuestions')}</div>
-      <div>
-        <Button variant="primary" onClick={endGame}>{t('backToMain')}</Button>
-      </div>
-    </div>
-  )
-    : (
-      <>
-        {gameSettings.enableTimer && (
+  return isOver || !activeQuestion ? (<GameOver endGameButton={endGame} isWinner={!activeQuestion} />) : (
+    <>
+      {gameSettings.enableTimer && (
         <Timer
           key={activeQuestion.id}
           isReady={isLoaded}
           onTimeout={solve}
           timeInSeconds={gameSettings.timerCountDown}
         />
-        )}
-        <div className="question">
-          {activeQuestion.question}
-        </div>
-        <div className="answers">
-          {Object.entries(activeQuestion.options).map(([id, answer]) => (
-            <Answer
-              key={id}
-              id={id}
-              answer={answer}
-              handleChoice={handleChoice}
-              isSelected={selectedId === id}
-              wronglySelected={wronglySelected === id}
-              rightAnswer={rightAnswer === id}
-              disabled={!isLoaded}
-            />
-          ))}
-        </div>
-        <AlwaysScrollToBottom listener={activeQuestion} />
-      </>
-    );
+      )}
+      <div className="question">
+        {activeQuestion.question}
+      </div>
+      <div className="answers">
+        {Object.entries(activeQuestion.options).map(([id, answer]) => (
+          <Answer
+            key={id}
+            id={id}
+            answer={answer}
+            handleChoice={handleChoice}
+            isSelected={selectedId === id}
+            wronglySelected={wronglySelected === id}
+            rightAnswer={rightAnswer === id}
+            disabled={!isLoaded}
+          />
+        ))}
+      </div>
+      <AlwaysScrollToBottom listener={activeQuestion} />
+    </>
+  );
 };
 
 Questions.propTypes = {

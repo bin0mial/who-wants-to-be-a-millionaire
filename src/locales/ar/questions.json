@@ -27,9 +27,12 @@
       "addQuestions": "اضف/عدل اسئلتك"
     }
   },
-  "noMoreQuestions": "أنتهت الاسئلة!",
-  "backToMain": "ارجع الى الرئيسية",
   "shareLink": "رابط المشاركة",
   "invalidShareLink": "رابط المشاركة غير صحيح",
-  "invalidShareLinkMessage": "ان رابط المشاركة <1>{{url}}</1> غير صحيح."
+  "invalidShareLinkMessage": "ان رابط المشاركة <1>{{url}}</1> غير صحيح.",
+  "gameOver": {
+    "backToMain": "ارجع الى الرئيسية",
+    "youWin": "لقد ربحت <bold>{{money}}</bold> ر.س",
+    "youLose": "حظ سعيد المرة القادمة، ولكنك ربحت <bold>{{money}}</bold> ر.س"
+  }
 }

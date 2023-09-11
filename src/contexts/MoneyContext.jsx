@@ -9,7 +9,7 @@ const MoneyContext = createContext(null);
 const MoneyIndexContext = createContext(null);
 
 const MoneyProvider = ({ children }) => {
-  const [currentMoneyIndex, setCurrentMoneyIndex] = useState(0);
+  const [currentMoneyIndex, setCurrentMoneyIndex] = useState(1);
   const loadedRef = useRef(false);
 
   const increaseMoneyIndex = () => {
@@ -21,6 +21,7 @@ const MoneyProvider = ({ children }) => {
   };
 
   const contextValue = useMemo(() => ({
+    collectedMoney: money[currentMoneyIndex - 2] || 0,
     isLoaded: loadedRef.current,
     money,
     increaseMoneyIndex,
