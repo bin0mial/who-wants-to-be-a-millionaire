@@ -21,7 +21,8 @@ const initQuestions = () => {
       showAppModal(
         t('invalidShareLink'),
         <Trans
-          i18nKey="questions.invalidShareLinkMessage"
+          i18nKey="invalidShareLinkMessage"
+          ns="questions"
           values={{ url: window.location.href }}
           components={{
             1: <span className="img-thumbnail bg-light" />,
