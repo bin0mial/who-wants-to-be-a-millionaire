@@ -126,7 +126,7 @@ const Homepage = () => {
         <div className="col-12 mb-2">
           <Trans
             i18nKey="homepage.footer"
-            values={{ githubUser: '@bin0mial', appName: t('appName') }}
+            values={{ appName: t('appName') }}
             components={{
               1: <a href="https://github.com/bin0mial">Github</a>,
               3: <a href="https://github.com/bin0mial/who-wants-to-be-a-millionaire">Github Repo</a>,
