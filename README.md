@@ -5,7 +5,7 @@ This project simulates `who wants to be a millionaire` for educational purposes
 
 ## 🚀 Demo
 
-[https://who-wants-to-be-a-millionaire-ar.netlify.app/](https://who-wants-to-be-a-millionaire-ar.netlify.app/)
+[https://game4million.netlify.app/](https://game4million.netlify.app/)
 
 
 ## Video Tutorials
