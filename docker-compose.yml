@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  app:
+  app: &app
     build:
       context: .
       dockerfile: "./docker/Dockerfile"
@@ -15,3 +15,11 @@ services:
       - "3000:3000"
     entrypoint: "/home/${APP_USER:-millionaire}/entrypoint.sh"
     command: ["npm", "start"]
+    profiles:
+      - dev
+  build-app:
+    <<: *app
+    ports: []
+    command: ['npm', 'run', 'build']
+    profiles:
+      - build

@@ -71,7 +71,7 @@ This project simulates `who wants to be a millionaire` for educational purposes
   ```
 - Start docker compose
   ```shell
-  docker compose up
+  docker compose up app
   ```
 
 #### For Local users
