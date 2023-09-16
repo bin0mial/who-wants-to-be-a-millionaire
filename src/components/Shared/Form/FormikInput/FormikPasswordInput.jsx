@@ -26,7 +26,7 @@ const FormikPasswordInput = ({
       inputGroup
     >
       <Button variant="outline-secondary" onClick={togglePasswordVisibility}>
-        <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+        <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} />
       </Button>
     </FormikInput>
   );

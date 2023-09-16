@@ -16,15 +16,15 @@
     },
     "submit": {
       "btnVariant": "success",
-      "text": "اكد اسئلتك"
+      "text": "حفظ"
     },
     "saveShare": {
       "btnVariant": "secondary",
       "text": "حفظ ومشاركة اسئلتك"
     },
     "modal": {
-      "title": "اضف/عدل  اسئلتك",
-      "addQuestions": "اضف/عدل اسئلتك"
+      "title": "تعديل الأسئلة",
+      "addQuestions": "تعديل الأسئلة"
     }
   },
   "currentPlayer": "اللاعب: <1>{{playerName}}</1>",

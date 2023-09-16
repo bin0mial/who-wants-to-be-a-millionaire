@@ -16,15 +16,15 @@
     },
     "submit": {
       "btnVariant": "success",
-      "text": "Submit Questions"
+      "text": "Save"
     },
     "saveShare": {
       "btnVariant": "secondary",
       "text": "Save and Share Questions"
     },
     "modal": {
-      "title": "Add/Edit your questions",
-      "addQuestions": "Add/Edit your questions"
+      "title": "Edit Questions",
+      "addQuestions": "Edit Questions"
     }
   },
   "currentPlayer": "Player: <1>{{playerName}}</1>",
