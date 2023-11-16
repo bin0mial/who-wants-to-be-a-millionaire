@@ -1,7 +1,7 @@
 
 # Who wants to be a millionaire
 
-This project simulates `who wants to be a millionaire` for educational purposes
+This project simulates `Who wants to be a millionaire` for educational purposes
 
 ## 🚀 Demo
 
@@ -10,10 +10,10 @@ This project simulates `who wants to be a millionaire` for educational purposes
 
 ## Video Tutorials
 - [Game play](https://drive.google.com/file/d/1PB6Wo8x3IMjVTUs1xMvCFfhVsJNyzzPP/view?usp=sharing)
-- [Create and play a custom questions](https://drive.google.com/file/d/10vg6ke3u4hIsp74TDjy6JamdrPjlcL0s/view?usp=sharing)
-- [Export a custom questions](https://drive.google.com/file/d/148xcstYN8h5uc5L_52SvPcBbfZbwtnq1/view?usp=sharing)
+- [Create and play custom questions](https://drive.google.com/file/d/10vg6ke3u4hIsp74TDjy6JamdrPjlcL0s/view?usp=sharing)
+- [Export custom questions](https://drive.google.com/file/d/148xcstYN8h5uc5L_52SvPcBbfZbwtnq1/view?usp=sharing)
 - [Import and play a custom questions](https://drive.google.com/file/d/1LF2Y2jFRz8ipCx7CEe2oFZgFNno9vL5n/view?usp=sharing)
-- [Import, edit and play custom questions](https://drive.google.com/file/d/106S3cTMzX4BcT3nlmU01WYWqrGK8ET2l/view?usp=sharing)
+- [Import, edit, and play custom questions](https://drive.google.com/file/d/106S3cTMzX4BcT3nlmU01WYWqrGK8ET2l/view?usp=sharing)
 
 ## Features
 
@@ -24,8 +24,8 @@ This project simulates `who wants to be a millionaire` for educational purposes
 - Play and edit custom questions
 - Sound effects
 - Settings
-  - Stop game upon losing
-  - Continue game showing wrong answer on choosing wrong answer (stops `Stop game upon losing` option)
+  - Stop the game upon losing
+  - Continue game showing the wrong answer on choosing the wrong answer (stops `Stop game upon losing` option)
 
 ## Installation Steps
 
@@ -36,7 +36,7 @@ This project simulates `who wants to be a millionaire` for educational purposes
 - You should have [Docker](https://docs.docker.com/engine/install/ubuntu/) installed on your host OS.
 - Apply [post installation steps](https://docs.docker.com/engine/install/linux-postinstall/) to use docker without `sudo`.
 
-#### Local setup (for non docker users)
+#### Local setup (for non-docker users)
 
 - Install nodejs
   - Download PPA in order to get access to its packages
@@ -44,7 +44,7 @@ This project simulates `who wants to be a millionaire` for educational purposes
     cd ~
     curl -sL https://deb.nodesource.com/setup_18.x -o /tmp/nodesource_setup.sh
     ```
-  - Run setup script
+  - Run the setup script
     ```shell
     sudo bash /tmp/nodesource_setup.sh
     ```
@@ -65,7 +65,7 @@ This project simulates `who wants to be a millionaire` for educational purposes
   ```shell
   cp .env.example .env
   ```
-- Replace APP_USER_ID with you current user id
+- Replace APP_USER_ID with your current user id
   ```shell
   sed  -i "/APP_USER_ID=/c\APP_USER_ID=$(id -u)" .env
   ```
@@ -99,10 +99,10 @@ This project can be used for:
 #### Is it possible to rely on the application as a final exam program?
 
 **No**,
-Because this application totally runs on your browser only, there is no server to protect the question and answers.
+Because this application runs on your browser only, there is no server to protect the questions and answers.
 
-#### Can I share the application with custom question using direct link?
-Currently no, but it is planned to be implemented soon.
+#### Can I share the application with a custom question using a direct link?
+Yes, Simply, add your custom question and click on the `Save and Share Questions` button.
 
 #### What is the best case to use this application?
 The best case is when you want to project your screen and ask people individually, or to see the person you want to solve the custom questions you added without letting him see the answers.
