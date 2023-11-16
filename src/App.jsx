@@ -1,5 +1,5 @@
 import './App.css';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import Homepage from 'components/Homepage';
@@ -15,6 +15,14 @@ const App = () => {
   const { gameStarted } = useContext(GameControlContext);
 
   const isInitialized = initApp();
+
+  useEffect(() => {
+    if (isInitialized) {
+      const sharedId = (new URLSearchParams(window.location.search)).get('shareId');
+      const title = sharedId ? `Custom ${sharedId}` : 'Homepage';
+      ReactGA.send({ hitType: 'pageview', page: window.location.pathname + window.location.search, title });
+    }
+  }, [window.location, isInitialized]);
 
   return (
     <>
