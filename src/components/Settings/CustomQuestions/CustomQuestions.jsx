@@ -19,6 +19,7 @@ import GeneralAccordion from 'components/Shared/Accordion/GeneralAccordion';
 import FormikPasswordInput from 'components/Shared/Form/FormikInput/FormikPasswordInput';
 import { md5Hash } from 'helpers/hashes';
 import FormikInputFloatingLabel from 'components/Shared/Form/FormikInput/FormikInputFloatingLabel';
+import { prepareShareQuestions } from 'helpers/share';
 import CustomQuestionsValidationSchema from './CustomQuestionsValidationSchema';
 
 const CustomQuestions = ({
@@ -72,7 +73,7 @@ const CustomQuestions = ({
       }
       setQuestions(values.questions);
       setIsCustom(true);
-      storeQuestions({ db, sharedQuestions: compressLZW(JSON.stringify(sharedQuestions)).output }, { postStore });
+      storeQuestions({ db, ...prepareShareQuestions(sharedQuestions) }, { postStore });
     }),
   };
 
