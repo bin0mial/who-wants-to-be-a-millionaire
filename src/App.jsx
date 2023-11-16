@@ -7,6 +7,7 @@ import Game from 'components/Game';
 import GameControlContext from 'contexts/GameControlContext';
 import ReactGA from 'react-ga4';
 import initApp from 'helpers/app';
+import AppLoading from './components/Shared/Loadings/AppLoading';
 
 ReactGA.initialize(process.env.REACT_APP_FIREBASE_MEASUREMENT_ID);
 
@@ -28,11 +29,11 @@ const App = () => {
     <>
       <Helmet htmlAttributes={{ lang: i18n.language, dir: i18n.dir(i18n.language) }} />
 
-      {isInitialized && (
-      <div className="app">
-        {gameStarted ? <Game /> : <Homepage />}
-      </div>
-      )}
+      {isInitialized ? (
+        <div className="app">
+          {gameStarted ? <Game /> : <Homepage />}
+        </div>
+      ) : <AppLoading />}
     </>
   );
 };
