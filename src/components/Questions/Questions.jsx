@@ -113,6 +113,7 @@ const Questions = ({ questions }) => {
           key={activeQuestion.id}
           isReady={isLoaded}
           onTimeout={solve}
+          pauseTimer={!!selectedId}
           timeInSeconds={gameSettings.timerCountDown}
         />
       )}
