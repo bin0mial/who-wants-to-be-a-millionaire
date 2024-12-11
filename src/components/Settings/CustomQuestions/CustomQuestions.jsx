@@ -3,7 +3,9 @@ import { Button } from 'react-bootstrap';
 import FormikInput from 'components/Shared/Form/FormikInput/FormikInput';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMinusCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import {
+  faMinusCircle, faPlusCircle, faArrowUp, faArrowDown,
+} from '@fortawesome/free-solid-svg-icons';
 import { useContext, useEffect } from 'react';
 import ReactGA from 'react-ga4';
 import PropTypes from 'prop-types';
@@ -20,6 +22,7 @@ import FormikPasswordInput from 'components/Shared/Form/FormikInput/FormikPasswo
 import { md5Hash } from 'helpers/hashes';
 import FormikInputFloatingLabel from 'components/Shared/Form/FormikInput/FormikInputFloatingLabel';
 import { prepareShareQuestions } from 'helpers/share';
+import FlipMove from 'react-flip-move';
 import CustomQuestionsValidationSchema from './CustomQuestionsValidationSchema';
 
 const CustomQuestions = ({
@@ -107,64 +110,85 @@ const CustomQuestions = ({
     >
       {({ values, handleSubmit }) => (
         <form onSubmit={handleSubmit}>
-          <FieldArray name="questions">
-            {({ push, remove }) => (
+          <FieldArray
+            name="questions"
+            render={(arrayHelpers) => (
               <div className="create-questions mb-3">
-                {values.questions.map((value, index) => (
-                  <div key={value.id} className="create-question mb-3 p-2">
-                    <div className="d-flex justify-content-between">
-                      {values.questions.length > 1 && (
-                        <Button
-                          className="btn btn-danger m-2 order-last"
-                          onClick={() => { remove(index); }}
-                        >
-                          <FontAwesomeIcon icon={faMinusCircle} />
-                        </Button>
-                      )}
-                      <div className="d-flex align-self-center">
-                        {t('form.questionNumber', { number: index + 1 })}
+                <FlipMove typeName={null}>
+                  {values.questions.map((value, index) => (
+                    <div key={value.id} className="create-question mb-3 p-2">
+                      <div className="d-flex justify-content-between">
+                        {values.questions.length > 1 && (
+                        <div className="order-last m-2">
+                          {index > 0 && (
+                          <Button
+                            className="btn btn-success mx-1"
+                            onClick={() => { arrayHelpers.move(index, index - 1); }}
+                          >
+                            <FontAwesomeIcon icon={faArrowUp} />
+                          </Button>
+                          )}
+                          {index + 1 < values.questions.length && (
+                          <Button
+                            className="btn btn-warning mx-1"
+                            onClick={() => { arrayHelpers.move(index, index + 1); }}
+                          >
+                            <FontAwesomeIcon icon={faArrowDown} />
+                          </Button>
+                          )}
+                          <Button
+                            className="btn btn-danger"
+                            onClick={() => { arrayHelpers.remove(index); }}
+                          >
+                            <FontAwesomeIcon icon={faMinusCircle} />
+                          </Button>
+                        </div>
+                        )}
+                        <div className="d-flex align-self-center">
+                          {t('form.questionNumber', { number: index + 1 })}
+                        </div>
                       </div>
+                      <FormikInputFloatingLabel name={`questions.${index}.question`} label={t('form.question')} />
+                      <div className="create-options p-3">
+                        {answerOptions.map((option) => (
+                          <FormikInput
+                            // eslint-disable-next-line react/no-array-index-key
+                            key={`${index}.${option.key}`}
+                            name={`questions.${index}.options.${option.key}`}
+                            label={option.display}
+                            inputGroup
+                            removeMargin={option === answerOptions[answerOptions.length - 1]}
+                          />
+                        ))}
+                      </div>
+                      <FormikSelectFloatingLabel
+                        label={t('form.answer')}
+                        name={`questions.${index}.answer`}
+                        options={answerOptions}
+                        inputGroup
+                      />
                     </div>
-                    <FormikInputFloatingLabel name={`questions.${index}.question`} label={t('form.question')} />
-                    <div className="create-options p-3">
-                      {answerOptions.map((option) => (
-                        <FormikInput
-                          // eslint-disable-next-line react/no-array-index-key
-                          key={`${index}.${option.key}`}
-                          name={`questions.${index}.options.${option.key}`}
-                          label={option.display}
-                          inputGroup
-                          removeMargin={option === answerOptions[answerOptions.length - 1]}
-                        />
-                      ))}
-                    </div>
-                    <FormikSelectFloatingLabel
-                      label={t('form.answer')}
-                      name={`questions.${index}.answer`}
-                      options={answerOptions}
-                      inputGroup
-                    />
-                  </div>
-                ))}
+                  ))}
+                </FlipMove>
                 {values.questions.length < 15 && (
-                  <Button
-                    onClick={() => {
-                      const clonedQuestion = {
-                        id: Math.max(...values.questions.map((o) => o.id)) + 1,
-                        question: '',
-                        options: answerKeys.reduce((acc, key) => Object.assign(acc, { [key]: '' }), {}),
-                        answer: '',
-                      };
-                      push(clonedQuestion);
-                    }}
-                    className="w-100"
-                  >
-                    <FontAwesomeIcon icon={faPlusCircle} />
-                  </Button>
+                <Button
+                  onClick={() => {
+                    const clonedQuestion = {
+                      id: Math.max(...values.questions.map((o) => o.id)) + 1,
+                      question: '',
+                      options: answerKeys.reduce((acc, key) => Object.assign(acc, { [key]: '' }), {}),
+                      answer: '',
+                    };
+                    arrayHelpers.push(clonedQuestion);
+                  }}
+                  className="w-100"
+                >
+                  <FontAwesomeIcon icon={faPlusCircle} />
+                </Button>
                 )}
               </div>
             )}
-          </FieldArray>
+          />
           <GeneralAccordion
             items={[{
               eventKey: 1,
