@@ -13,7 +13,7 @@
     "change-case": "^5.4.4",
     "firebase": "^11.0.2",
     "formik": "^2.4.6",
-    "i18next": "^22.4.9",
+    "i18next": "^25.1.2",
     "i18next-browser-languagedetector": "^7.0.1",
     "lz-string": "^1.5.0",
     "md5": "^2.3.0",
