@@ -50,3 +50,15 @@
     align-items: center;
     justify-content: center;
 }
+
+/* Christmas theme override */
+body[data-theme="christmas"] .main {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(40, 6, 6, 0.4)),
+    url("../assets/images/who-wants-to-be-a-millionaire-game-christmas.png") center #020230;
+    background-size: cover;
+    background-position: center;
+}
+
+body[data-theme="christmas"] .game {
+    background: linear-gradient(135deg, #0b1a0b 0%, #07320a 50%, #591616 100%);
+}

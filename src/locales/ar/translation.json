@@ -20,6 +20,9 @@
     "footer": "يمكنك المساهمة من خلال مستودع <3>{{appName}}</3> على جيت هاب.",
     "language": "اللغة",
     "languageName": "العربية",
+    "theme": "المظهر",
+    "themeClassic": "كلاسيكي",
+    "themeChristmas": "عيد الميلاد 🎄",
     "form": {
       "header": "املئ الحقول التالية (اختياري)",
       "yourName": "اسمك",

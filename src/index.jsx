@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { GameControlProvider } from 'contexts/GameControlContext';
 import { GameSettingsProvider } from 'contexts/GameSettingsContext';
 import { FirestoreProvider } from 'contexts/FirebaseContext';
+import { ThemeProvider } from 'contexts/ThemeContext';
 import AppLoading from 'components/Shared/Loadings/AppLoading';
 import { QuestionProvider } from 'contexts/QuestionContext';
 import { AppModalProvider } from 'contexts/AppModalContext';
@@ -17,15 +18,17 @@ root.render(
     <Suspense fallback={<AppLoading />}>
       <PlayerProvider>
         <FirestoreProvider>
-          <GameSettingsProvider>
-            <GameControlProvider>
-              <QuestionProvider>
-                <AppModalProvider>
-                  <App />
-                </AppModalProvider>
-              </QuestionProvider>
-            </GameControlProvider>
-          </GameSettingsProvider>
+          <ThemeProvider>
+            <GameSettingsProvider>
+              <GameControlProvider>
+                <QuestionProvider>
+                  <AppModalProvider>
+                    <App />
+                  </AppModalProvider>
+                </QuestionProvider>
+              </GameControlProvider>
+            </GameSettingsProvider>
+          </ThemeProvider>
         </FirestoreProvider>
       </PlayerProvider>
     </Suspense>

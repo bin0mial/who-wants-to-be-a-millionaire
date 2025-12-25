@@ -10,7 +10,9 @@ import FormikInput from 'components/Shared/Form/FormikInput/FormikInput';
 import GameControlContext from 'contexts/GameControlContext';
 import { Helmet } from 'react-helmet';
 import i18n from 'i18n';
+import ThemeContext from 'contexts/ThemeContext';
 import LanguageChanger from './LanguageChanger';
+import ThemeSelector from './ThemeSelector';
 import './Homepage.css';
 import CustomQuestionsModal from './Settings/CustomQuestions/CustomQuestionsModal';
 import AppSettingsModal from './Settings/AppSettings/AppSettingsModal';
@@ -19,6 +21,7 @@ import PlayerContext from '../contexts/PlayerContext';
 const Homepage = () => {
   const { t } = useTranslation('translation', { keyPrefix: 'homepage' });
   const { startGame } = useContext(GameControlContext);
+  const { theme } = useContext(ThemeContext);
   const [draggingFile, setDraggingFile] = useState(false);
   const [isReadyFile, setIsReadyFile] = useState(true);
   const { setQuestions, setIsCustom } = useContext(QuestionContext);
@@ -51,11 +54,50 @@ const Homepage = () => {
     startGame();
   };
 
+  const renderSnow = () => {
+    const flakes = Array.from({ length: 28 }).map(() => {
+      const left = Math.random() * 100;
+      const size = 4 + Math.random() * 6;
+      const duration = 6 + Math.random() * 8;
+      const delay = Math.random() * -20;
+      const id = Math.random().toString(36).slice(2, 9);
+      return (
+        <div
+          key={`flake-${id}`}
+          className="christmas-snowflake"
+          style={{
+            left: `${left}%`,
+            width: `${size}px`,
+            height: `${size}px`,
+            animationDuration: `${duration}s`,
+            animationDelay: `${delay}s`,
+          }}
+        />
+      );
+    });
+
+    return (
+      <div className="christmas-snow" aria-hidden>
+        {flakes}
+      </div>
+    );
+  };
+
   return (
-    <div className="d-flex flex-column h-100 w-100 justify-content-center align-items-center text-dark mt-5 mb-5">
+    <>
+      {theme === 'christmas' && (
+        <>
+          <div className="christmas-garland-left" />
+          <div className="christmas-garland-right" />
+          {renderSnow()}
+        </>
+      )}
+
+      <div className="d-flex flex-column h-100 w-100 justify-content-center align-items-center text-dark mt-5 mb-5">
       <Helmet htmlAttributes={{ lang: i18n.language, dir: i18n.dir(i18n.language) }} />
       <div className="mb-5 d-flex gap-2">
         <LanguageChanger />
+        <ThemeSelector />
         <AppSettingsModal />
       </div>
       <div className="img-thumbnail home-form">
@@ -135,6 +177,7 @@ const Homepage = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
