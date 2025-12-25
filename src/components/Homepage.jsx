@@ -28,10 +28,7 @@ const Homepage = () => {
   const { playerInfo, setPlayerInfo } = useContext(PlayerContext);
 
   const readQuestions = (file, onLoad) => {
-    ReactGA.event({
-      category: 'gameQuestions',
-      action: 'Load custom game questions',
-    });
+    ReactGA.event({ category: 'gameQuestions', action: 'Load custom game questions' });
     setIsReadyFile(false);
     const fileReader = new FileReader();
     fileReader.readAsText(file, 'utf8');
@@ -45,11 +42,7 @@ const Homepage = () => {
 
   const onSubmit = (values, { setSubmitting }) => {
     setPlayerInfo({ ...values });
-    ReactGA.event({
-      category: 'gamePlay',
-      action: 'Start the game',
-      label: 'Play game Button',
-    });
+    ReactGA.event({ category: 'gamePlay', action: 'Start the game', label: 'Play game Button' });
     setSubmitting(false);
     startGame();
   };
@@ -94,89 +87,90 @@ const Homepage = () => {
       )}
 
       <div className="d-flex flex-column h-100 w-100 justify-content-center align-items-center text-dark mt-5 mb-5">
-      <Helmet htmlAttributes={{ lang: i18n.language, dir: i18n.dir(i18n.language) }} />
-      <div className="mb-5 d-flex gap-2">
-        <LanguageChanger />
-        <ThemeSelector />
-        <AppSettingsModal />
-      </div>
-      <div className="img-thumbnail home-form">
-        <div className="row mb-4">
-          <div className="col-12">
-            <h2>{t('appName')}</h2>
-            <div>{t('aboutApp')}</div>
+        <Helmet htmlAttributes={{ lang: i18n.language, dir: i18n.dir(i18n.language) }} />
+
+        <div className="mb-5 d-flex gap-2">
+          <LanguageChanger />
+          <ThemeSelector />
+          <AppSettingsModal />
+        </div>
+
+        <div className="img-thumbnail home-form">
+          <div className="row mb-4">
+            <div className="col-12">
+              <h2>{t('appName')}</h2>
+              <div>{t('aboutApp')}</div>
+            </div>
+          </div>
+
+          <Formik initialValues={{ name: playerInfo.name, questionsJsonFile: null }} onSubmit={onSubmit}>
+            {({ handleSubmit, isSubmitting, setFieldValue }) => (
+              <form onSubmit={handleSubmit}>
+                <h3>{t('form.header')}</h3>
+
+                <div>
+                  <FormikInput name="name" label={t('form.yourName')} />
+
+                  <Field name="questionsJsonFile" type="file" className="">
+                    {({ field }) => (
+                      <div className="mb-3">
+                        <Dropzone
+                          onDrop={(acceptedFiles) => {
+                            setFieldValue(field.name, acceptedFiles[0]);
+                            readQuestions(acceptedFiles[0], () => setIsCustom(true));
+                          }}
+                          onDragEnter={() => setDraggingFile(true)}
+                          onDragLeave={() => setDraggingFile(false)}
+                          onDropAccepted={() => setDraggingFile(false)}
+                          onDropRejected={() => setDraggingFile(false)}
+                          accept={{ 'application/vnd.millionaire.save': ['.millarsave'] }}
+                        >
+                          {({ getRootProps, getInputProps }) => (
+                            <div {...getRootProps()} className="dragdrop">
+                              <Form.Label htmlFor={field.name}>{t('form.customQuestionsFile')}</Form.Label>
+
+                              <div className={`dropzone${draggingFile ? ' dragging' : ''}`}>
+                                <input {...getInputProps()} id={field.name} />
+                                {draggingFile ? (
+                                  <p>Drop Here</p>
+                                ) : (
+                                  <>
+                                    <p>{t('form.dropQuestionsFileHere')}</p>
+                                    {field.value?.path && `${t('form.selectedQuestionsFile')}: ${field.value?.path}`}
+                                  </>
+                                )}
+                              </div>
+                            </div>
+                          )}
+                        </Dropzone>
+                      </div>
+                    )}
+                  </Field>
+
+                  <CustomQuestionsModal />
+
+                  <Button variant="primary" type="submit" className="w-100" disabled={isSubmitting || !isReadyFile}>
+                    {t('form.startGame')}
+                  </Button>
+                </div>
+              </form>
+            )}
+          </Formik>
+        </div>
+
+        <div className="row mt-3 text-center text-white">
+          <div className="col-12 mb-2">
+            <Trans
+              i18nKey="homepage.footer"
+              values={{ appName: t('appName') }}
+              components={{
+                1: <a href="https://github.com/bin0mial">Github</a>,
+                3: <a href="https://github.com/bin0mial/who-wants-to-be-a-millionaire">Github Repo</a>,
+              }}
+            />
           </div>
         </div>
-        <Formik initialValues={{ name: playerInfo.name, questionsJsonFile: null }} onSubmit={onSubmit}>
-          {({ handleSubmit, isSubmitting, setFieldValue }) => (
-            <form onSubmit={handleSubmit}>
-              <h3>{t('form.header')}</h3>
-              <div>
-                <FormikInput name="name" label={t('form.yourName')} />
-                <Field name="questionsJsonFile" type="file" className="">
-                  {({ field }) => (
-                    <div className="mb-3">
-                      <Dropzone
-                        onDrop={(acceptedFiles) => {
-                          setFieldValue(field.name, acceptedFiles[0]);
-                          readQuestions(acceptedFiles[0], () => {
-                            setIsCustom(true);
-                          });
-                        }}
-                        onDragEnter={() => { setDraggingFile(true); }}
-                        onDragLeave={() => { setDraggingFile(false); }}
-                        onDropAccepted={() => { setDraggingFile(false); }}
-                        onDropRejected={() => { setDraggingFile(false); }}
-                        accept={{ 'application/vnd.millionaire.save': ['.millarsave'] }}
-                      >
-                        {({ getRootProps, getInputProps }) => (
-                          <div {...getRootProps()} className="dragdrop">
-                            <Form.Label htmlFor={field.name}>{t('form.customQuestionsFile')}</Form.Label>
-                            <div className={`dropzone${draggingFile ? ' dragging' : ''}`}>
-                              <input {...getInputProps()} id={field.name} />
-                              {draggingFile ? (<p>Drop Here</p>) : (
-                                <>
-                                  <p>{t('form.dropQuestionsFileHere')}</p>
-                                  {field.value?.path && `${t('form.selectedQuestionsFile')}: ${field.value?.path}`}
-                                </>
-                              )}
-                            </div>
-                            {' '}
-                          </div>
-                        )}
-                      </Dropzone>
-                    </div>
-                  )}
-                </Field>
-
-                <CustomQuestionsModal />
-
-                <Button
-                  variant="primary"
-                  type="submit"
-                  className="w-100"
-                  disabled={isSubmitting || !isReadyFile}
-                >
-                  {t('form.startGame')}
-                </Button>
-              </div>
-            </form>
-          )}
-        </Formik>
       </div>
-      <div className="row mt-3 text-center text-white">
-        <div className="col-12 mb-2">
-          <Trans
-            i18nKey="homepage.footer"
-            values={{ appName: t('appName') }}
-            components={{
-              1: <a href="https://github.com/bin0mial">Github</a>,
-              3: <a href="https://github.com/bin0mial/who-wants-to-be-a-millionaire">Github Repo</a>,
-            }}
-          />
-        </div>
-      </div>
-    </div>
     </>
   );
 };
