@@ -11,7 +11,7 @@ const FLAG_MAP = {
 };
 
 const LanguageChanger = () => {
-  const { t, i18n } = useTranslation('translation', { keyPrefix: 'homepage' });
+  const { i18n } = useTranslation('translation', { keyPrefix: 'homepage' });
   const { setQuestions, isCustom } = useContext(QuestionContext);
 
   const changeLanguage = (lang) => () => {
@@ -23,7 +23,9 @@ const LanguageChanger = () => {
     <Dropdown>
       <Dropdown.Toggle variant="light" id="dropdown-language">
         <FontAwesomeIcon icon={faGlobe} className="mx-1" />
-        <span className="mx-1">{t('language')}</span>
+        <span className="mx-1">
+          {i18n.getResource(i18n.language, 'translation', 'homepage.languageName')}
+        </span>
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
