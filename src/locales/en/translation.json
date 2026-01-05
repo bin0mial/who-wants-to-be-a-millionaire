@@ -20,6 +20,9 @@
     "footer": "You can contribute through <3>{{appName}}</3> repository on GitHub.",
     "language": "Language",
     "languageName": "English",
+    "theme": "Theme",
+    "themeClassic": "Classic",
+    "themeChristmas": "Christmas 🎄",
     "form": {
       "header": "Fill the following fields (Optional)",
       "yourName": "Your name",

@@ -1,11 +1,26 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import 'bootstrap/dist/css/bootstrap.rtl.min.css';
+@import './themes/christmas.css';
 
 body {
     margin: 0;
     padding: 0;
     height: 100%;
     background-color: #020230 !important;
+    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+p, span, div {
+    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
 .app {

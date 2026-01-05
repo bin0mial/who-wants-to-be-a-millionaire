@@ -1,0 +1,371 @@
+/* Christmas theme overrides applied when `data-theme="christmas"` on body */
+
+:root {
+  --christmas-red: #d62828;
+  --christmas-green: #2a8f3a;
+  --christmas-text: #fff8f0;
+}
+
+[data-theme="christmas"] {
+  color: var(--christmas-text);
+}
+
+/* Festive background image (Unsplash) + subtle gradient */
+body[data-theme="christmas"] {
+  background-image: linear-gradient(180deg, rgba(3,7,14,0.6), rgba(11,20,10,0.6)), url('https://images.unsplash.com/photo-1601311962260-eef5f6b8f3f3?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--christmas-text);
+}
+
+/* Card / form styling */
+body[data-theme="christmas"] .home-form {
+  background: rgba(10, 26, 10, 0.7);
+  border: 2px solid rgba(214, 40, 40, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.1);
+  color: var(--christmas-text);
+  padding: 2.5rem;
+}
+
+body[data-theme="christmas"] h2 {
+  color: #ffd700;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.8), 0 0 20px rgba(214,40,40,0.3);
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+body[data-theme="christmas"] h3 {
+  color: rgba(255, 215, 0, 0.9);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+}
+
+body[data-theme="christmas"] .home-form > .row > .col-12 > div {
+  color: rgba(255, 248, 240, 0.95);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Buttons */
+body[data-theme="christmas"] .btn-primary {
+  background: linear-gradient(90deg, var(--christmas-red), #b81f1f) !important;
+  border-color: rgba(0,0,0,0.25) !important;
+  box-shadow: 0 4px 14px rgba(214,40,40,0.2);
+}
+
+body[data-theme="christmas"] .btn-primary:hover {
+  background: linear-gradient(90deg, var(--christmas-green), #1f6f28) !important;
+}
+
+/* Accent text */
+body[data-theme="christmas"] .text-white,
+body[data-theme="christmas"] .mb-3,
+body[data-theme="christmas"] label {
+  color: var(--christmas-text) !important;
+}
+
+body[data-theme="christmas"] .home-form label {
+  color: rgba(255, 215, 0, 0.9) !important;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+body[data-theme="christmas"] .home-form input,
+body[data-theme="christmas"] .home-form select,
+body[data-theme="christmas"] .form-select {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(214, 40, 40, 0.3) !important;
+  color: var(--christmas-text) !important;
+  font-weight: 500;
+}
+
+body[data-theme="christmas"] .home-form input::placeholder {
+  color: rgba(255, 248, 240, 0.4) !important;
+}
+
+/* Garland decorations (top-left/right) */
+body[data-theme="christmas"] .christmas-garland-left,
+body[data-theme="christmas"] .christmas-garland-right {
+  position: fixed;
+  top: 0;
+  width: 220px;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 800;
+  opacity: 0.95;
+}
+
+body[data-theme="christmas"] .christmas-garland-left {
+  left: 0;
+  background-image: url('https://images.unsplash.com/photo-1544211418-1703b6d5f6fb?auto=format&fit=crop&w=800&q=80');
+}
+
+body[data-theme="christmas"] .christmas-garland-right {
+  right: 0;
+  transform: scaleX(-1);
+  background-image: url('https://images.unsplash.com/photo-1544211418-1703b6d5f6fb?auto=format&fit=crop&w=800&q=80');
+}
+
+/* Snow animation */
+body[data-theme="christmas"] .christmas-snow {
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 700;
+}
+
+.christmas-snowflake {
+  position: absolute;
+  top: -10px;
+  background: rgba(255,255,255,0.9);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  opacity: 0.9;
+  will-change: transform;
+  animation-name: fall;
+  animation-duration: 8s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0.8; }
+  100% { transform: translateY(110vh) translateX(30vw) rotate(360deg); opacity: 0.9; }
+}
+
+/* small responsive tweak for header */
+body[data-theme="christmas"] .mb-5.d-flex.gap-2 {
+  align-items: center;
+}
+
+/* Settings Button */
+body[data-theme="christmas"] .btn-light {
+  background: linear-gradient(90deg, rgba(42, 143, 58, 0.8), rgba(70, 100, 60, 0.8)) !important;
+  border: 1px solid rgba(214, 40, 40, 0.3) !important;
+  color: var(--christmas-text) !important;
+  font-weight: 600;
+  transition: all 200ms ease;
+}
+
+body[data-theme="christmas"] .btn-light:hover {
+  background: linear-gradient(90deg, var(--christmas-red), #b81f1f) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(214,40,40,0.4) !important;
+}
+
+/* Modal styling */
+body[data-theme="christmas"] .modal-content {
+  background: linear-gradient(135deg, rgba(10, 26, 10, 0.95), rgba(40, 6, 6, 0.85));
+  border: 2px solid rgba(214, 40, 40, 0.3);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+body[data-theme="christmas"] .modal-header {
+  border-bottom: 2px solid rgba(214, 40, 40, 0.2);
+  background: linear-gradient(90deg, rgba(40, 6, 6, 0.5), rgba(10, 26, 10, 0.5));
+}
+
+body[data-theme="christmas"] .modal-title {
+  color: #ffd700;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+body[data-theme="christmas"] .modal-footer {
+  border-top: 2px solid rgba(214, 40, 40, 0.2);
+  background: linear-gradient(90deg, rgba(10, 26, 10, 0.3), rgba(40, 6, 6, 0.3));
+}
+
+body[data-theme="christmas"] .modal-body {
+  color: var(--christmas-text);
+}
+
+/* Form elements in modals */
+body[data-theme="christmas"] .form-switch .form-check-input {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(214, 40, 40, 0.3);
+}
+
+body[data-theme="christmas"] .form-switch .form-check-input:checked {
+  background: var(--christmas-green);
+  border-color: var(--christmas-green);
+}
+
+body[data-theme="christmas"] .form-check-label {
+  color: var(--christmas-text);
+  font-weight: 600;
+}
+
+body[data-theme="christmas"] .form-label {
+  color: rgba(255, 215, 0, 0.9);
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Language Dropdown */
+body[data-theme="christmas"] .dropdown-toggle {
+  background: linear-gradient(90deg, rgba(42, 143, 58, 0.8), rgba(70, 100, 60, 0.8)) !important;
+  border: 1px solid rgba(214, 40, 40, 0.3) !important;
+  color: var(--christmas-text) !important;
+  font-weight: 600;
+  transition: all 200ms ease;
+}
+
+body[data-theme="christmas"] .dropdown-toggle:hover {
+  background: linear-gradient(90deg, var(--christmas-red), #b81f1f) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(214,40,40,0.4) !important;
+}
+
+body[data-theme="christmas"] .dropdown-menu {
+  background: linear-gradient(135deg, rgba(10, 26, 10, 0.95), rgba(40, 6, 6, 0.85));
+  border: 1px solid rgba(214, 40, 40, 0.3);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.8);
+}
+
+body[data-theme="christmas"] .dropdown-item {
+  color: var(--christmas-text);
+  border-bottom: 1px solid rgba(214, 40, 40, 0.1);
+}
+
+body[data-theme="christmas"] .dropdown-item:hover,
+body[data-theme="christmas"] .dropdown-item.active {
+  background: linear-gradient(90deg, rgba(214, 40, 40, 0.3), rgba(42, 143, 58, 0.2));
+  color: #ffd700;
+}
+
+body[data-theme="christmas"] .dropdown-item small {
+  color: rgba(255, 215, 0, 0.7);
+}
+
+/* Edit Questions Modal */
+body[data-theme="christmas"] .create-question {
+  background: linear-gradient(135deg, rgba(20, 40, 20, 0.7), rgba(50, 10, 10, 0.5));
+  border: 1px solid rgba(214, 40, 40, 0.3);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+body[data-theme="christmas"] .create-questions {
+  color: var(--christmas-text);
+}
+
+body[data-theme="christmas"] .create-question .d-flex {
+  color: rgba(255, 215, 0, 0.9);
+  font-weight: 700;
+}
+
+body[data-theme="christmas"] .create-options {
+  background: linear-gradient(90deg, rgba(10, 26, 10, 0.5), rgba(30, 5, 5, 0.3));
+  border-radius: 6px;
+  border: 1px solid rgba(214, 40, 40, 0.2);
+}
+
+body[data-theme="christmas"] .create-question input,
+body[data-theme="christmas"] .create-question select {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(214, 40, 40, 0.3) !important;
+  color: var(--christmas-text) !important;
+  font-weight: 500;
+}
+
+body[data-theme="christmas"] .create-question input::placeholder,
+body[data-theme="christmas"] .create-question select::placeholder {
+  color: rgba(255, 248, 240, 0.4) !important;
+}
+
+body[data-theme="christmas"] .create-question label {
+  color: rgba(255, 215, 0, 0.9) !important;
+  font-weight: 700;
+}
+
+body[data-theme="christmas"] .form-floating > label {
+  color: rgba(255, 215, 0, 0.9) !important;
+}
+
+body[data-theme="christmas"] .accordion-button {
+  background: linear-gradient(90deg, rgba(42, 143, 58, 0.3), rgba(40, 6, 6, 0.2));
+  color: var(--christmas-text);
+  border: 1px solid rgba(214, 40, 40, 0.2);
+}
+
+body[data-theme="christmas"] .accordion-button:not(.collapsed) {
+  background: linear-gradient(90deg, var(--christmas-red), var(--christmas-green));
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1);
+}
+
+body[data-theme="christmas"] .accordion-button:focus {
+  border-color: rgba(214, 40, 40, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(214, 40, 40, 0.25);
+}
+
+/* Select/Dropdown styling */
+body[data-theme="christmas"] .form-select,
+body[data-theme="christmas"] select {
+  background: linear-gradient(90deg, rgba(10, 26, 10, 0.7), rgba(40, 6, 6, 0.5)) !important;
+  border: 1px solid rgba(214, 40, 40, 0.4) !important;
+  color: var(--christmas-text) !important;
+  font-weight: 600;
+  padding-right: 0.75rem !important;
+}
+
+body[data-theme="christmas"] .theme-selector-no-arrow {
+  background-image: none !important;
+  height: 38px !important;
+  padding-top: 0.375rem !important;
+  padding-bottom: 0.375rem !important;
+}
+
+body[data-theme="christmas"] .form-select:focus,
+body[data-theme="christmas"] select:focus {
+  border-color: rgba(255, 215, 0, 0.6) !important;
+  box-shadow: 0 0 0 0.25rem rgba(214, 40, 40, 0.25) !important;
+  background-color: linear-gradient(90deg, rgba(10, 26, 10, 0.8), rgba(40, 6, 6, 0.6)) !important;
+}
+
+body[data-theme="christmas"] .form-select option {
+  background: rgba(10, 26, 10, 0.95);
+  color: var(--christmas-text);
+}
+
+body[data-theme="christmas"] .form-select option:checked {
+  background: linear-gradient(90deg, var(--christmas-red), var(--christmas-green));
+  color: #fff;
+}
+
+/* Dropzone styling for Christmas theme */
+body[data-theme="christmas"] .dragdrop .dropzone {
+  background: linear-gradient(135deg, rgba(42, 143, 58, 0.3), rgba(214, 40, 40, 0.2));
+  border: 2px dashed rgba(255, 215, 0, 0.6) !important;
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--christmas-text);
+  transition: all 300ms ease;
+  box-shadow: inset 0 0 15px rgba(214, 40, 40, 0.1);
+}
+
+body[data-theme="christmas"] .dragdrop .dropzone.dragging {
+  background: linear-gradient(135deg, rgba(214, 40, 40, 0.4), rgba(42, 143, 58, 0.3));
+  border-color: rgba(255, 215, 0, 0.9) !important;
+  box-shadow: inset 0 0 20px rgba(214, 40, 40, 0.3), 0 0 20px rgba(255, 215, 0, 0.2);
+  transform: scale(1.02);
+}
+

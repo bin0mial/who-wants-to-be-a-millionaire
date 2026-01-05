@@ -1,5 +1,46 @@
 .home-form {
     width: 50%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.home-form h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.5px;
+}
+
+.home-form h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.home-form p, .home-form div {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.home-form label {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.home-form input[type="text"],
+.home-form input[type="email"],
+.home-form input[type="password"],
+.home-form select,
+.home-form textarea {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    border-radius: 4px;
+}
+
+.home-form .btn {
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: all 200ms ease;
 }
 
 @media (max-width: 1023px) {
@@ -8,15 +49,44 @@
     }
 }
 
-.dragdrop .dropzone{
+.dragdrop .dropzone {
     background: lightgray;
-    border:gray dotted;
+    border: gray dotted;
     text-align: center;
+    padding: 1.5rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 500;
 }
 
-.dragdrop .dropzone.dragging{
+.dragdrop .dropzone.dragging {
     background: darkgray;
+    border-color: #333;
+}
 
+/* Header button alignment */
+.mb-5.d-flex.gap-2 {
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.mb-5.d-flex.gap-2 .form-select,
+.mb-5.d-flex.gap-2 .dropdown,
+.mb-5.d-flex.gap-2 .btn {
+    margin: 0.25rem;
+}
+
+/* Remove arrow from theme selector */
+.theme-selector-no-arrow {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: none !important;
+    padding-right: 0.75rem !important;
+    height: 38px !important;
+    padding-top: 0.375rem !important;
+    padding-bottom: 0.375rem !important;
 }
 
 .create-question{
