@@ -40,17 +40,25 @@
 }
 
 .answers .answer.selected, .answers .answer.selected:hover {
-    background: radial-gradient(circle, blue 0%, #151515 100%);
-    border: darkblue 1px solid;
+    background: radial-gradient(circle, #ffd700 0%, #b8860b 50%, #151515 100%);
+    border: #ffd700 2px solid;
+    color: #111;
+    font-weight: 600;
 }
 
 
 .answers .answer.wrong, .answers .answer.wrong:hover {
-    background: radial-gradient(circle, #8b0000 0%, #2b0b0b 100%);
+    background: radial-gradient(circle, #ff4444 0%, #8b0000 50%, #2b0b0b 100%);
+    border: #ff4444 2px solid;
+    color: #ffcccc;
+    font-weight: 600;
 }
 
 .answers .answer.correct, .answers .answer.correct:hover {
-    background: radial-gradient(circle, #2a8f3a 0%, #123012 100%);
+    background: radial-gradient(circle, #00ff00 0%, #2a8f3a 50%, #123012 100%);
+    border: #00ff00 2px solid;
+    color: #e6ffe6;
+    font-weight: 600;
 }
 
 /* Christmas theme overrides */
@@ -86,7 +94,7 @@ body[data-theme="christmas"] .answers .answer:hover {
 body[data-theme="christmas"] .answers .answer.selected,
 body[data-theme="christmas"] .answers .answer.selected:hover {
     background: linear-gradient(90deg, #ffd700, #ffed4e);
-    border-color: rgba(255, 215, 0, 0.8);
+    border: 2px solid #ffb700;
     color: #111;
     font-weight: 700;
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.6), inset 0 2px 8px rgba(0,0,0,0.2);
@@ -96,13 +104,21 @@ body[data-theme="christmas"] .answers .answer.selected:hover {
 
 body[data-theme="christmas"] .answers .answer.wrong,
 body[data-theme="christmas"] .answers .answer.wrong:hover {
-    background: linear-gradient(90deg, #7a0f0f, #330606);
+    background: linear-gradient(90deg, #ff3333, #cc0000, #330606);
+    border: 2px solid #ff6666;
+    color: #ffe6e6;
+    font-weight: 700;
+    box-shadow: 0 0 15px rgba(255, 51, 51, 0.4), inset 0 2px 8px rgba(0,0,0,0.3);
 }
 
 body[data-theme="christmas"] .answers .answer.correct,
 body[data-theme="christmas"] .answers .answer.correct:hover {
-    background: linear-gradient(90deg, #ffd700, #b8860b);
-    color: #111;
+    background: linear-gradient(90deg, #2ecc71, #27ae60);
+    border: 2px solid #2ecc71;
+    color: #e6ffe6;
+    font-weight: 700;
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.5), inset 0 2px 8px rgba(0,0,0,0.2);
+    transition: all 200ms ease;
 }
 
 body[data-theme="christmas"] .answers .answer .col-2 {
