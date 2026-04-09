@@ -4,11 +4,11 @@ const IMG_PATH = `${process.env.PUBLIC_URL}/images/easter-risen.png`;
 
 const overlayGradient = [
   'linear-gradient(180deg,',
-  'rgba(42,140,196,0.45) 0%,',
-  'rgba(91,189,227,0.30) 30%,',
-  'rgba(244,211,94,0.25) 55%,',
-  'rgba(166,123,91,0.40) 80%,',
-  'rgba(107,66,38,0.60) 100%)',
+  'rgba(61,111,140,0.40) 0%,',
+  'rgba(127,191,212,0.25) 28%,',
+  'rgba(201,168,76,0.20) 55%,',
+  'rgba(154,123,98,0.35) 80%,',
+  'rgba(92,58,32,0.50) 100%)',
 ].join(' ');
 
 const EasterDecorations = () => (

@@ -5,14 +5,14 @@
    Victory green #4A7C2F  */
 
 :root {
-  --easter-sky: #5BBDE3;
-  --easter-sky-deep: #2A8CC4;
-  --easter-gold: #FFD700;
-  --easter-gold-soft: #F4D35E;
-  --easter-cream: #FFF8F0;
-  --easter-brown: #6B4226;
-  --easter-brown-light: #A67B5B;
-  --easter-victory-green: #4A7C2F;
+  --easter-sky: #7FBFD4;
+  --easter-sky-deep: #4A8DAD;
+  --easter-gold: #D4AA40;
+  --easter-gold-soft: #C9A84C;
+  --easter-cream: #F5F0E8;
+  --easter-brown: #5C3A20;
+  --easter-brown-light: #9A7B62;
+  --easter-victory-green: #5A8A45;
 }
 
 [data-theme="easter"] {
@@ -24,11 +24,11 @@ body[data-theme="easter"] {
   background:
     linear-gradient(
       180deg,
-      #2A8CC4 0%,
-      #5BBDE3 30%,
-      #F4D35E 60%,
-      #A67B5B 82%,
-      #6B4226 100%
+      #3D6F8C 0%,
+      #7FBFD4 28%,
+      #C9A84C 58%,
+      #9A7B62 80%,
+      #5C3A20 100%
     ) !important;
   background-attachment: fixed;
   color: var(--easter-cream);
@@ -36,9 +36,9 @@ body[data-theme="easter"] {
 
 /* Card / form styling */
 body[data-theme="easter"] .home-form {
-  background: rgba(20, 70, 110, 0.55);
+  background: rgba(40, 55, 70, 0.60);
   backdrop-filter: blur(14px);
-  border: 2px solid rgba(255, 215, 0, 0.30);
+  border: 2px solid rgba(200, 170, 80, 0.25);
   border-radius: 14px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.15);
   color: var(--easter-cream);
@@ -47,7 +47,7 @@ body[data-theme="easter"] .home-form {
 
 body[data-theme="easter"] h2 {
   color: var(--easter-gold);
-  text-shadow: 0 2px 4px rgba(0,0,0,0.7), 0 0 20px rgba(255,215,0,0.30);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5), 0 0 12px rgba(200,170,80,0.20);
   font-size: 2.5rem;
   font-weight: 800;
   letter-spacing: 1px;
@@ -70,16 +70,16 @@ body[data-theme="easter"] .home-form > .row > .col-12 > div {
 /* ── Buttons ── */
 body[data-theme="easter"] .btn-primary {
   background: linear-gradient(135deg, var(--easter-gold), var(--easter-gold-soft)) !important;
-  border-color: rgba(107,66,38,0.30) !important;
+  border-color: rgba(92,58,32,0.30) !important;
   color: var(--easter-brown) !important;
   font-weight: 700;
-  box-shadow: 0 4px 18px rgba(255,215,0,0.35);
+  box-shadow: 0 4px 14px rgba(200,170,80,0.25);
 }
 
 body[data-theme="easter"] .btn-primary:hover {
-  background: linear-gradient(135deg, #ffe44d, #ffd700) !important;
+  background: linear-gradient(135deg, #DCBA55, #D4AA40) !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(255,215,0,0.50) !important;
+  box-shadow: 0 6px 20px rgba(200,170,80,0.35) !important;
 }
 
 /* Accent text */
@@ -90,16 +90,16 @@ body[data-theme="easter"] label {
 }
 
 body[data-theme="easter"] .home-form label {
-  color: var(--easter-gold) !important;
+  color: #DCBA55 !important;
   font-weight: 700;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
 }
 
 body[data-theme="easter"] .home-form input,
 body[data-theme="easter"] .home-form select,
 body[data-theme="easter"] .form-select {
-  background: rgba(255, 255, 255, 0.12) !important;
-  border: 1px solid rgba(255, 215, 0, 0.25) !important;
+  background: rgba(255, 255, 255, 0.10) !important;
+  border: 1px solid rgba(200, 170, 80, 0.22) !important;
   color: var(--easter-cream) !important;
   font-weight: 500;
 }
@@ -110,8 +110,8 @@ body[data-theme="easter"] .home-form input::placeholder {
 
 /* Settings / Light Button */
 body[data-theme="easter"] .btn-light {
-  background: linear-gradient(135deg, rgba(91,189,227,0.65), rgba(42,140,196,0.65)) !important;
-  border: 1px solid rgba(255,215,0,0.25) !important;
+  background: linear-gradient(135deg, rgba(127,191,212,0.50), rgba(74,141,173,0.50)) !important;
+  border: 1px solid rgba(200,170,80,0.22) !important;
   color: var(--easter-cream) !important;
   font-weight: 600;
   transition: all 200ms ease;
@@ -121,19 +121,19 @@ body[data-theme="easter"] .btn-light:hover {
   background: linear-gradient(135deg, var(--easter-gold-soft), var(--easter-gold)) !important;
   color: var(--easter-brown) !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255,215,0,0.40) !important;
+  box-shadow: 0 6px 16px rgba(200,170,80,0.30) !important;
 }
 
 /* ── Modal styling ── */
 body[data-theme="easter"] .modal-content {
-  background: linear-gradient(135deg, rgba(42,140,196,0.92), rgba(91,189,227,0.88));
-  border: 2px solid rgba(255,215,0,0.30);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.10);
+  background: linear-gradient(135deg, rgba(50,70,90,0.94), rgba(60,85,105,0.92));
+  border: 2px solid rgba(200,170,80,0.25);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.40), inset 0 1px 0 rgba(255,255,255,0.08);
 }
 
 body[data-theme="easter"] .modal-header {
-  border-bottom: 2px solid rgba(255,215,0,0.20);
-  background: linear-gradient(90deg, rgba(42,140,196,0.50), rgba(91,189,227,0.40));
+  border-bottom: 2px solid rgba(200,170,80,0.18);
+  background: linear-gradient(90deg, rgba(50,70,90,0.40), rgba(60,85,105,0.35));
 }
 
 body[data-theme="easter"] .modal-title {
@@ -144,8 +144,8 @@ body[data-theme="easter"] .modal-title {
 }
 
 body[data-theme="easter"] .modal-footer {
-  border-top: 2px solid rgba(255,215,0,0.20);
-  background: linear-gradient(90deg, rgba(42,140,196,0.30), rgba(91,189,227,0.25));
+  border-top: 2px solid rgba(200,170,80,0.18);
+  background: linear-gradient(90deg, rgba(50,70,90,0.25), rgba(60,85,105,0.20));
 }
 
 body[data-theme="easter"] .modal-body {
@@ -176,8 +176,8 @@ body[data-theme="easter"] .form-label {
 
 /* ── Language Dropdown ── */
 body[data-theme="easter"] .dropdown-toggle {
-  background: linear-gradient(135deg, rgba(91,189,227,0.65), rgba(42,140,196,0.65)) !important;
-  border: 1px solid rgba(255,215,0,0.25) !important;
+  background: linear-gradient(135deg, rgba(127,191,212,0.50), rgba(74,141,173,0.50)) !important;
+  border: 1px solid rgba(200,170,80,0.22) !important;
   color: var(--easter-cream) !important;
   font-weight: 600;
   transition: all 200ms ease;
@@ -187,13 +187,13 @@ body[data-theme="easter"] .dropdown-toggle:hover {
   background: linear-gradient(135deg, var(--easter-gold-soft), var(--easter-gold)) !important;
   color: var(--easter-brown) !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255,215,0,0.40) !important;
+  box-shadow: 0 6px 16px rgba(200,170,80,0.30) !important;
 }
 
 body[data-theme="easter"] .dropdown-menu {
-  background: linear-gradient(135deg, rgba(42,140,196,0.95), rgba(91,189,227,0.90));
-  border: 1px solid rgba(255,215,0,0.30);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.50);
+  background: linear-gradient(135deg, rgba(50,70,90,0.95), rgba(60,85,105,0.92));
+  border: 1px solid rgba(200,170,80,0.25);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.40);
 }
 
 body[data-theme="easter"] .dropdown-item {
@@ -335,13 +335,13 @@ body[data-theme="easter"] .game {
 body[data-theme="easter"] .main {
   background: linear-gradient(
     to bottom,
-    rgba(20, 70, 110, 0.50),
-    rgba(60, 35, 15, 0.55)
+    rgba(40, 55, 70, 0.50),
+    rgba(60, 45, 30, 0.50)
   ) !important;
 }
 
 body[data-theme="easter"] .pyramid {
-  background: rgba(42, 140, 196, 0.25);
+  background: rgba(40, 55, 70, 0.30);
 }
 
 body[data-theme="easter"] .on-game-player-name {
@@ -350,7 +350,7 @@ body[data-theme="easter"] .on-game-player-name {
 }
 
 body[data-theme="easter"] .question {
-  background: linear-gradient(135deg, rgba(20,70,110,0.90), rgba(15,55,90,0.92));
+  background: linear-gradient(135deg, rgba(40,55,70,0.90), rgba(35,50,65,0.92));
   border-radius: 10px;
   border: 2px solid rgba(255,215,0,0.25);
   box-shadow: 0 8px 30px rgba(0,0,0,0.40) inset, 0 4px 20px rgba(0,0,0,0.30);
@@ -361,8 +361,8 @@ body[data-theme="easter"] .question {
 }
 
 body[data-theme="easter"] .answers .answer {
-  background: linear-gradient(135deg, rgba(20,70,110,0.88), rgba(15,55,90,0.92));
-  border: 2px solid rgba(255,215,0,0.15);
+  background: linear-gradient(135deg, rgba(40,55,70,0.88), rgba(35,50,65,0.90));
+  border: 2px solid rgba(200,170,80,0.15);
   box-shadow: 0 4px 16px rgba(0,0,0,0.35);
   color: #ffffff;
   text-shadow: 0 1px 2px rgba(0,0,0,0.5);
@@ -372,16 +372,16 @@ body[data-theme="easter"] .answers .answer:hover {
   transform: translateY(-4px);
   transition: transform 160ms ease, box-shadow 160ms ease;
   box-shadow: 0 8px 24px rgba(0,0,0,0.40);
-  border-color: rgba(255,215,0,0.35);
+  border-color: rgba(200,170,80,0.30);
 }
 
 body[data-theme="easter"] .answers .answer.selected,
 body[data-theme="easter"] .answers .answer.selected:hover {
-  background: linear-gradient(135deg, rgba(220,160,60,0.85), rgba(180,120,40,0.88));
-  border: 2px solid rgba(255,215,0,0.50);
+  background: linear-gradient(135deg, rgba(170,130,55,0.82), rgba(145,108,45,0.85));
+  border: 2px solid rgba(200,170,80,0.45);
   color: #ffffff;
   font-weight: 700;
-  box-shadow: 0 0 16px rgba(255,200,80,0.30), inset 0 1px 4px rgba(0,0,0,0.15);
+  box-shadow: 0 0 12px rgba(200,170,80,0.25), inset 0 1px 4px rgba(0,0,0,0.15);
   transform: none;
   transition: all 200ms ease;
 }
