@@ -9,7 +9,9 @@ import ReactGA from 'react-ga4';
 import initApp from 'helpers/app';
 import AppLoading from './components/Shared/Loadings/AppLoading';
 
-ReactGA.initialize(process.env.REACT_APP_FIREBASE_MEASUREMENT_ID);
+if (process.env.REACT_APP_FIREBASE_MEASUREMENT_ID) {
+  ReactGA.initialize(process.env.REACT_APP_FIREBASE_MEASUREMENT_ID);
+}
 
 const App = () => {
   const { i18n } = useTranslation();
