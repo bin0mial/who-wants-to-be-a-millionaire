@@ -1,0 +1,473 @@
+/* Easter "He Is Risen" theme
+   Palette from resurrection image:
+   Sky blue #5BBDE3  |  Golden radiance #FFD700 / #F4D35E
+   Warm brown rock #8B6914 / #A67B5B  |  White robes #FFF8F0
+   Victory green #4A7C2F  */
+
+:root {
+  --easter-sky: #5BBDE3;
+  --easter-sky-deep: #2A8CC4;
+  --easter-gold: #FFD700;
+  --easter-gold-soft: #F4D35E;
+  --easter-cream: #FFF8F0;
+  --easter-brown: #6B4226;
+  --easter-brown-light: #A67B5B;
+  --easter-victory-green: #4A7C2F;
+}
+
+[data-theme="easter"] {
+  color: var(--easter-cream);
+}
+
+/* Sky‑to‑earth gradient — risen image layered via EasterDecorations */
+body[data-theme="easter"] {
+  background:
+    linear-gradient(
+      180deg,
+      #2A8CC4 0%,
+      #5BBDE3 30%,
+      #F4D35E 60%,
+      #A67B5B 82%,
+      #6B4226 100%
+    ) !important;
+  background-attachment: fixed;
+  color: var(--easter-cream);
+}
+
+/* Card / form styling */
+body[data-theme="easter"] .home-form {
+  background: rgba(20, 70, 110, 0.55);
+  backdrop-filter: blur(14px);
+  border: 2px solid rgba(255, 215, 0, 0.30);
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.15);
+  color: var(--easter-cream);
+  padding: 2.5rem;
+}
+
+body[data-theme="easter"] h2 {
+  color: var(--easter-gold);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.7), 0 0 20px rgba(255,215,0,0.30);
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+body[data-theme="easter"] h3 {
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+body[data-theme="easter"] .home-form > .row > .col-12 > div {
+  color: #ffffff;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* ── Buttons ── */
+body[data-theme="easter"] .btn-primary {
+  background: linear-gradient(135deg, var(--easter-gold), var(--easter-gold-soft)) !important;
+  border-color: rgba(107,66,38,0.30) !important;
+  color: var(--easter-brown) !important;
+  font-weight: 700;
+  box-shadow: 0 4px 18px rgba(255,215,0,0.35);
+}
+
+body[data-theme="easter"] .btn-primary:hover {
+  background: linear-gradient(135deg, #ffe44d, #ffd700) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(255,215,0,0.50) !important;
+}
+
+/* Accent text */
+body[data-theme="easter"] .text-white,
+body[data-theme="easter"] .mb-3,
+body[data-theme="easter"] label {
+  color: var(--easter-cream) !important;
+}
+
+body[data-theme="easter"] .home-form label {
+  color: var(--easter-gold) !important;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+
+body[data-theme="easter"] .home-form input,
+body[data-theme="easter"] .home-form select,
+body[data-theme="easter"] .form-select {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 215, 0, 0.25) !important;
+  color: var(--easter-cream) !important;
+  font-weight: 500;
+}
+
+body[data-theme="easter"] .home-form input::placeholder {
+  color: rgba(255, 248, 240, 0.45) !important;
+}
+
+/* Settings / Light Button */
+body[data-theme="easter"] .btn-light {
+  background: linear-gradient(135deg, rgba(91,189,227,0.65), rgba(42,140,196,0.65)) !important;
+  border: 1px solid rgba(255,215,0,0.25) !important;
+  color: var(--easter-cream) !important;
+  font-weight: 600;
+  transition: all 200ms ease;
+}
+
+body[data-theme="easter"] .btn-light:hover {
+  background: linear-gradient(135deg, var(--easter-gold-soft), var(--easter-gold)) !important;
+  color: var(--easter-brown) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255,215,0,0.40) !important;
+}
+
+/* ── Modal styling ── */
+body[data-theme="easter"] .modal-content {
+  background: linear-gradient(135deg, rgba(42,140,196,0.92), rgba(91,189,227,0.88));
+  border: 2px solid rgba(255,215,0,0.30);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.10);
+}
+
+body[data-theme="easter"] .modal-header {
+  border-bottom: 2px solid rgba(255,215,0,0.20);
+  background: linear-gradient(90deg, rgba(42,140,196,0.50), rgba(91,189,227,0.40));
+}
+
+body[data-theme="easter"] .modal-title {
+  color: var(--easter-gold);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.40);
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+body[data-theme="easter"] .modal-footer {
+  border-top: 2px solid rgba(255,215,0,0.20);
+  background: linear-gradient(90deg, rgba(42,140,196,0.30), rgba(91,189,227,0.25));
+}
+
+body[data-theme="easter"] .modal-body {
+  color: var(--easter-cream);
+}
+
+/* Form elements in modals */
+body[data-theme="easter"] .form-switch .form-check-input {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255,215,0,0.30);
+}
+
+body[data-theme="easter"] .form-switch .form-check-input:checked {
+  background: var(--easter-victory-green);
+  border-color: var(--easter-victory-green);
+}
+
+body[data-theme="easter"] .form-check-label {
+  color: var(--easter-cream);
+  font-weight: 600;
+}
+
+body[data-theme="easter"] .form-label {
+  color: var(--easter-gold);
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.30);
+}
+
+/* ── Language Dropdown ── */
+body[data-theme="easter"] .dropdown-toggle {
+  background: linear-gradient(135deg, rgba(91,189,227,0.65), rgba(42,140,196,0.65)) !important;
+  border: 1px solid rgba(255,215,0,0.25) !important;
+  color: var(--easter-cream) !important;
+  font-weight: 600;
+  transition: all 200ms ease;
+}
+
+body[data-theme="easter"] .dropdown-toggle:hover {
+  background: linear-gradient(135deg, var(--easter-gold-soft), var(--easter-gold)) !important;
+  color: var(--easter-brown) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255,215,0,0.40) !important;
+}
+
+body[data-theme="easter"] .dropdown-menu {
+  background: linear-gradient(135deg, rgba(42,140,196,0.95), rgba(91,189,227,0.90));
+  border: 1px solid rgba(255,215,0,0.30);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.50);
+}
+
+body[data-theme="easter"] .dropdown-item {
+  color: var(--easter-cream);
+  border-bottom: 1px solid rgba(255,215,0,0.10);
+}
+
+body[data-theme="easter"] .dropdown-item:hover,
+body[data-theme="easter"] .dropdown-item.active {
+  background: linear-gradient(90deg, rgba(255,215,0,0.25), rgba(244,211,94,0.20));
+  color: var(--easter-gold);
+}
+
+body[data-theme="easter"] .dropdown-item small {
+  color: rgba(255,215,0,0.70);
+}
+
+/* ── Edit Questions Modal ── */
+body[data-theme="easter"] .create-question {
+  background: linear-gradient(135deg, rgba(42,140,196,0.55), rgba(91,189,227,0.40));
+  border: 1px solid rgba(255,215,0,0.25);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.30);
+}
+
+body[data-theme="easter"] .create-questions {
+  color: var(--easter-cream);
+}
+
+body[data-theme="easter"] .create-question .d-flex {
+  color: var(--easter-gold);
+  font-weight: 700;
+}
+
+body[data-theme="easter"] .create-options {
+  background: linear-gradient(90deg, rgba(42,140,196,0.40), rgba(91,189,227,0.30));
+  border-radius: 6px;
+  border: 1px solid rgba(255,215,0,0.15);
+}
+
+body[data-theme="easter"] .create-question input,
+body[data-theme="easter"] .create-question select {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255,215,0,0.25) !important;
+  color: var(--easter-cream) !important;
+  font-weight: 500;
+}
+
+body[data-theme="easter"] .create-question input::placeholder,
+body[data-theme="easter"] .create-question select::placeholder {
+  color: rgba(255, 248, 240, 0.40) !important;
+}
+
+body[data-theme="easter"] .create-question label {
+  color: var(--easter-gold) !important;
+  font-weight: 700;
+}
+
+body[data-theme="easter"] .form-floating > label {
+  color: var(--easter-gold) !important;
+}
+
+body[data-theme="easter"] .accordion-button {
+  background: linear-gradient(90deg, rgba(91,189,227,0.35), rgba(42,140,196,0.25));
+  color: var(--easter-cream);
+  border: 1px solid rgba(255,215,0,0.20);
+}
+
+body[data-theme="easter"] .accordion-button:not(.collapsed) {
+  background: linear-gradient(90deg, var(--easter-gold), var(--easter-gold-soft));
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.10);
+  color: var(--easter-brown);
+}
+
+body[data-theme="easter"] .accordion-button:focus {
+  border-color: rgba(255,215,0,0.50);
+  box-shadow: 0 0 0 0.25rem rgba(255,215,0,0.25);
+}
+
+/* ── Select/Dropdown styling ── */
+body[data-theme="easter"] .form-select,
+body[data-theme="easter"] select {
+  background: linear-gradient(90deg, rgba(42,140,196,0.55), rgba(91,189,227,0.40)) !important;
+  border: 1px solid rgba(255,215,0,0.30) !important;
+  color: var(--easter-cream) !important;
+  font-weight: 600;
+  padding-right: 0.75rem !important;
+}
+
+body[data-theme="easter"] .theme-selector-no-arrow {
+  background-image: none !important;
+  height: 38px !important;
+  padding-top: 0.375rem !important;
+  padding-bottom: 0.375rem !important;
+}
+
+body[data-theme="easter"] .form-select:focus,
+body[data-theme="easter"] select:focus {
+  border-color: rgba(255,215,0,0.60) !important;
+  box-shadow: 0 0 0 0.25rem rgba(255,215,0,0.25) !important;
+}
+
+body[data-theme="easter"] .form-select option {
+  background: rgba(42,140,196,0.95);
+  color: var(--easter-cream);
+}
+
+body[data-theme="easter"] .form-select option:checked {
+  background: linear-gradient(90deg, var(--easter-gold), var(--easter-gold-soft));
+  color: var(--easter-brown);
+}
+
+/* ── Dropzone styling ── */
+body[data-theme="easter"] .dragdrop .dropzone {
+  background: linear-gradient(135deg, rgba(91,189,227,0.20), rgba(255,215,0,0.12));
+  border: 2px dashed rgba(255,215,0,0.50) !important;
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--easter-cream);
+  transition: all 300ms ease;
+  box-shadow: inset 0 0 15px rgba(255,215,0,0.08);
+}
+
+body[data-theme="easter"] .dragdrop .dropzone.dragging {
+  background: linear-gradient(135deg, rgba(255,215,0,0.25), rgba(91,189,227,0.25));
+  border-color: var(--easter-gold) !important;
+  box-shadow: inset 0 0 20px rgba(255,215,0,0.20), 0 0 25px rgba(255,215,0,0.15);
+  transform: scale(1.02);
+}
+
+/* ══════════════ Game screen ══════════════ */
+body[data-theme="easter"] .game {
+  background: transparent;
+}
+
+body[data-theme="easter"] .main {
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 70, 110, 0.50),
+    rgba(60, 35, 15, 0.55)
+  ) !important;
+}
+
+body[data-theme="easter"] .pyramid {
+  background: rgba(42, 140, 196, 0.25);
+}
+
+body[data-theme="easter"] .on-game-player-name {
+  color: var(--easter-gold);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+
+body[data-theme="easter"] .question {
+  background: linear-gradient(135deg, rgba(20,70,110,0.90), rgba(15,55,90,0.92));
+  border-radius: 10px;
+  border: 2px solid rgba(255,215,0,0.25);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.40) inset, 0 4px 20px rgba(0,0,0,0.30);
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+body[data-theme="easter"] .answers .answer {
+  background: linear-gradient(135deg, rgba(20,70,110,0.88), rgba(15,55,90,0.92));
+  border: 2px solid rgba(255,215,0,0.15);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+body[data-theme="easter"] .answers .answer:hover {
+  transform: translateY(-4px);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.40);
+  border-color: rgba(255,215,0,0.35);
+}
+
+body[data-theme="easter"] .answers .answer.selected,
+body[data-theme="easter"] .answers .answer.selected:hover {
+  background: linear-gradient(135deg, rgba(220,160,60,0.85), rgba(180,120,40,0.88));
+  border: 2px solid rgba(255,215,0,0.50);
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 0 16px rgba(255,200,80,0.30), inset 0 1px 4px rgba(0,0,0,0.15);
+  transform: none;
+  transition: all 200ms ease;
+}
+
+body[data-theme="easter"] .answers .answer.wrong,
+body[data-theme="easter"] .answers .answer.wrong:hover {
+  background: linear-gradient(135deg, rgba(160,40,40,0.88), rgba(120,20,20,0.90));
+  border: 2px solid rgba(255,100,100,0.50);
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(200,50,50,0.30), inset 0 1px 4px rgba(0,0,0,0.20);
+}
+
+body[data-theme="easter"] .answers .answer.correct,
+body[data-theme="easter"] .answers .answer.correct:hover {
+  background: linear-gradient(135deg, rgba(40,140,60,0.88), rgba(30,110,50,0.90));
+  border: 2px solid rgba(46,204,113,0.55);
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 0 14px rgba(46,204,113,0.30), inset 0 1px 4px rgba(0,0,0,0.10);
+  transition: all 200ms ease;
+}
+
+body[data-theme="easter"] .answers .answer .col-2 {
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+body[data-theme="easter"] .answers .answer.correct::before {
+  content: ' ✝️';
+  margin-left: 8px;
+  font-size: 1.1em;
+}
+
+/* ══════════════ Golden light‑ray overlay ══════════════ */
+body[data-theme="easter"] .easter-rays {
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 700;
+}
+
+.easter-particle {
+  position: absolute;
+  bottom: -10px;
+  background: radial-gradient(circle, rgba(255,215,0,0.80), rgba(244,211,94,0.40));
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  opacity: 0;
+  will-change: transform;
+  animation-name: riseGlow;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes riseGlow {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  60% {
+    opacity: 0.50;
+  }
+  100% {
+    transform: translateY(-110vh) scale(0.2);
+    opacity: 0;
+  }
+}
+
+/* Easter overlay for questions page */
+body[data-theme="easter"] .easter-questions-rays {
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 100;
+}
