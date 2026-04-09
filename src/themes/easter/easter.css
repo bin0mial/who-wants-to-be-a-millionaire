@@ -1,18 +1,18 @@
 /* Easter "He Is Risen" theme
-   Palette from resurrection image:
-   Sky blue #5BBDE3  |  Golden radiance #FFD700 / #F4D35E
-   Warm brown rock #8B6914 / #A67B5B  |  White robes #FFF8F0
-   Victory green #4A7C2F  */
+   Palette sampled from resurrection image:
+   Pastel sky #8EC8E8  |  Warm glow #E8D098 / #CBAD6A
+   Terracotta rock #9E7050 / #7A5035  |  Robes #F5EDE0
+   Olive grass #6B8040  */
 
 :root {
-  --easter-sky: #7FBFD4;
-  --easter-sky-deep: #4A8DAD;
-  --easter-gold: #D4AA40;
-  --easter-gold-soft: #C9A84C;
-  --easter-cream: #F5F0E8;
-  --easter-brown: #5C3A20;
-  --easter-brown-light: #9A7B62;
-  --easter-victory-green: #5A8A45;
+  --easter-sky: #8EC8E8;
+  --easter-sky-deep: #5BA0C4;
+  --easter-gold: #CBAD6A;
+  --easter-gold-soft: #E8D098;
+  --easter-cream: #F5EDE0;
+  --easter-brown: #5A3825;
+  --easter-brown-light: #9E7050;
+  --easter-victory-green: #6B8040;
 }
 
 [data-theme="easter"] {
@@ -24,11 +24,11 @@ body[data-theme="easter"] {
   background:
     linear-gradient(
       180deg,
-      #3D6F8C 0%,
-      #7FBFD4 28%,
-      #C9A84C 58%,
-      #9A7B62 80%,
-      #5C3A20 100%
+      #6AAFE0 0%,
+      #8EC8E8 25%,
+      #E8D098 55%,
+      #B08060 78%,
+      #7A5035 100%
     ) !important;
   background-attachment: fixed;
   color: var(--easter-cream);
@@ -36,50 +36,50 @@ body[data-theme="easter"] {
 
 /* Card / form styling */
 body[data-theme="easter"] .home-form {
-  background: rgba(40, 55, 70, 0.60);
+  background: rgba(90, 60, 40, 0.55);
   backdrop-filter: blur(14px);
-  border: 2px solid rgba(200, 170, 80, 0.25);
+  border: 2px solid rgba(232, 208, 152, 0.22);
   border-radius: 14px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.15);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.10);
   color: var(--easter-cream);
   padding: 2.5rem;
 }
 
 body[data-theme="easter"] h2 {
-  color: var(--easter-gold);
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5), 0 0 12px rgba(200,170,80,0.20);
+  color: var(--easter-gold-soft);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4), 0 0 10px rgba(232,208,152,0.15);
   font-size: 2.5rem;
   font-weight: 800;
   letter-spacing: 1px;
 }
 
 body[data-theme="easter"] h3 {
-  color: #ffffff;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+  color: var(--easter-cream);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
   font-size: 1.4rem;
   font-weight: 700;
 }
 
 body[data-theme="easter"] .home-form > .row > .col-12 > div {
-  color: #ffffff;
+  color: var(--easter-cream);
   font-size: 1.05rem;
   line-height: 1.7;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.35);
 }
 
 /* ── Buttons ── */
 body[data-theme="easter"] .btn-primary {
   background: linear-gradient(135deg, var(--easter-gold), var(--easter-gold-soft)) !important;
-  border-color: rgba(92,58,32,0.30) !important;
+  border-color: rgba(90,60,40,0.25) !important;
   color: var(--easter-brown) !important;
   font-weight: 700;
-  box-shadow: 0 4px 14px rgba(200,170,80,0.25);
+  box-shadow: 0 4px 12px rgba(160,128,80,0.20);
 }
 
 body[data-theme="easter"] .btn-primary:hover {
-  background: linear-gradient(135deg, #DCBA55, #D4AA40) !important;
+  background: linear-gradient(135deg, var(--easter-gold-soft), var(--easter-gold)) !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(200,170,80,0.35) !important;
+  box-shadow: 0 6px 18px rgba(160,128,80,0.30) !important;
 }
 
 /* Accent text */
@@ -90,16 +90,16 @@ body[data-theme="easter"] label {
 }
 
 body[data-theme="easter"] .home-form label {
-  color: #DCBA55 !important;
+  color: var(--easter-gold-soft) !important;
   font-weight: 700;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 body[data-theme="easter"] .home-form input,
 body[data-theme="easter"] .home-form select,
 body[data-theme="easter"] .form-select {
   background: rgba(255, 255, 255, 0.10) !important;
-  border: 1px solid rgba(200, 170, 80, 0.22) !important;
+  border: 1px solid rgba(232, 208, 152, 0.20) !important;
   color: var(--easter-cream) !important;
   font-weight: 500;
 }
@@ -110,8 +110,8 @@ body[data-theme="easter"] .home-form input::placeholder {
 
 /* Settings / Light Button */
 body[data-theme="easter"] .btn-light {
-  background: linear-gradient(135deg, rgba(127,191,212,0.50), rgba(74,141,173,0.50)) !important;
-  border: 1px solid rgba(200,170,80,0.22) !important;
+  background: linear-gradient(135deg, rgba(142,200,232,0.40), rgba(91,160,196,0.40)) !important;
+  border: 1px solid rgba(232,208,152,0.20) !important;
   color: var(--easter-cream) !important;
   font-weight: 600;
   transition: all 200ms ease;
@@ -121,19 +121,19 @@ body[data-theme="easter"] .btn-light:hover {
   background: linear-gradient(135deg, var(--easter-gold-soft), var(--easter-gold)) !important;
   color: var(--easter-brown) !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(200,170,80,0.30) !important;
+  box-shadow: 0 6px 14px rgba(160,128,80,0.25) !important;
 }
 
 /* ── Modal styling ── */
 body[data-theme="easter"] .modal-content {
-  background: linear-gradient(135deg, rgba(50,70,90,0.94), rgba(60,85,105,0.92));
-  border: 2px solid rgba(200,170,80,0.25);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.40), inset 0 1px 0 rgba(255,255,255,0.08);
+  background: linear-gradient(135deg, rgba(90,60,40,0.93), rgba(110,75,50,0.90));
+  border: 2px solid rgba(232,208,152,0.22);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
 body[data-theme="easter"] .modal-header {
-  border-bottom: 2px solid rgba(200,170,80,0.18);
-  background: linear-gradient(90deg, rgba(50,70,90,0.40), rgba(60,85,105,0.35));
+  border-bottom: 2px solid rgba(232,208,152,0.15);
+  background: linear-gradient(90deg, rgba(90,60,40,0.30), rgba(110,75,50,0.25));
 }
 
 body[data-theme="easter"] .modal-title {
@@ -144,8 +144,8 @@ body[data-theme="easter"] .modal-title {
 }
 
 body[data-theme="easter"] .modal-footer {
-  border-top: 2px solid rgba(200,170,80,0.18);
-  background: linear-gradient(90deg, rgba(50,70,90,0.25), rgba(60,85,105,0.20));
+  border-top: 2px solid rgba(232,208,152,0.15);
+  background: linear-gradient(90deg, rgba(90,60,40,0.20), rgba(110,75,50,0.15));
 }
 
 body[data-theme="easter"] .modal-body {
@@ -154,8 +154,8 @@ body[data-theme="easter"] .modal-body {
 
 /* Form elements in modals */
 body[data-theme="easter"] .form-switch .form-check-input {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255,215,0,0.30);
+  background: rgba(255, 255, 255, 0.20);
+  border-color: rgba(203,173,106,0.30);
 }
 
 body[data-theme="easter"] .form-switch .form-check-input:checked {
@@ -176,8 +176,8 @@ body[data-theme="easter"] .form-label {
 
 /* ── Language Dropdown ── */
 body[data-theme="easter"] .dropdown-toggle {
-  background: linear-gradient(135deg, rgba(127,191,212,0.50), rgba(74,141,173,0.50)) !important;
-  border: 1px solid rgba(200,170,80,0.22) !important;
+  background: linear-gradient(135deg, rgba(142,200,232,0.40), rgba(91,160,196,0.40)) !important;
+  border: 1px solid rgba(232,208,152,0.20) !important;
   color: var(--easter-cream) !important;
   font-weight: 600;
   transition: all 200ms ease;
@@ -187,34 +187,34 @@ body[data-theme="easter"] .dropdown-toggle:hover {
   background: linear-gradient(135deg, var(--easter-gold-soft), var(--easter-gold)) !important;
   color: var(--easter-brown) !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(200,170,80,0.30) !important;
+  box-shadow: 0 6px 14px rgba(160,128,80,0.25) !important;
 }
 
 body[data-theme="easter"] .dropdown-menu {
-  background: linear-gradient(135deg, rgba(50,70,90,0.95), rgba(60,85,105,0.92));
-  border: 1px solid rgba(200,170,80,0.25);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.40);
+  background: linear-gradient(135deg, rgba(90,60,40,0.94), rgba(110,75,50,0.92));
+  border: 1px solid rgba(232,208,152,0.22);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
 }
 
 body[data-theme="easter"] .dropdown-item {
   color: var(--easter-cream);
-  border-bottom: 1px solid rgba(255,215,0,0.10);
+  border-bottom: 1px solid rgba(232,208,152,0.08);
 }
 
 body[data-theme="easter"] .dropdown-item:hover,
 body[data-theme="easter"] .dropdown-item.active {
-  background: linear-gradient(90deg, rgba(255,215,0,0.25), rgba(244,211,94,0.20));
-  color: var(--easter-gold);
+  background: linear-gradient(90deg, rgba(232,208,152,0.20), rgba(203,173,106,0.18));
+  color: var(--easter-gold-soft);
 }
 
 body[data-theme="easter"] .dropdown-item small {
-  color: rgba(255,215,0,0.70);
+  color: rgba(232,208,152,0.60);
 }
 
 /* ── Edit Questions Modal ── */
 body[data-theme="easter"] .create-question {
-  background: linear-gradient(135deg, rgba(42,140,196,0.55), rgba(91,189,227,0.40));
-  border: 1px solid rgba(255,215,0,0.25);
+  background: linear-gradient(135deg, rgba(90,60,40,0.50), rgba(110,75,50,0.40));
+  border: 1px solid rgba(232,208,152,0.20);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.30);
 }
@@ -229,15 +229,15 @@ body[data-theme="easter"] .create-question .d-flex {
 }
 
 body[data-theme="easter"] .create-options {
-  background: linear-gradient(90deg, rgba(42,140,196,0.40), rgba(91,189,227,0.30));
+  background: linear-gradient(90deg, rgba(90,60,40,0.35), rgba(110,75,50,0.25));
   border-radius: 6px;
-  border: 1px solid rgba(255,215,0,0.15);
+  border: 1px solid rgba(232,208,152,0.12);
 }
 
 body[data-theme="easter"] .create-question input,
 body[data-theme="easter"] .create-question select {
-  background: rgba(255, 255, 255, 0.12) !important;
-  border: 1px solid rgba(255,215,0,0.25) !important;
+  background: rgba(255, 255, 255, 0.10) !important;
+  border: 1px solid rgba(232,208,152,0.20) !important;
   color: var(--easter-cream) !important;
   font-weight: 500;
 }
@@ -257,27 +257,27 @@ body[data-theme="easter"] .form-floating > label {
 }
 
 body[data-theme="easter"] .accordion-button {
-  background: linear-gradient(90deg, rgba(91,189,227,0.35), rgba(42,140,196,0.25));
+  background: linear-gradient(90deg, rgba(142,200,232,0.28), rgba(91,160,196,0.20));
   color: var(--easter-cream);
-  border: 1px solid rgba(255,215,0,0.20);
+  border: 1px solid rgba(232,208,152,0.18);
 }
 
 body[data-theme="easter"] .accordion-button:not(.collapsed) {
   background: linear-gradient(90deg, var(--easter-gold), var(--easter-gold-soft));
-  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.10);
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.08);
   color: var(--easter-brown);
 }
 
 body[data-theme="easter"] .accordion-button:focus {
-  border-color: rgba(255,215,0,0.50);
-  box-shadow: 0 0 0 0.25rem rgba(255,215,0,0.25);
+  border-color: rgba(203,173,106,0.45);
+  box-shadow: 0 0 0 0.25rem rgba(203,173,106,0.20);
 }
 
 /* ── Select/Dropdown styling ── */
 body[data-theme="easter"] .form-select,
 body[data-theme="easter"] select {
-  background: linear-gradient(90deg, rgba(42,140,196,0.55), rgba(91,189,227,0.40)) !important;
-  border: 1px solid rgba(255,215,0,0.30) !important;
+  background: linear-gradient(90deg, rgba(90,60,40,0.45), rgba(110,75,50,0.35)) !important;
+  border: 1px solid rgba(232,208,152,0.22) !important;
   color: var(--easter-cream) !important;
   font-weight: 600;
   padding-right: 0.75rem !important;
@@ -292,12 +292,12 @@ body[data-theme="easter"] .theme-selector-no-arrow {
 
 body[data-theme="easter"] .form-select:focus,
 body[data-theme="easter"] select:focus {
-  border-color: rgba(255,215,0,0.60) !important;
-  box-shadow: 0 0 0 0.25rem rgba(255,215,0,0.25) !important;
+  border-color: rgba(203,173,106,0.50) !important;
+  box-shadow: 0 0 0 0.25rem rgba(203,173,106,0.20) !important;
 }
 
 body[data-theme="easter"] .form-select option {
-  background: rgba(42,140,196,0.95);
+  background: rgba(90,60,40,0.95);
   color: var(--easter-cream);
 }
 
@@ -308,8 +308,8 @@ body[data-theme="easter"] .form-select option:checked {
 
 /* ── Dropzone styling ── */
 body[data-theme="easter"] .dragdrop .dropzone {
-  background: linear-gradient(135deg, rgba(91,189,227,0.20), rgba(255,215,0,0.12));
-  border: 2px dashed rgba(255,215,0,0.50) !important;
+  background: linear-gradient(135deg, rgba(142,200,232,0.15), rgba(232,208,152,0.10));
+  border: 2px dashed rgba(203,173,106,0.40) !important;
   text-align: center;
   padding: 1.5rem;
   border-radius: 8px;
@@ -317,13 +317,13 @@ body[data-theme="easter"] .dragdrop .dropzone {
   font-weight: 500;
   color: var(--easter-cream);
   transition: all 300ms ease;
-  box-shadow: inset 0 0 15px rgba(255,215,0,0.08);
+  box-shadow: inset 0 0 12px rgba(203,173,106,0.06);
 }
 
 body[data-theme="easter"] .dragdrop .dropzone.dragging {
-  background: linear-gradient(135deg, rgba(255,215,0,0.25), rgba(91,189,227,0.25));
+  background: linear-gradient(135deg, rgba(232,208,152,0.20), rgba(142,200,232,0.18));
   border-color: var(--easter-gold) !important;
-  box-shadow: inset 0 0 20px rgba(255,215,0,0.20), 0 0 25px rgba(255,215,0,0.15);
+  box-shadow: inset 0 0 16px rgba(203,173,106,0.15), 0 0 20px rgba(203,173,106,0.10);
   transform: scale(1.02);
 }
 
@@ -335,13 +335,13 @@ body[data-theme="easter"] .game {
 body[data-theme="easter"] .main {
   background: linear-gradient(
     to bottom,
-    rgba(40, 55, 70, 0.50),
-    rgba(60, 45, 30, 0.50)
+    rgba(70, 50, 35, 0.45),
+    rgba(90, 60, 40, 0.48)
   ) !important;
 }
 
 body[data-theme="easter"] .pyramid {
-  background: rgba(40, 55, 70, 0.30);
+  background: rgba(90, 60, 40, 0.28);
 }
 
 body[data-theme="easter"] .on-game-player-name {
@@ -350,10 +350,10 @@ body[data-theme="easter"] .on-game-player-name {
 }
 
 body[data-theme="easter"] .question {
-  background: linear-gradient(135deg, rgba(40,55,70,0.90), rgba(35,50,65,0.92));
+  background: linear-gradient(135deg, rgba(75,50,35,0.90), rgba(90,60,40,0.92));
   border-radius: 10px;
-  border: 2px solid rgba(255,215,0,0.25);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.40) inset, 0 4px 20px rgba(0,0,0,0.30);
+  border: 2px solid rgba(232,208,152,0.18);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.30) inset, 0 4px 16px rgba(0,0,0,0.20);
   color: #ffffff;
   font-size: 1.3rem;
   font-weight: 600;
@@ -361,8 +361,8 @@ body[data-theme="easter"] .question {
 }
 
 body[data-theme="easter"] .answers .answer {
-  background: linear-gradient(135deg, rgba(40,55,70,0.88), rgba(35,50,65,0.90));
-  border: 2px solid rgba(200,170,80,0.15);
+  background: linear-gradient(135deg, rgba(75,50,35,0.86), rgba(90,60,40,0.88));
+  border: 2px solid rgba(232,208,152,0.12);
   box-shadow: 0 4px 16px rgba(0,0,0,0.35);
   color: #ffffff;
   text-shadow: 0 1px 2px rgba(0,0,0,0.5);
@@ -372,16 +372,16 @@ body[data-theme="easter"] .answers .answer:hover {
   transform: translateY(-4px);
   transition: transform 160ms ease, box-shadow 160ms ease;
   box-shadow: 0 8px 24px rgba(0,0,0,0.40);
-  border-color: rgba(200,170,80,0.30);
+  border-color: rgba(232,208,152,0.25);
 }
 
 body[data-theme="easter"] .answers .answer.selected,
 body[data-theme="easter"] .answers .answer.selected:hover {
-  background: linear-gradient(135deg, rgba(170,130,55,0.82), rgba(145,108,45,0.85));
-  border: 2px solid rgba(200,170,80,0.45);
+  background: linear-gradient(135deg, rgba(160,120,60,0.80), rgba(140,100,48,0.82));
+  border: 2px solid rgba(232,208,152,0.40);
   color: #ffffff;
   font-weight: 700;
-  box-shadow: 0 0 12px rgba(200,170,80,0.25), inset 0 1px 4px rgba(0,0,0,0.15);
+  box-shadow: 0 0 10px rgba(203,173,106,0.20), inset 0 1px 4px rgba(0,0,0,0.12);
   transform: none;
   transition: all 200ms ease;
 }
@@ -432,7 +432,7 @@ body[data-theme="easter"] .easter-rays {
 .easter-particle {
   position: absolute;
   bottom: -10px;
-  background: radial-gradient(circle, rgba(255,215,0,0.80), rgba(244,211,94,0.40));
+  background: radial-gradient(circle, rgba(232,208,152,0.70), rgba(203,173,106,0.35));
   width: 4px;
   height: 4px;
   border-radius: 50%;
