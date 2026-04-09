@@ -10,6 +10,7 @@
     "questionNumber": "السؤال رقم: {{number}}",
     "answer": "الاجابة",
     "sharingOptions": "اعدادات المشاركة",
+    "shareTheme": "المظهر",
     "download": {
       "btnVariant": "info",
       "text": "تحميل اسئلتك"

@@ -10,6 +10,7 @@
     "questionNumber": "Question number: {{number}}",
     "answer": "Answer",
     "sharingOptions": "Sharing Options",
+    "shareTheme": "Theme",
     "download": {
       "btnVariant": "info",
       "text": "Download Questions"
