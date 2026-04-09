@@ -460,6 +460,84 @@ body[data-theme="easter"] .easter-rays {
   }
 }
 
+/* ── Floating clouds ── */
+.easter-cloud {
+  position: absolute;
+  left: -180px;
+  width: 160px;
+  height: 50px;
+  background: radial-gradient(
+    ellipse at 50% 60%,
+    rgba(255,255,255,0.50) 0%,
+    rgba(255,255,255,0.20) 50%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(6px);
+  will-change: left;
+  animation-name: driftCloud;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes driftCloud {
+  0% {
+    left: -180px;
+  }
+  100% {
+    left: calc(100vw + 180px);
+  }
+}
+
+/* ── Rising doves ── */
+.easter-dove {
+  position: absolute;
+  bottom: -30px;
+  opacity: 0;
+  will-change: transform;
+  animation-name: riseDove;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.15));
+  line-height: 1;
+}
+
+@keyframes riseDove {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.45;
+    transform: translateY(-50vh) translateX(15px);
+  }
+  100% {
+    transform: translateY(-110vh) translateX(-10px);
+    opacity: 0;
+  }
+}
+
+/* ── Heavenly light rays from center ── */
+body[data-theme="easter"] .easter-rays::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 60%;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(232,208,152,0.12) 0%,
+    rgba(232,208,152,0.04) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
 /* Easter overlay for questions page */
 body[data-theme="easter"] .easter-questions-rays {
   pointer-events: none;
