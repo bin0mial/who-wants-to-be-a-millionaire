@@ -2,7 +2,7 @@ import {
   createContext, useMemo, useRef, useState,
 } from 'react';
 import PropTypes from 'prop-types';
-import money from 'components/Money/money.json';
+import money from 'components/Money/moneyList.json';
 
 const MoneyContext = createContext(null);
 
