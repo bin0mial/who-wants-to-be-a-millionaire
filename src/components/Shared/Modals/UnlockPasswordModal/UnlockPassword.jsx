@@ -7,8 +7,8 @@ import UnlockPasswordModalValidationSchema from './UnlockPasswordModalValidation
 
 const UnlockPassword = ({ unlockAction, submitRef }) => {
   const { t } = useTranslation('translation', { keyPrefix: 'common' });
-  const onSubmit = (values, { setErrors }) => {
-    if (!unlockAction(values.password)) {
+  const onSubmit = async (values, { setErrors }) => {
+    if (!await unlockAction(values.password)) {
       setErrors({ password: validationMessages.invalidPassword() });
     }
   };

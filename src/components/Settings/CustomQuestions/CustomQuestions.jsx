@@ -19,7 +19,7 @@ import CopyButton from 'components/Shared/Buttons/CopyButton';
 import FormikSelectFloatingLabel from 'components/Shared/Form/FormikSelect/FormikSelectFloatingLabel';
 import GeneralAccordion from 'components/Shared/Accordion/GeneralAccordion';
 import FormikPasswordInput from 'components/Shared/Form/FormikInput/FormikPasswordInput';
-import { md5Hash } from 'helpers/hashes';
+import { sha256Hash } from 'helpers/hashes';
 import FormikInputFloatingLabel from 'components/Shared/Form/FormikInput/FormikInputFloatingLabel';
 import { prepareShareQuestions } from 'helpers/share';
 import FlipMove from 'react-flip-move';
@@ -54,7 +54,7 @@ const CustomQuestions = ({
       });
       exportObject(values.questions, compressLZW);
     },
-    saveShare: ((values) => {
+    saveShare: (async (values) => {
       const postStore = (resultId) => {
         const shareUrl = `${window.location.origin}?shareId=${resultId}`;
         showAppModal(
@@ -72,7 +72,7 @@ const CustomQuestions = ({
       };
       const sharedQuestions = { questions: values.questions };
       if (values.password.trim()) {
-        sharedQuestions.password = md5Hash(values.password.trim());
+        sharedQuestions.password = await sha256Hash(values.password.trim());
       }
       setQuestions(values.questions);
       setIsCustom(true);

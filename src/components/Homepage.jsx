@@ -128,8 +128,20 @@ const Homepage = () => {
               i18nKey="homepage.footer"
               values={{ appName: t('appName') }}
               components={{
-                1: <a href="https://github.com/bin0mial">Github</a>,
-                3: <a href="https://github.com/bin0mial/who-wants-to-be-a-millionaire">Github Repo</a>,
+                1: (
+                  <a href="https://github.com/bin0mial" target="_blank" rel="noopener noreferrer">
+                    Github
+                  </a>
+                ),
+                3: (
+                  <a
+                    href="https://github.com/bin0mial/who-wants-to-be-a-millionaire"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Github Repo
+                  </a>
+                ),
               }}
             />
           </div>
