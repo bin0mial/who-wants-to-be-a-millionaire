@@ -24,11 +24,11 @@ body[data-theme="easter"] {
   background:
     linear-gradient(
       180deg,
-      #6AAFE0 0%,
-      #8EC8E8 25%,
-      #E8D098 55%,
-      #B08060 78%,
-      #7A5035 100%
+      #5BA0C4 0%,
+      #8EC8E8 30%,
+      #A8D8EA 55%,
+      #E8D098 80%,
+      #B08060 100%
     ) !important;
   background-attachment: fixed;
   color: var(--easter-cream);
@@ -36,9 +36,9 @@ body[data-theme="easter"] {
 
 /* Card / form styling */
 body[data-theme="easter"] .home-form {
-  background: rgba(90, 60, 40, 0.55);
+  background: rgba(60, 100, 130, 0.50);
   backdrop-filter: blur(14px);
-  border: 2px solid rgba(232, 208, 152, 0.22);
+  border: 2px solid rgba(232, 208, 152, 0.20);
   border-radius: 14px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.10);
   color: var(--easter-cream);
@@ -126,14 +126,14 @@ body[data-theme="easter"] .btn-light:hover {
 
 /* ── Modal styling ── */
 body[data-theme="easter"] .modal-content {
-  background: linear-gradient(135deg, rgba(90,60,40,0.93), rgba(110,75,50,0.90));
-  border: 2px solid rgba(232,208,152,0.22);
+  background: linear-gradient(135deg, rgba(50,90,120,0.93), rgba(60,105,140,0.90));
+  border: 2px solid rgba(232,208,152,0.20);
   box-shadow: 0 10px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
 body[data-theme="easter"] .modal-header {
   border-bottom: 2px solid rgba(232,208,152,0.15);
-  background: linear-gradient(90deg, rgba(90,60,40,0.30), rgba(110,75,50,0.25));
+  background: linear-gradient(90deg, rgba(50,90,120,0.30), rgba(60,105,140,0.25));
 }
 
 body[data-theme="easter"] .modal-title {
@@ -145,7 +145,7 @@ body[data-theme="easter"] .modal-title {
 
 body[data-theme="easter"] .modal-footer {
   border-top: 2px solid rgba(232,208,152,0.15);
-  background: linear-gradient(90deg, rgba(90,60,40,0.20), rgba(110,75,50,0.15));
+  background: linear-gradient(90deg, rgba(50,90,120,0.20), rgba(60,105,140,0.15));
 }
 
 body[data-theme="easter"] .modal-body {
@@ -191,7 +191,7 @@ body[data-theme="easter"] .dropdown-toggle:hover {
 }
 
 body[data-theme="easter"] .dropdown-menu {
-  background: linear-gradient(135deg, rgba(90,60,40,0.94), rgba(110,75,50,0.92));
+  background: linear-gradient(135deg, rgba(50,90,120,0.94), rgba(60,105,140,0.92));
   border: 1px solid rgba(232,208,152,0.22);
   box-shadow: 0 8px 30px rgba(0,0,0,0.35);
 }
@@ -213,7 +213,7 @@ body[data-theme="easter"] .dropdown-item small {
 
 /* ── Edit Questions Modal ── */
 body[data-theme="easter"] .create-question {
-  background: linear-gradient(135deg, rgba(90,60,40,0.50), rgba(110,75,50,0.40));
+  background: linear-gradient(135deg, rgba(50,90,120,0.45), rgba(60,105,140,0.35));
   border: 1px solid rgba(232,208,152,0.20);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.30);
@@ -229,7 +229,7 @@ body[data-theme="easter"] .create-question .d-flex {
 }
 
 body[data-theme="easter"] .create-options {
-  background: linear-gradient(90deg, rgba(90,60,40,0.35), rgba(110,75,50,0.25));
+  background: linear-gradient(90deg, rgba(50,90,120,0.30), rgba(60,105,140,0.22));
   border-radius: 6px;
   border: 1px solid rgba(232,208,152,0.12);
 }
@@ -276,7 +276,7 @@ body[data-theme="easter"] .accordion-button:focus {
 /* ── Select/Dropdown styling ── */
 body[data-theme="easter"] .form-select,
 body[data-theme="easter"] select {
-  background: linear-gradient(90deg, rgba(90,60,40,0.45), rgba(110,75,50,0.35)) !important;
+  background: linear-gradient(90deg, rgba(50,90,120,0.45), rgba(60,105,140,0.35)) !important;
   border: 1px solid rgba(232,208,152,0.22) !important;
   color: var(--easter-cream) !important;
   font-weight: 600;
@@ -297,7 +297,7 @@ body[data-theme="easter"] select:focus {
 }
 
 body[data-theme="easter"] .form-select option {
-  background: rgba(90,60,40,0.95);
+  background: rgba(50,90,120,0.95);
   color: var(--easter-cream);
 }
 
@@ -335,13 +335,13 @@ body[data-theme="easter"] .game {
 body[data-theme="easter"] .main {
   background: linear-gradient(
     to bottom,
-    rgba(70, 50, 35, 0.45),
-    rgba(90, 60, 40, 0.48)
+    rgba(50, 90, 120, 0.42),
+    rgba(60, 105, 140, 0.45)
   ) !important;
 }
 
 body[data-theme="easter"] .pyramid {
-  background: rgba(90, 60, 40, 0.28);
+  background: rgba(50, 90, 120, 0.25);
 }
 
 body[data-theme="easter"] .on-game-player-name {
@@ -350,7 +350,7 @@ body[data-theme="easter"] .on-game-player-name {
 }
 
 body[data-theme="easter"] .question {
-  background: linear-gradient(135deg, rgba(75,50,35,0.90), rgba(90,60,40,0.92));
+  background: linear-gradient(135deg, rgba(40,80,110,0.88), rgba(50,90,120,0.90));
   border-radius: 10px;
   border: 2px solid rgba(232,208,152,0.18);
   box-shadow: 0 8px 24px rgba(0,0,0,0.30) inset, 0 4px 16px rgba(0,0,0,0.20);
@@ -361,7 +361,7 @@ body[data-theme="easter"] .question {
 }
 
 body[data-theme="easter"] .answers .answer {
-  background: linear-gradient(135deg, rgba(75,50,35,0.86), rgba(90,60,40,0.88));
+  background: linear-gradient(135deg, rgba(40,80,110,0.84), rgba(50,90,120,0.86));
   border: 2px solid rgba(232,208,152,0.12);
   box-shadow: 0 4px 16px rgba(0,0,0,0.35);
   color: #ffffff;
