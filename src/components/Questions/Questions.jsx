@@ -7,7 +7,7 @@ import wrongSound from 'assets/sounds/wrong.mp3';
 import GameControlContext from 'contexts/GameControlContext';
 import GameSettingsContext from 'contexts/GameSettingsContext';
 import { MoneyContext } from 'contexts/MoneyContext';
-import ThemeContext from 'contexts/ThemeContext';
+import ThemeOverlay from 'components/Shared/ThemeOverlay';
 import PlayerContext from 'contexts/PlayerContext';
 import AlwaysScrollToBottom from 'components/Shared/Scrolling/AlwaysScrollToBottom';
 import { Trans } from 'react-i18next';
@@ -24,6 +24,7 @@ const audios = {
 const Questions = ({ questions }) => {
   const [activeQuestion, setActiveQuestion] = useState(questions[0]);
   const [selectedId, setSelectedId] = useState();
+  const [isLocked, setIsLocked] = useState(false);
   const [wronglySelected, setWronglySelected] = useState();
   const [rightAnswer, setRightAnswer] = useState();
   const [isOver, setIsOver] = useState(false);
@@ -31,7 +32,6 @@ const Questions = ({ questions }) => {
   const { gameSettings } = useContext(GameSettingsContext);
   const { increaseMoneyIndex, isLoaded } = useContext(MoneyContext);
   const { playerInfo } = useContext(PlayerContext);
-  const { theme } = useContext(ThemeContext);
 
   const playAudio = (audio) => {
     if (!gameSettings.enableSounds) return;
@@ -50,6 +50,7 @@ const Questions = ({ questions }) => {
   const nextQuestion = () => {
     setRightAnswer(null);
     setWronglySelected(null);
+    setIsLocked(false);
     const currentQuestionIndex = questions.findIndex((question) => question.id === activeQuestion.id);
     setActiveQuestion(questions[currentQuestionIndex + 1]);
     if (currentQuestionIndex < questions.length - 1) {
@@ -88,44 +89,16 @@ const Questions = ({ questions }) => {
   };
 
   const handleChoice = (option) => () => {
-    if (!selectedId) {
+    if (!isLocked) {
+      setIsLocked(true);
       setSelectedId(option);
       setTimeout(() => solve(option), 2000);
     }
   };
 
-  const renderSnow = () => {
-    const flakes = Array.from({ length: 30 }).map(() => {
-      const left = Math.random() * 100;
-      const size = 4 + Math.random() * 6;
-      const duration = 8 + Math.random() * 10;
-      const delay = Math.random() * -25;
-      const id = Math.random().toString(36).slice(2, 9);
-      return (
-        <div
-          key={`qflake-${id}`}
-          className="questions-snowflake"
-          style={{
-            left: `${left}%`,
-            width: `${size}px`,
-            height: `${size}px`,
-            animationDuration: `${duration}s`,
-            animationDelay: `${delay}s`,
-          }}
-        />
-      );
-    });
-
-    return (
-      <div className="questions-snow" aria-hidden>
-        {flakes}
-      </div>
-    );
-  };
-
   return isOver || !activeQuestion ? (<GameOver endGameButton={endGame} isWinner={!activeQuestion} />) : (
     <>
-      {theme === 'christmas' && renderSnow()}
+      <ThemeOverlay />
       <div>
         {playerInfo.name && (
         <div>
