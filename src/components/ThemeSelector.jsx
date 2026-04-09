@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Form } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import ThemeContext from 'contexts/ThemeContext';
+import { allThemes } from 'themes/registry';
 
 const ThemeSelector = () => {
   const { t } = useTranslation('translation', { keyPrefix: 'homepage' });
@@ -17,8 +18,11 @@ const ThemeSelector = () => {
       style={{ width: '200px' }}
       className="theme-selector-no-arrow"
     >
-      <option value="classic">{t('themeClassic')}</option>
-      <option value="christmas">{t('themeChristmas')}</option>
+      {allThemes.map((themeEntry) => (
+        <option key={themeEntry.id} value={themeEntry.id}>
+          {`${themeEntry.icon} ${t(themeEntry.labelKey)}`}
+        </option>
+      ))}
     </Form.Select>
   );
 };

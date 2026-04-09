@@ -3,14 +3,18 @@ import React, {
   useMemo,
   useState,
   useEffect,
+  useCallback,
 } from 'react';
 import PropTypes from 'prop-types';
+import { allThemes, getTheme } from 'themes/registry';
 
 const saved = typeof window !== 'undefined' ? localStorage.getItem('theme') : null;
-const defaultTheme = saved || 'classic';
+const isValidTheme = (id) => allThemes.some((t) => t.id === id);
+const defaultTheme = (saved && isValidTheme(saved)) ? saved : 'classic';
 
 const ThemeContext = createContext({
   theme: defaultTheme,
+  themeConfig: getTheme(defaultTheme),
   setTheme: () => {},
 });
 
@@ -18,6 +22,7 @@ export default ThemeContext;
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setThemeState] = useState(defaultTheme);
+  const themeConfig = useMemo(() => getTheme(theme), [theme]);
 
   useEffect(() => {
     try {
@@ -28,11 +33,19 @@ export const ThemeProvider = ({ children }) => {
     if (typeof document !== 'undefined') {
       document.body.setAttribute('data-theme', theme);
     }
-  }, [theme]);
 
-  const setTheme = (value) => setThemeState(value);
+    if (themeConfig.cssPath) {
+      themeConfig.cssPath();
+    }
+  }, [theme, themeConfig]);
 
-  const value = useMemo(() => ({ theme, setTheme }), [theme]);
+  const setTheme = useCallback((value) => {
+    if (isValidTheme(value)) {
+      setThemeState(value);
+    }
+  }, []);
+
+  const value = useMemo(() => ({ theme, themeConfig, setTheme }), [theme, themeConfig, setTheme]);
 
   return (
     <ThemeContext.Provider value={value}>

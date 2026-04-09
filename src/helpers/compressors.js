@@ -8,6 +8,12 @@ const compressLZW = (dataObject) => ({
 
 const decompressLZW = (compressedString) => lzString.decompressFromEncodedURIComponent(compressedString);
 
-const decompressObjectifyLZW = (compressedString) => JSON.parse(decompressLZW(compressedString));
+const decompressObjectifyLZW = (compressedString) => {
+  try {
+    return JSON.parse(decompressLZW(compressedString));
+  } catch {
+    return null;
+  }
+};
 
 export { compressLZW, decompressLZW, decompressObjectifyLZW };

@@ -1,6 +1,6 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import 'bootstrap/dist/css/bootstrap.rtl.min.css';
-@import './themes/christmas.css';
+/* Theme CSS files are loaded dynamically via ThemeContext */
 
 body {
     margin: 0;

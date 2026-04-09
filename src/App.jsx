@@ -7,9 +7,12 @@ import Game from 'components/Game';
 import GameControlContext from 'contexts/GameControlContext';
 import ReactGA from 'react-ga4';
 import initApp from 'helpers/app';
+import FloatingThemeToggle from 'components/FloatingThemeToggle';
 import AppLoading from './components/Shared/Loadings/AppLoading';
 
-ReactGA.initialize(process.env.REACT_APP_FIREBASE_MEASUREMENT_ID);
+if (process.env.REACT_APP_FIREBASE_MEASUREMENT_ID) {
+  ReactGA.initialize(process.env.REACT_APP_FIREBASE_MEASUREMENT_ID);
+}
 
 const App = () => {
   const { i18n } = useTranslation();
@@ -32,6 +35,7 @@ const App = () => {
       {isInitialized ? (
         <div className="app">
           {gameStarted ? <Game /> : <Homepage />}
+          <FloatingThemeToggle />
         </div>
       ) : <AppLoading />}
     </>

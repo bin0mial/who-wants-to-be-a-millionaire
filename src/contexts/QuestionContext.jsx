@@ -3,7 +3,7 @@ import {
 } from 'react';
 import PropTypes from 'prop-types';
 import { questionsPasswordActionTypes, questionsPasswordReducer } from 'reducers/questionsPasswordReducer';
-import { checkMd5 } from 'helpers/hashes';
+import { checkHash } from 'helpers/hashes';
 
 const QuestionContext = createContext(null);
 const QuestionPasswordContext = createContext(null);
@@ -20,8 +20,8 @@ const QuestionProvider = ({ children }) => {
     dispatch({ type: questionsPasswordActionTypes.SET_PASSWORD, password });
   };
 
-  const unlockPasswordQuestions = (password) => {
-    if (!questionsPassword.password || checkMd5(password, questionsPassword.password)) {
+  const unlockPasswordQuestions = async (password) => {
+    if (!questionsPassword.password || await checkHash(password, questionsPassword.password)) {
       dispatch({ type: questionsPasswordActionTypes.UNLOCK });
       return true;
     }
