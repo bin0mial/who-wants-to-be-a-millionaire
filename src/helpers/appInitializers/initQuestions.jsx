@@ -5,6 +5,7 @@ import { QuestionContext, QuestionPasswordContext } from 'contexts/QuestionConte
 import { decompressObjectifyLZW } from 'helpers/compressors';
 import { Trans, useTranslation } from 'react-i18next';
 import appModalContext from 'contexts/AppModalContext';
+import ThemeContext from 'contexts/ThemeContext';
 
 const initQuestions = () => {
   const { t } = useTranslation('questions');
@@ -12,6 +13,7 @@ const initQuestions = () => {
   const { setQuestions, setIsCustom } = useContext(QuestionContext);
   const { lockPasswordQuestions } = useContext(QuestionPasswordContext);
   const { showAppModal } = useContext(appModalContext);
+  const { setTheme } = useContext(ThemeContext);
   const urlSearchParams = new URLSearchParams(window.location.search);
   const [isInitialized, setIsInitialized] = useState(false);
 
@@ -31,8 +33,12 @@ const initQuestions = () => {
       );
     }
     const sharedQuestions = decompressObjectifyLZW(result);
+    if (!sharedQuestions) return;
     setQuestions(sharedQuestions.questions);
     setIsCustom(true);
+    if (sharedQuestions.theme) {
+      setTheme(sharedQuestions.theme);
+    }
     if (sharedQuestions.password) {
       lockPasswordQuestions(sharedQuestions.password);
     }

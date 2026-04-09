@@ -273,6 +273,48 @@ body[data-theme="easter"] .accordion-button:focus {
   box-shadow: 0 0 0 0.25rem rgba(203,173,106,0.20);
 }
 
+body[data-theme="easter"] .accordion-body {
+  background: rgba(50, 90, 120, 0.80);
+  color: var(--easter-cream);
+}
+
+body[data-theme="easter"] .accordion-item {
+  border-color: rgba(232,208,152,0.18);
+  background: transparent;
+}
+
+/* Override bg-light so text stays readable */
+body[data-theme="easter"] .bg-light {
+  background: rgba(50, 90, 120, 0.85) !important;
+  color: var(--easter-cream) !important;
+}
+
+body[data-theme="easter"] .bg-light span {
+  color: var(--easter-cream) !important;
+  word-break: break-all;
+}
+
+/* Generic form inputs */
+body[data-theme="easter"] .form-control {
+  background: rgba(255, 255, 255, 0.10) !important;
+  border: 1px solid rgba(232,208,152,0.20) !important;
+  color: var(--easter-cream) !important;
+}
+
+body[data-theme="easter"] .form-control::placeholder {
+  color: rgba(245, 237, 224, 0.45) !important;
+}
+
+body[data-theme="easter"] .form-control:focus {
+  border-color: rgba(203,173,106,0.50) !important;
+  box-shadow: 0 0 0 0.25rem rgba(203,173,106,0.20) !important;
+}
+
+/* Close button in modals */
+body[data-theme="easter"] .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
 /* ── Select/Dropdown styling ── */
 body[data-theme="easter"] .form-select,
 body[data-theme="easter"] select {

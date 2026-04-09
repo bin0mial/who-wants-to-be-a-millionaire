@@ -11,6 +11,7 @@ import GameControlContext from 'contexts/GameControlContext';
 import { Helmet } from 'react-helmet';
 import i18n from 'i18n';
 import ThemeOverlay from 'components/Shared/ThemeOverlay';
+import ThemeContext from 'contexts/ThemeContext';
 import LanguageChanger from './LanguageChanger';
 import ThemeSelector from './ThemeSelector';
 import './Homepage.css';
@@ -25,6 +26,7 @@ const Homepage = () => {
   const [isReadyFile, setIsReadyFile] = useState(true);
   const { setQuestions, setIsCustom } = useContext(QuestionContext);
   const { playerInfo, setPlayerInfo } = useContext(PlayerContext);
+  const { setTheme } = useContext(ThemeContext);
 
   const readQuestions = (file, onLoad) => {
     ReactGA.event({ category: 'gameQuestions', action: 'Load custom game questions' });
@@ -33,7 +35,13 @@ const Homepage = () => {
     fileReader.readAsText(file, 'utf8');
     fileReader.onload = (e) => {
       const questionsStr = decompressLZW(e.target.result);
-      setQuestions(JSON.parse(questionsStr));
+      const parsed = JSON.parse(questionsStr);
+      if (Array.isArray(parsed)) {
+        setQuestions(parsed);
+      } else {
+        setQuestions(parsed.questions);
+        if (parsed.theme) setTheme(parsed.theme);
+      }
       if (onLoad) onLoad(e);
       setIsReadyFile(true);
     };

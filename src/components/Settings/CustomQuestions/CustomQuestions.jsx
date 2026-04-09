@@ -20,6 +20,8 @@ import FormikSelectFloatingLabel from 'components/Shared/Form/FormikSelect/Formi
 import GeneralAccordion from 'components/Shared/Accordion/GeneralAccordion';
 import FormikPasswordInput from 'components/Shared/Form/FormikInput/FormikPasswordInput';
 import { sha256Hash } from 'helpers/hashes';
+import ThemeContext from 'contexts/ThemeContext';
+import { allThemes } from 'themes/registry';
 import FormikInputFloatingLabel from 'components/Shared/Form/FormikInput/FormikInputFloatingLabel';
 import { prepareShareQuestions } from 'helpers/share';
 import FlipMove from 'react-flip-move';
@@ -29,6 +31,7 @@ const CustomQuestions = ({
   submitRef, setShowModal, setSubmitActions, currentAction,
 }) => {
   const { t } = useTranslation('questions');
+  const { t: tHome } = useTranslation('translation', { keyPrefix: 'homepage' });
   const answerKeys = ['a', 'b', 'c', 'd'];
   const answerOptions = answerKeys.map((key) => ({ key, display: t(`choices.${key}`) }));
   const {
@@ -36,6 +39,7 @@ const CustomQuestions = ({
   } = useContext(QuestionContext);
   const { db } = useContext(FirebaseContext);
   const { showAppModal } = useContext(AppModalContext);
+  const { theme } = useContext(ThemeContext);
 
   const submitObj = {
     submit: (values) => {
@@ -52,7 +56,9 @@ const CustomQuestions = ({
         category: 'gameQuestions',
         action: 'Download custom game questions',
       });
-      exportObject(values.questions, compressLZW);
+      const exportData = { questions: values.questions };
+      if (values.theme) exportData.theme = values.theme;
+      exportObject(exportData, compressLZW);
     },
     saveShare: (async (values) => {
       const postStore = (resultId) => {
@@ -71,6 +77,7 @@ const CustomQuestions = ({
         setShowModal(false);
       };
       const sharedQuestions = { questions: values.questions };
+      if (values.theme) sharedQuestions.theme = values.theme;
       if (values.password.trim()) {
         sharedQuestions.password = await sha256Hash(values.password.trim());
       }
@@ -99,6 +106,7 @@ const CustomQuestions = ({
       onSubmit={onSubmit}
       initialValues={{
         password: '',
+        theme: theme || '',
         questions: isCustom ? questions : [{
           id: 1,
           question: '',
@@ -194,7 +202,15 @@ const CustomQuestions = ({
               eventKey: 1,
               header: t('form.sharingOptions'),
               body: (
-                <FormikPasswordInput name="password" />
+                <>
+                  <FormikSelectFloatingLabel
+                    label={t('form.shareTheme')}
+                    name="theme"
+                    options={allThemes.map((th) => ({ key: th.id, display: `${th.icon} ${tHome(th.labelKey)}` }))}
+                    showError={false}
+                  />
+                  <FormikPasswordInput name="password" />
+                </>
               ),
             }]}
             mainKey="CustomQuestions"
