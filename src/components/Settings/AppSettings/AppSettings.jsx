@@ -6,6 +6,7 @@ import {useContext, useRef} from 'react';
 import GameSettingsContext from 'contexts/GameSettingsContext';
 import FormikSwitch from 'components/Shared/Form/FormikSwitch/FormikSwitch';
 import FormikInput from 'components/Shared/Form/FormikInput/FormikInput';
+import FormikHotkeyInput from 'components/Shared/Form/FormikHotkeyInput/FormikHotkeyInput';
 import PropTypes from 'prop-types';
 import ReactGA from 'react-ga4';
 import AppSettingsValidationSchema from './AppSettingsValidationSchema';
@@ -21,11 +22,12 @@ const AppSettings = ({ submitRef, setShowModal }) => {
   const nonSwitchSettings = {};
 
   inputSettings.forEach(({ name, type }) => {
+    const isHotkey = type === 'hotkey';
     nonSwitchSettings[name] = {
-      Component: FormikInput,
+      Component: isHotkey ? FormikHotkeyInput : FormikInput,
       props: {
         name,
-        type,
+        ...(!isHotkey && { type }),
         label: t(name),
       },
     };

@@ -12,6 +12,11 @@ const AppSettingsValidationSchema = Yup.object().shape({
     .integer(validationMessages.mustBeIntegerNumber)
     .min(1, validationMessages.minNumber(1))
     .max(999, validationMessages.maxNumber(999)),
+  enableKeyboardShortcuts: Yup.bool().required(validationMessages.requiredField),
+  shortcutA: Yup.string().required(validationMessages.requiredField),
+  shortcutB: Yup.string().required(validationMessages.requiredField),
+  shortcutC: Yup.string().required(validationMessages.requiredField),
+  shortcutD: Yup.string().required(validationMessages.requiredField),
 });
 
 export default AppSettingsValidationSchema;
