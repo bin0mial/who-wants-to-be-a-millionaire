@@ -6,6 +6,11 @@
     "continueGameWrongAnswer": "Continue game showing wrong answer",
     "enableSounds": "Enable game sounds",
     "enableTimer": "Enable Timer",
-    "timerCountDown": "Set timer time (in seconds)"
+    "timerCountDown": "Set timer time (in seconds)",
+    "enableKeyboardShortcuts": "Enable keyboard shortcuts",
+    "shortcutA": "Shortcut for answer A",
+    "shortcutB": "Shortcut for answer B",
+    "shortcutC": "Shortcut for answer C",
+    "shortcutD": "Shortcut for answer D"
   }
 }

@@ -11,6 +11,7 @@ import ThemeOverlay from 'components/Shared/ThemeOverlay';
 import PlayerContext from 'contexts/PlayerContext';
 import AlwaysScrollToBottom from 'components/Shared/Scrolling/AlwaysScrollToBottom';
 import { Trans } from 'react-i18next';
+import { buildComboString } from 'components/Shared/Form/FormikHotkeyInput/FormikHotkeyInput';
 import Answer from './Answer';
 import Timer from './Timer/Timer';
 import GameOver from './GameOver';
@@ -95,6 +96,43 @@ const Questions = ({ questions }) => {
       setTimeout(() => solve(option), 2000);
     }
   };
+
+  useEffect(() => {
+    if (!gameSettings.enableKeyboardShortcuts) return;
+
+    const handleKeyDown = (e) => {
+      if (isLocked) return;
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) {
+        return;
+      }
+
+      const combo = buildComboString(e);
+      const shortcutMap = {
+        [gameSettings.shortcutA]: 'a',
+        [gameSettings.shortcutB]: 'b',
+        [gameSettings.shortcutC]: 'c',
+        [gameSettings.shortcutD]: 'd',
+      };
+
+      if (shortcutMap[combo]) {
+        handleChoice(shortcutMap[combo])();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    // eslint-disable-next-line consistent-return
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [
+    gameSettings.enableKeyboardShortcuts,
+    gameSettings.shortcutA,
+    gameSettings.shortcutB,
+    gameSettings.shortcutC,
+    gameSettings.shortcutD,
+    isLocked,
+    handleChoice,
+  ]);
 
   return isOver || !activeQuestion ? (<GameOver endGameButton={endGame} isWinner={!activeQuestion} />) : (
     <>
